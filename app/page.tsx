@@ -80,6 +80,11 @@ const tools = [
     title: "Text Compare",
     href: "/text-compare",
     description: "Compare two texts side by side and spot differences.",
+  },
+  {
+    title: "JSON Formatter",
+    href: "/json-formatter",
+    description: "Format and validate JSON instantly.",
   }
 
 ];

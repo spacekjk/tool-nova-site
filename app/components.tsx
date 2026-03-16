@@ -20,6 +20,7 @@ const tools = [
   { href: "/days-between-dates", label: "Days Between Dates" },
   { href: "/remove-line-breaks", label: "Remove Line Breaks" },
   { href: "/text-compare", label: "Text Compare" },
+  { href: "/json-formatter", label: "JSON Formatter" },
 ];
 
 export function Navbar() {

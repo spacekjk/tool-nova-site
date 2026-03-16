@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/days-between-dates",
     "/remove-line-breaks",
     "/text-compare",
+    "/json-formatter",
   ];
 
   return routes.map((route) => ({
