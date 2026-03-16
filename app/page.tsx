@@ -70,6 +70,11 @@ const tools = [
     title: "Days Between Dates",
     href: "/days-between-dates",
     description: "Calculate the number of days between two dates instantly.",
+  },
+  {
+    title: "Remove Line Breaks",
+    href: "/remove-line-breaks",
+    description: "Remove line breaks and clean up copied text instantly.",
   }
 
 ];
