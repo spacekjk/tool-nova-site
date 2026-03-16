@@ -10,6 +10,7 @@ const navItems = [
   { href: "/kg-to-lbs", label: "Kg to Lbs" },
   { href: "/random-number-generator", label: "Random" },
   { href: "/password-generator", label: "Password" },
+  { href: "/character-counter", label: "Characters" },
 ];
 
 export function Navbar() {

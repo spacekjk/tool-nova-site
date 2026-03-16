@@ -40,7 +40,12 @@ const tools = [
     title: "Password Generator",
     href: "/password-generator",
     description: "Generate strong and secure passwords instantly."
-  }
+  },
+  {
+  title: "Character Counter",
+  href: "/character-counter",
+  description: "Count characters, words, and sentences instantly."
+  }  
 
 
 ];
