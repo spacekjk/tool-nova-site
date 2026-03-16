@@ -24,13 +24,11 @@ export function Navbar() {
   return (
     <nav className="border-b border-white/10 bg-neutral-950 text-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-
         <Link href="/" className="text-xl font-bold">
           Tool Nova
         </Link>
 
         <div className="flex items-center gap-8">
-
           <Link href="/" className="text-white/80 hover:text-white">
             Home
           </Link>
@@ -40,27 +38,28 @@ export function Navbar() {
             onMouseEnter={() => setOpen(true)}
             onMouseLeave={() => setOpen(false)}
           >
-            <button className="text-white/80 hover:text-white">
+            <button className="rounded-md px-2 py-1 text-white/80 hover:text-white">
               Tools
             </button>
 
             {open && (
-              <div className="absolute right-0 mt-4 w-64 rounded-xl border border-white/10 bg-neutral-900 shadow-xl">
-                <div className="grid grid-cols-1">
-                  {tools.map((tool) => (
-                    <Link
-                      key={tool.href}
-                      href={tool.href}
-                      className="px-4 py-3 text-sm hover:bg-white/5"
-                    >
-                      {tool.label}
-                    </Link>
-                  ))}
+              <div className="absolute right-0 top-full z-50 pt-2">
+                <div className="w-64 rounded-xl border border-white/10 bg-neutral-900 shadow-xl">
+                  <div className="grid grid-cols-1">
+                    {tools.map((tool) => (
+                      <Link
+                        key={tool.href}
+                        href={tool.href}
+                        className="px-4 py-3 text-sm text-white/85 hover:bg-white/5"
+                      >
+                        {tool.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}
           </div>
-
         </div>
       </div>
     </nav>
