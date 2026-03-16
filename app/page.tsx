@@ -60,6 +60,11 @@ const tools = [
     title: "Number to Words",
     href: "/number-to-words",
     description: "Convert numbers into English words instantly.",
+  },
+  {
+    title: "Loan Calculator",
+    href: "/loan-calculator",
+    description: "Estimate monthly payments, total repayment, and interest.",
   }
 
 ];

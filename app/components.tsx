@@ -16,6 +16,7 @@ const tools = [
   { href: "/case-converter", label: "Case Converter" },
   { href: "/random-name-picker", label: "Random Name Picker" },
   { href: "/number-to-words", label: "Number to Words" },
+  { href: "/loan-calculator", label: "Loan Calculator" },
 ];
 
 export function Navbar() {

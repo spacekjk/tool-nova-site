@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/case-converter",
     "/random-name-picker",
     "/number-to-words",
+    "/loan-calculator",
   ];
 
   return routes.map((route) => ({
