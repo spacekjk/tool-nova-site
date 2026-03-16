@@ -9,6 +9,7 @@ const navItems = [
   { href: "/time-calculator", label: "Time" },
   { href: "/kg-to-lbs", label: "Kg to Lbs" },
   { href: "/random-number-generator", label: "Random" },
+  { href: "/password-generator", label: "Password" },
 ];
 
 export function Navbar() {

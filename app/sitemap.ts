@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/time-calculator",
     "/kg-to-lbs",
     "/random-number-generator",
+    "/password-generator",
   ];
 
   return routes.map((route) => ({
