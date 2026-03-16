@@ -31,6 +31,12 @@ const tools = [
     href: "/kg-to-lbs",
     description: "Convert kilograms to pounds fast.",
   },
+
+  {
+    title: "Random Number Generator",
+    href: "/random-number-generator",
+    description: "Generate a random number between any two values.",
+  }
 ];
 
 export default function HomePage() {
