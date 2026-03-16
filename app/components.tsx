@@ -8,6 +8,7 @@ const navItems = [
   { href: "/word-counter", label: "Word Counter" },
   { href: "/time-calculator", label: "Time" },
   { href: "/kg-to-lbs", label: "Kg to Lbs" },
+  { href: "/random-number-generator", label: "Random" },
 ];
 
 export function Navbar() {
