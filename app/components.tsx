@@ -1,41 +1,68 @@
-import Link from "next/link";
+"use client";
 
-const navItems = [
-  { href: "/", label: "Home" },
+import Link from "next/link";
+import { useState } from "react";
+
+const tools = [
   { href: "/age-calculator", label: "Age Calculator" },
-  { href: "/percentage-calculator", label: "Percentage" },
-  { href: "/bmi-calculator", label: "BMI" },
+  { href: "/percentage-calculator", label: "Percentage Calculator" },
+  { href: "/bmi-calculator", label: "BMI Calculator" },
   { href: "/word-counter", label: "Word Counter" },
-  { href: "/time-calculator", label: "Time" },
-  { href: "/kg-to-lbs", label: "Kg to Lbs" },
-  { href: "/random-number-generator", label: "Random" },
-  { href: "/password-generator", label: "Password" },
-  { href: "/character-counter", label: "Characters" },
-  { href: "/case-converter", label: "Case" },
-  { href: "/random-name-picker", label: "Name Picker" },
-  { href: "/number-to-words", label: "Number Words" },
+  { href: "/character-counter", label: "Character Counter" },
+  { href: "/time-calculator", label: "Time Calculator" },
+  { href: "/kg-to-lbs", label: "Kg to Lbs Converter" },
+  { href: "/random-number-generator", label: "Random Number Generator" },
+  { href: "/password-generator", label: "Password Generator" },
+  { href: "/case-converter", label: "Case Converter" },
+  { href: "/random-name-picker", label: "Random Name Picker" },
+  { href: "/number-to-words", label: "Number to Words" },
 ];
 
 export function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-neutral-950/85 backdrop-blur">
+    <nav className="border-b border-white/10 bg-neutral-950 text-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="text-lg font-bold tracking-tight text-white">
+
+        <Link href="/" className="text-xl font-bold">
           Tool Nova
         </Link>
 
-        <nav className="hidden gap-5 md:flex">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm text-white/70 transition hover:text-white"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex items-center gap-8">
+
+          <Link href="/" className="text-white/80 hover:text-white">
+            Home
+          </Link>
+
+          <div
+            className="relative"
+            onMouseEnter={() => setOpen(true)}
+            onMouseLeave={() => setOpen(false)}
+          >
+            <button className="text-white/80 hover:text-white">
+              Tools
+            </button>
+
+            {open && (
+              <div className="absolute right-0 mt-4 w-64 rounded-xl border border-white/10 bg-neutral-900 shadow-xl">
+                <div className="grid grid-cols-1">
+                  {tools.map((tool) => (
+                    <Link
+                      key={tool.href}
+                      href={tool.href}
+                      className="px-4 py-3 text-sm hover:bg-white/5"
+                    >
+                      {tool.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+        </div>
       </div>
-    </header>
+    </nav>
   );
 }
