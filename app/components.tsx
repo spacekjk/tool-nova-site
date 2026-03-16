@@ -17,6 +17,7 @@ const tools = [
   { href: "/random-name-picker", label: "Random Name Picker" },
   { href: "/number-to-words", label: "Number to Words" },
   { href: "/loan-calculator", label: "Loan Calculator" },
+  { href: "/days-between-dates", label: "Days Between Dates" },
 ];
 
 export function Navbar() {

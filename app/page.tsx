@@ -65,6 +65,11 @@ const tools = [
     title: "Loan Calculator",
     href: "/loan-calculator",
     description: "Estimate monthly payments, total repayment, and interest.",
+  },
+  {
+    title: "Days Between Dates",
+    href: "/days-between-dates",
+    description: "Calculate the number of days between two dates instantly.",
   }
 
 ];

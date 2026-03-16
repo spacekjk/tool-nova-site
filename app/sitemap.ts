@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/random-name-picker",
     "/number-to-words",
     "/loan-calculator",
+    "/days-between-dates",
   ];
 
   return routes.map((route) => ({
