@@ -1,0 +1,223 @@
+"use client";
+
+import { useMemo, useState } from "react";
+
+type Mode = "add" | "subtract";
+
+function formatHoursAndMinutes(totalMinutes: number) {
+  const negative = totalMinutes < 0;
+  const abs = Math.abs(totalMinutes);
+  const hours = Math.floor(abs / 60);
+  const minutes = abs % 60;
+
+  return `${negative ? "-" : ""}${hours} hour${hours !== 1 ? "s" : ""} ${minutes} minute${minutes !== 1 ? "s" : ""}`;
+}
+
+export default function TimeCalculatorPage() {
+  const [mode, setMode] = useState<Mode>("add");
+
+  const [hours1, setHours1] = useState("");
+  const [minutes1, setMinutes1] = useState("");
+  const [hours2, setHours2] = useState("");
+  const [minutes2, setMinutes2] = useState("");
+
+  const result = useMemo(() => {
+    const h1 = Number(hours1 || 0);
+    const m1 = Number(minutes1 || 0);
+    const h2 = Number(hours2 || 0);
+    const m2 = Number(minutes2 || 0);
+
+    if (
+      [h1, m1, h2, m2].some((value) => Number.isNaN(value)) ||
+      m1 < 0 ||
+      m2 < 0 ||
+      h1 < 0 ||
+      h2 < 0
+    ) {
+      return null;
+    }
+
+    const total1 = h1 * 60 + m1;
+    const total2 = h2 * 60 + m2;
+    const finalMinutes = mode === "add" ? total1 + total2 : total1 - total2;
+
+    return {
+      totalMinutes: finalMinutes,
+      formatted: formatHoursAndMinutes(finalMinutes),
+    };
+  }, [mode, hours1, minutes1, hours2, minutes2]);
+
+  return (
+    <main className="min-h-screen bg-neutral-950 text-white">
+      <section className="mx-auto max-w-4xl px-6 py-14">
+        <div className="max-w-3xl">
+          <p className="mb-3 text-sm text-white/60">Free Online Calculator</p>
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            Time Calculator
+          </h1>
+          <p className="mt-4 text-lg leading-8 text-white/70">
+            Add or subtract hours and minutes with this free online time
+            calculator. It is useful for work hours, schedules, study time, and
+            everyday planning.
+          </p>
+        </div>
+
+        <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+          <label className="mb-3 block text-sm font-medium text-white/80">
+            Choose calculation type
+          </label>
+
+          <select
+            value={mode}
+            onChange={(e) => setMode(e.target.value as Mode)}
+            className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
+          >
+            <option value="add">Add time</option>
+            <option value="subtract">Subtract time</option>
+          </select>
+
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
+              <h2 className="text-lg font-semibold">First Time</h2>
+
+              <div className="mt-4 grid grid-cols-2 gap-4">
+                <div>
+                  <label className="mb-2 block text-sm text-white/75">
+                    Hours
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    value={hours1}
+                    onChange={(e) => setHours1(e.target.value)}
+                    placeholder="e.g. 2"
+                    className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
+                  />
+                </div>
+
+                <div>
+                  <label className="mb-2 block text-sm text-white/75">
+                    Minutes
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    value={minutes1}
+                    onChange={(e) => setMinutes1(e.target.value)}
+                    placeholder="e.g. 30"
+                    className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
+              <h2 className="text-lg font-semibold">Second Time</h2>
+
+              <div className="mt-4 grid grid-cols-2 gap-4">
+                <div>
+                  <label className="mb-2 block text-sm text-white/75">
+                    Hours
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    value={hours2}
+                    onChange={(e) => setHours2(e.target.value)}
+                    placeholder="e.g. 1"
+                    className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
+                  />
+                </div>
+
+                <div>
+                  <label className="mb-2 block text-sm text-white/75">
+                    Minutes
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    value={minutes2}
+                    onChange={(e) => setMinutes2(e.target.value)}
+                    placeholder="e.g. 45"
+                    className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 rounded-2xl border border-white/10 bg-black/20 p-5">
+            <h2 className="text-2xl font-semibold">Result</h2>
+            <p className="mt-3 text-3xl font-bold">
+              {result ? result.formatted : "Enter valid values."}
+            </p>
+            {result && (
+              <p className="mt-3 text-white/65">
+                Total minutes: {result.totalMinutes}
+              </p>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-4xl px-6 pb-14">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+          <h2 className="text-2xl font-semibold">How this time calculator works</h2>
+          <div className="mt-4 space-y-4 text-white/70">
+            <p>
+              This time calculator converts hours and minutes into total
+              minutes, then either adds or subtracts the values depending on
+              the option you select.
+            </p>
+            <p>
+              For example, 2 hours 30 minutes plus 1 hour 45 minutes equals 4
+              hours 15 minutes.
+            </p>
+            <p>
+              You can use this tool for work shifts, study sessions, project
+              planning, and general time calculations.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-4xl px-6 pb-16">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+          <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
+
+          <div className="mt-6 space-y-6">
+            <div>
+              <h3 className="text-lg font-medium">
+                How do I add hours and minutes?
+              </h3>
+              <p className="mt-2 leading-7 text-white/70">
+                Enter the first time value and the second time value, then
+                choose the add option to calculate the total.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-medium">
+                Can this calculator subtract time?
+              </h3>
+              <p className="mt-2 leading-7 text-white/70">
+                Yes. Choose the subtract option to find the difference between
+                two time values.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-medium">
+                Can I use this online time calculator for free?
+              </h3>
+              <p className="mt-2 leading-7 text-white/70">
+                Yes. Tool Nova provides this time calculator online for free
+                with no sign-up required.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
