@@ -75,6 +75,11 @@ const tools = [
     title: "Remove Line Breaks",
     href: "/remove-line-breaks",
     description: "Remove line breaks and clean up copied text instantly.",
+  },
+  {
+    title: "Text Compare",
+    href: "/text-compare",
+    description: "Compare two texts side by side and spot differences.",
   }
 
 ];

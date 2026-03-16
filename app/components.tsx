@@ -19,6 +19,7 @@ const tools = [
   { href: "/loan-calculator", label: "Loan Calculator" },
   { href: "/days-between-dates", label: "Days Between Dates" },
   { href: "/remove-line-breaks", label: "Remove Line Breaks" },
+  { href: "/text-compare", label: "Text Compare" },
 ];
 
 export function Navbar() {

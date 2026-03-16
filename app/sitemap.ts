@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/loan-calculator",
     "/days-between-dates",
     "/remove-line-breaks",
+    "/text-compare",
   ];
 
   return routes.map((route) => ({
