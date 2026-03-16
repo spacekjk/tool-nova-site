@@ -42,9 +42,14 @@ const tools = [
     description: "Generate strong and secure passwords instantly."
   },
   {
-  title: "Character Counter",
-  href: "/character-counter",
-  description: "Count characters, words, and sentences instantly."
+    title: "Character Counter",
+    href: "/character-counter",
+    description: "Count characters, words, and sentences instantly."
+  },
+  {
+    title: "Case Converter",
+    href: "/case-converter",
+    description: "Convert text to uppercase, lowercase, title case, and more.",
   }  
 
 

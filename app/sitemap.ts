@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/random-number-generator",
     "/password-generator",
     "/character-counter",
+    "/case-converter",
   ];
 
   return routes.map((route) => ({
