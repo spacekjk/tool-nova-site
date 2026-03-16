@@ -55,6 +55,11 @@ const tools = [
     title: "Random Name Picker",
     href: "/random-name-picker",
     description: "Pick a random name from a list instantly.",
+  },
+  {
+    title: "Number to Words",
+    href: "/number-to-words",
+    description: "Convert numbers into English words instantly.",
   }
 
 ];

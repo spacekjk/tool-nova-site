@@ -13,6 +13,7 @@ const navItems = [
   { href: "/character-counter", label: "Characters" },
   { href: "/case-converter", label: "Case" },
   { href: "/random-name-picker", label: "Name Picker" },
+  { href: "/number-to-words", label: "Number Words" },
 ];
 
 export function Navbar() {
