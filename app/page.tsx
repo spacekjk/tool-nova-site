@@ -50,8 +50,12 @@ const tools = [
     title: "Case Converter",
     href: "/case-converter",
     description: "Convert text to uppercase, lowercase, title case, and more.",
-  }  
-
+  },  
+  {
+    title: "Random Name Picker",
+    href: "/random-name-picker",
+    description: "Pick a random name from a list instantly.",
+  }
 
 ];
 

@@ -12,6 +12,7 @@ const navItems = [
   { href: "/password-generator", label: "Password" },
   { href: "/character-counter", label: "Characters" },
   { href: "/case-converter", label: "Case" },
+  { href: "/random-name-picker", label: "Name Picker" },
 ];
 
 export function Navbar() {
