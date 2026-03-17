@@ -2,120 +2,86 @@
 
 import { useMemo, useState } from "react";
 
-function calculateDetailedAge(birthDateString: string) {
-  const today = new Date();
-  const birthDate = new Date(birthDateString);
+function formatDateDiff(start: string, end: string) {
+  const startDate = new Date(start);
+  const endDate = new Date(end);
 
-  if (Number.isNaN(birthDate.getTime())) {
+  if (Number.isNaN(startDate.getTime()) || Number.isNaN(endDate.getTime())) {
     return null;
   }
 
-  let years = today.getFullYear() - birthDate.getFullYear();
-  let months = today.getMonth() - birthDate.getMonth();
-  let days = today.getDate() - birthDate.getDate();
+  const msPerDay = 1000 * 60 * 60 * 24;
 
-  if (days < 0) {
-    const previousMonth = new Date(today.getFullYear(), today.getMonth(), 0);
-    days += previousMonth.getDate();
-    months -= 1;
-  }
+  const utcStart = Date.UTC(
+    startDate.getFullYear(),
+    startDate.getMonth(),
+    startDate.getDate()
+  );
 
-  if (months < 0) {
-    months += 12;
-    years -= 1;
-  }
+  const utcEnd = Date.UTC(
+    endDate.getFullYear(),
+    endDate.getMonth(),
+    endDate.getDate()
+  );
 
-  const diffMs = today.getTime() - birthDate.getTime();
-  const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  const diffDays = Math.abs(Math.floor((utcEnd - utcStart) / msPerDay));
 
-  return {
-    years,
-    months,
-    days,
-    totalDays,
-  };
+  return diffDays;
 }
 
-export default function AgeCalculatorClient() {
-  const [birthDate, setBirthDate] = useState("");
+export default function DaysBetweenDatesClient() {
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const result = useMemo(() => {
-    if (!birthDate) return null;
-    return calculateDetailedAge(birthDate);
-  }, [birthDate]);
+    if (!startDate || !endDate) return null;
+    return formatDateDiff(startDate, endDate);
+  }, [startDate, endDate]);
 
   return (
-    <main className="min-h-screen bg-neutral-950 text-white">
-      <section className="mx-auto max-w-4xl px-6 py-14">
-        <div className="max-w-3xl">
-          
-        </div>
-
-        <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <label
-            htmlFor="birthdate"
-            className="mb-3 block text-sm font-medium text-white/80"
-          >
-            Enter your birth date
-          </label>
-
-          <div className="flex flex-col gap-4 sm:flex-row">
+    <section className="mx-auto max-w-5xl px-6">
+      <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label className="mb-2 block text-sm font-medium text-white/80">
+              Start Date
+            </label>
             <input
-              id="birthdate"
               type="date"
-              min="1900-01-01"
-              max="2099-12-31"
-              value={birthDate}
-              onChange={(e) => setBirthDate(e.target.value)}
-              className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none ring-0 transition placeholder:text-white/30 focus:border-white/25"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
             />
           </div>
 
-          <div className="mt-8 rounded-2xl border border-white/10 bg-black/20 p-5">
-            {!birthDate && (
-              <p className="text-white/60">
-                Select your birth date to see your exact age.
-              </p>
-            )}
-
-            {birthDate && result && (
-              <div className="space-y-4">
-                <h2 className="text-2xl font-semibold">Your Age</h2>
-
-                <div className="grid gap-4 sm:grid-cols-3">
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <p className="text-sm text-white/55">Years</p>
-                    <p className="mt-2 text-3xl font-bold">{result.years}</p>
-                  </div>
-
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <p className="text-sm text-white/55">Months</p>
-                    <p className="mt-2 text-3xl font-bold">{result.months}</p>
-                  </div>
-
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <p className="text-sm text-white/55">Days</p>
-                    <p className="mt-2 text-3xl font-bold">{result.days}</p>
-                  </div>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm text-white/55">Total Days Lived</p>
-                  <p className="mt-2 text-2xl font-semibold">
-                    {result.totalDays.toLocaleString()} days
-                  </p>
-                </div>
-              </div>
-            )}
+          <div>
+            <label className="mb-2 block text-sm font-medium text-white/80">
+              End Date
+            </label>
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
+            />
           </div>
         </div>
-      </section>
 
-      
-
-      
-
-      
-    </main>
+        <div className="mt-8 rounded-2xl border border-white/10 bg-black/20 p-5">
+          {!startDate || !endDate ? (
+            <p className="text-white/60">
+              Select both dates to calculate the difference.
+            </p>
+          ) : result !== null ? (
+            <div>
+              <h2 className="text-2xl font-semibold">Result</h2>
+              <p className="mt-3 text-4xl font-bold">{result} days</p>
+            </div>
+          ) : (
+            <p className="text-white/60">Please enter valid dates.</p>
+          )}
+        </div>
+      </div>
+    </section>
   );
 }
