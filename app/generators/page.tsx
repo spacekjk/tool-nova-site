@@ -37,6 +37,8 @@ const tools = [
   { name: "Password Generator", href: "/generators/password-generator" },
   { name: "Random Number Generator", href: "/generators/random-number-generator" },
   { name: "Random Name Picker", href: "/generators/random-name-picker" },
+  { name: "UUID Generator", href: "/generators/uuid-generator" },
+  { name: "Slug Generator", href: "/generators/slug-generator" },
 ];
 
 export default function GeneratorsPage() {

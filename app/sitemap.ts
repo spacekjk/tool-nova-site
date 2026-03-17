@@ -27,6 +27,16 @@ const routes = [
   "/generators/random-name-picker",
   "/converters/kg-to-lbs",
   "/converters/number-to-words",
+  "/calculators/discount-calculator",
+  "/calculators/tip-calculator",
+  "/calculators/vat-calculator",
+  "/text-tools/reverse-text",
+  "/text-tools/sort-text",
+  "/text-tools/remove-duplicates",
+  "/generators/uuid-generator",
+  "/generators/slug-generator",
+  "/converters/cm-to-inches",
+  "/converters/celsius-to-fahrenheit",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

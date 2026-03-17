@@ -36,6 +36,8 @@ export const metadata: Metadata = {
 const tools = [
   { name: "Kg to Lbs", href: "/converters/kg-to-lbs" },
   { name: "Number to Words", href: "/converters/number-to-words" },
+  { name: "Cm to Inches", href: "/converters/cm-to-inches" },
+  { name: "Celsius to Fahrenheit", href: "/converters/celsius-to-fahrenheit" },
 ];
 
 export default function ConvertersPage() {

@@ -40,6 +40,9 @@ const tools = [
   { name: "Remove Line Breaks", href: "/text-tools/remove-line-breaks" },
   { name: "Text Compare", href: "/text-tools/text-compare" },
   { name: "JSON Formatter", href: "/text-tools/json-formatter" },
+  { name: "Reverse Text", href: "/text-tools/reverse-text" },
+  { name: "Sort Text", href: "/text-tools/sort-text" },
+  { name: "Remove Duplicate Lines", href: "/text-tools/remove-duplicates" },
 ];
 
 export default function TextToolsPage() {

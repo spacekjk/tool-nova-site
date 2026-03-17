@@ -17,6 +17,9 @@ const tools = [
   { name: "Time Calculator", href: "/calculators/time-calculator" },
   { name: "Loan Calculator", href: "/calculators/loan-calculator" },
   { name: "Days Between Dates", href: "/calculators/days-between-dates" },
+  { name: "Discount Calculator", href: "/calculators/discount-calculator" },
+  { name: "Tip Calculator", href: "/calculators/tip-calculator" },
+  { name: "VAT Calculator", href: "/calculators/vat-calculator" },
 ];
 
 export default function CalculatorsPage() {

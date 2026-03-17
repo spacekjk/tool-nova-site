@@ -7,8 +7,8 @@ const categories = [
     description: "Age, percentage, BMI, loan, time, and date calculators.",
     items: [
       { title: "Age Calculator", href: "/calculators/age-calculator" },
-      { title: "Percentage Calculator", href: "/calculators/percentage-calculator" },
-      { title: "Loan Calculator", href: "/calculators/loan-calculator" },
+      { title: "Discount Calculator", href: "/calculators/discount-calculator" },
+      { title: "VAT Calculator", href: "/calculators/vat-calculator" },
     ],
   },
   {
@@ -17,8 +17,8 @@ const categories = [
     description: "Word counters, formatters, cleaners, and comparison tools.",
     items: [
       { title: "Word Counter", href: "/text-tools/word-counter" },
-      { title: "Character Counter", href: "/text-tools/character-counter" },
-      { title: "JSON Formatter", href: "/text-tools/json-formatter" },
+      { title: "Reverse Text", href: "/text-tools/reverse-text" },
+      { title: "Sort Text", href: "/text-tools/sort-text" },
     ],
   },
   {
@@ -27,8 +27,8 @@ const categories = [
     description: "Random numbers, passwords, and name picker tools.",
     items: [
       { title: "Password Generator", href: "/generators/password-generator" },
-      { title: "Random Number Generator", href: "/generators/random-number-generator" },
-      { title: "Random Name Picker", href: "/generators/random-name-picker" },
+      { title: "UUID Generator", href: "/generators/uuid-generator" },
+      { title: "Slug Generator", href: "/generators/slug-generator" },
     ],
   },
   {
@@ -37,7 +37,8 @@ const categories = [
     description: "Weight and number conversion tools.",
     items: [
       { title: "Kg to Lbs", href: "/converters/kg-to-lbs" },
-      { title: "Number to Words", href: "/converters/number-to-words" },
+      { title: "Cm to Inches", href: "/converters/cm-to-inches" },
+      { title: "Celsius to Fahrenheit", href: "/converters/celsius-to-fahrenheit" },
     ],
   },
 ];
