@@ -81,67 +81,74 @@ export default async function ToolPage({ params }: Props) {
       </section>
 
       {/* How it works */}
-        {tool.howItWorks && tool.howItWorks.length > 0 && (
-            <section className="mb-10 rounded-3xl border border-gray-200 bg-gray-50 p-8 dark:border-gray-800 dark:bg-neutral-900">
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
-                {tool.howItWorksTitle ?? `How this ${tool.name.toLowerCase()} works`}
-                </h2>
+      {tool.howItWorks && tool.howItWorks.length > 0 && (
+        <section className="mx-auto max-w-4xl px-6 pb-14">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+            <h2 className="text-2xl font-semibold text-white">
+              {tool.howItWorksTitle ?? `How this ${tool.name.toLowerCase()} works`}
+            </h2>
 
-                <div className="mt-8 space-y-6 rounded-3xl border border-white/10 bg-white/5 p-8 text-white/75">
-                {tool.howItWorks.map((text, i) => (
-                    <p key={i}>{text}</p>
-                ))}
-                </div>
-            </section>
-        )}
-
-        {/* FAQ */}
-        {tool.faqs && tool.faqs.length > 0 && (
-            <section className="mt-8 space-y-6 rounded-3xl border border-white/10 bg-white/5 p-8 text-white/75">
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
-                Frequently Asked Questions
-                </h2>
-
-                <div className="mt-6 space-y-6">
-                {tool.faqs.map((faq, i) => (
-                    <div key={i}>
-                    <h3 className="text-lg font-medium text-gray-900 dark:text-white">
-                        {faq.question}
-                    </h3>
-                    <p className="mt-2 text-base leading-7 text-gray-700 dark:text-gray-300">
-                        {faq.answer}
-                    </p>
-                    </div>
-                ))}
-                </div>
-            </section>
-     )}
-    
-
-      {relatedTools.length > 0 && (
-        <section className="rounded-3xl border border-gray-200 bg-gray-50 p-8 dark:border-gray-800 dark:bg-gray-900">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
-            Related Tools
-          </h2>
-
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            {relatedTools.map((item) => (
-              <Link
-                key={item.slug}
-                href={getToolPath(item)}
-                className="rounded-2xl border border-gray-200 bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-md dark:border-gray-700 dark:bg-gray-950"
-              >
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  {item.name}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">
-                  {item.shortDescription ?? item.description}
-                </p>
-              </Link>
-            ))}
+            <div className="mt-5 space-y-4 text-base leading-7 text-gray-300">
+              {tool.howItWorks.map((text, i) => (
+                <p key={i}>{text}</p>
+              ))}
+            </div>
           </div>
         </section>
       )}
+
+      {/* FAQ */}
+      {tool.faqs && tool.faqs.length > 0 && (
+        <section className="mx-auto max-w-4xl px-6 pb-14">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+            <h2 className="text-2xl font-semibold text-white">
+              Frequently Asked Questions
+            </h2>
+
+            <div className="mt-6 space-y-6">
+              {tool.faqs.map((faq, i) => (
+                <div key={i}>
+                  <h3 className="text-lg font-medium text-white">
+                    {faq.question}
+                  </h3>
+                  <p className="mt-2 text-base leading-7 text-gray-300">
+                    {faq.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Related Tools */}
+      {relatedTools.length > 0 && (
+        <section className="mx-auto max-w-4xl px-6 pb-14">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+            <h2 className="text-2xl font-semibold text-white">
+              Related Tools
+            </h2>
+
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {relatedTools.map((item) => (
+                <Link
+                  key={item.slug}
+                  href={getToolPath(item)}
+                  className="rounded-2xl border border-white/10 bg-black/40 p-5 transition hover:bg-black/60"
+                >
+                  <h3 className="text-lg font-semibold text-white">
+                    {item.name}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-gray-300">
+                    {item.shortDescription ?? item.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
     </main>
   );
 }
