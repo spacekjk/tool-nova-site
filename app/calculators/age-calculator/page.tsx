@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo";
 import AgeCalculatorClient from "./AgeCalculatorClient";
 
-export const metadata: Metadata = {
-  title: "Age Calculator - Calculate Exact Age Online | Tool Nova",
+export const metadata = buildMetadata({
+  title: "Age Calculator - Calculate Exact Age Online",
   description:
     "Use this free age calculator to calculate your exact age in years, months, and days from your birth date.",
+  path: "/calculators/age-calculator",
   keywords: [
     "age calculator",
     "exact age calculator",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     "birth date calculator",
     "online age calculator",
   ],
-};
+});
 
 export default function Page() {
   return <AgeCalculatorClient />;

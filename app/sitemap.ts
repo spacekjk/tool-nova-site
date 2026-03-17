@@ -1,39 +1,37 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+
+const routes = [
+  "",
+  "/about",
+  "/privacy",
+  "/terms",
+  "/contact",
+  "/calculators",
+  "/text-tools",
+  "/generators",
+  "/converters",
+  "/calculators/age-calculator",
+  "/calculators/percentage-calculator",
+  "/calculators/bmi-calculator",
+  "/calculators/time-calculator",
+  "/calculators/loan-calculator",
+  "/calculators/days-between-dates",
+  "/text-tools/word-counter",
+  "/text-tools/character-counter",
+  "/text-tools/case-converter",
+  "/text-tools/remove-line-breaks",
+  "/text-tools/text-compare",
+  "/text-tools/json-formatter",
+  "/generators/password-generator",
+  "/generators/random-number-generator",
+  "/generators/random-name-picker",
+  "/converters/kg-to-lbs",
+  "/converters/number-to-words",
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://tool-nova.com";
-
-  const routes = [
-    "",
-    "/about",
-    "/privacy",
-    "/terms",
-    "/contact",
-    "/calculators",
-    "/text-tools",
-    "/generators",
-    "/converters",
-    "/age-calculator",
-    "/percentage-calculator",
-    "/bmi-calculator",
-    "/word-counter",
-    "/time-calculator",
-    "/kg-to-lbs",
-    "/random-number-generator",
-    "/password-generator",
-    "/character-counter",
-    "/case-converter",
-    "/random-name-picker",
-    "/number-to-words",
-    "/loan-calculator",
-    "/days-between-dates",
-    "/remove-line-breaks",
-    "/text-compare",
-    "/json-formatter",
-  ];
-
   return routes.map((route) => ({
-    url: `${baseUrl}${route}`,
+    url: `https://tool-nova.com${route}`,
     lastModified: new Date(),
     changeFrequency: "weekly",
     priority: route === "" ? 1 : 0.8,

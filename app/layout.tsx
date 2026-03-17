@@ -1,19 +1,60 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Navbar } from "./components";
 
 export const metadata: Metadata = {
-  title: "Tool Nova - Free Online Calculators & Converters",
+  metadataBase: new URL("https://tool-nova.com"),
+  title: {
+    default: "Tool Nova - Free Online SEO, Text, Calculator & Converter Tools",
+    template: "%s | Tool Nova",
+  },
   description:
-    "Tool Nova provides free online calculators, converters, and text tools such as age calculator, percentage calculator, word counter, and more.",
+    "Free online tools for calculators, text editing, generators, converters, and SEO productivity. Fast, simple, and mobile-friendly.",
   keywords: [
-    "online calculator",
+    "free online tools",
+    "seo tools",
+    "calculator tools",
+    "text tools",
+    "generators",
+    "converters",
     "age calculator",
-    "percentage calculator",
     "word counter",
-    "free tools",
-    "online converters",
+    "json formatter",
+    "loan calculator",
   ],
+  applicationName: "Tool Nova",
+  authors: [{ name: "Tool Nova" }],
+  creator: "Tool Nova",
+  publisher: "Tool Nova",
+  alternates: {
+    canonical: "https://tool-nova.com",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://tool-nova.com",
+    title: "Tool Nova - Free Online SEO, Text, Calculator & Converter Tools",
+    description:
+      "Free online tools for calculators, text editing, generators, converters, and SEO productivity.",
+    siteName: "Tool Nova",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Tool Nova",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tool Nova - Free Online SEO, Text, Calculator & Converter Tools",
+    description:
+      "Free online tools for calculators, text editing, generators, converters, and SEO productivity.",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -23,13 +64,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <meta name="google-site-verification" content="0CO529p4z7Bl4BU3hkAvlAapJKIU2UEHDgn__xNwYE4" />
-      </head>
-      <body>
-        <Navbar />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -1,65 +1,66 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
-const calculators = [
-  {
-    title: "Age Calculator",
-    href: "/age-calculator",
-    description: "Calculate your exact age from your birth date.",
+export const metadata: Metadata = {
+  title: "Free Online Calculators",
+  description:
+    "Use free online calculators for age, percentage, BMI, loan, time, and date calculations. Fast and simple tools for everyday use.",
+  alternates: {
+    canonical: "https://tool-nova.com/calculators",
   },
-  {
-    title: "Percentage Calculator",
-    href: "/percentage-calculator",
-    description: "Calculate percentages, increases, and decreases.",
-  },
-  {
-    title: "BMI Calculator",
-    href: "/bmi-calculator",
-    description: "Check your body mass index quickly.",
-  },
-  {
-    title: "Time Calculator",
-    href: "/time-calculator",
-    description: "Add or subtract hours and minutes.",
-  },
-  {
-    title: "Loan Calculator",
-    href: "/loan-calculator",
-    description: "Estimate monthly payments and total interest.",
-  },
-  {
-    title: "Days Between Dates",
-    href: "/days-between-dates",
-    description: "Find the number of days between two dates.",
-  },
+};
+
+const tools = [
+  { name: "Age Calculator", href: "/calculators/age-calculator" },
+  { name: "Percentage Calculator", href: "/calculators/percentage-calculator" },
+  { name: "BMI Calculator", href: "/calculators/bmi-calculator" },
+  { name: "Time Calculator", href: "/calculators/time-calculator" },
+  { name: "Loan Calculator", href: "/calculators/loan-calculator" },
+  { name: "Days Between Dates", href: "/calculators/days-between-dates" },
 ];
 
 export default function CalculatorsPage() {
   return (
-    <main className="min-h-screen bg-neutral-950 text-white">
-      <section className="mx-auto max-w-6xl px-6 py-14">
-        <p className="mb-3 text-sm text-white/60">Tool Nova Categories</p>
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-          Calculators
-        </h1>
-        <p className="mt-4 max-w-3xl text-lg leading-8 text-white/70">
-          Explore free online calculators for age, percentages, BMI, loans,
-          dates, and more.
-        </p>
+    <main className="mx-auto max-w-6xl px-4 py-10">
+      <h1 className="text-3xl font-bold">Free Online Calculators</h1>
+      <p className="mt-4 text-gray-600">
+        Explore simple and fast online calculators for daily tasks, finance,
+        health, time, and date calculations. All tools are free and work on
+        desktop and mobile.
+      </p>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {calculators.map((tool) => (
-            <Link
-              key={tool.href}
-              href={tool.href}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-white/20 hover:bg-white/10"
-            >
-              <h2 className="text-xl font-semibold">{tool.title}</h2>
-              <p className="mt-3 text-sm leading-6 text-white/65">
-                {tool.description}
-              </p>
-            </Link>
-          ))}
-        </div>
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {tools.map((tool) => (
+          <Link
+            key={tool.href}
+            href={tool.href}
+            className="rounded-xl border p-4 transition hover:shadow-md"
+          >
+            <h2 className="text-lg font-semibold">{tool.name}</h2>
+            <p className="mt-2 text-sm text-gray-500">
+              Open the {tool.name.toLowerCase()} tool.
+            </p>
+          </Link>
+        ))}
+      </div>
+
+      <section className="mt-12">
+        <h2 className="text-2xl font-semibold">Why use online calculators?</h2>
+        <p className="mt-3 text-gray-600">
+          Online calculators save time and reduce manual mistakes. Whether you
+          are checking your age, body mass index, loan payments, or date
+          differences, quick web-based tools make calculations easier.
+        </p>
+      </section>
+
+      <section className="mt-12">
+        <h2 className="text-2xl font-semibold">Popular calculator categories</h2>
+        <ul className="mt-4 list-disc space-y-2 pl-5 text-gray-600">
+          <li>Health calculators like BMI</li>
+          <li>Finance calculators like loan payment tools</li>
+          <li>Time and date calculators</li>
+          <li>Percentage and everyday math calculators</li>
+        </ul>
       </section>
     </main>
   );
