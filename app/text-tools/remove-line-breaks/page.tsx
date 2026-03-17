@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
 import ToolSchema from "@/components/ToolSchema";
 import RemoveLineBreaksClient from "./RemoveLineBreaksClient";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = buildMetadata({
   title: "Remove Line Breaks",
@@ -32,6 +33,15 @@ export default function Page() {
   return (
     <>
       <RemoveLineBreaksClient />
+
+      <RelatedTools
+        tools={[
+          { name: "Word Counter", href: "/text-tools/word-counter" },
+          { name: "Character Counter", href: "/text-tools/character-counter" },
+          { name: "Text Compare", href: "/text-tools/text-compare" },
+        ]}
+      />
+
       <ToolSchema
         name="Remove Line Breaks"
         description="Remove line breaks and clean text formatting with this free online tool."

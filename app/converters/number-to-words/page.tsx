@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
 import ToolSchema from "@/components/ToolSchema";
 import NumberToWordsClient from "./NumberToWordsClient";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = buildMetadata({
   title: "Number to Words Converter",
@@ -32,6 +33,15 @@ export default function Page() {
   return (
     <>
       <NumberToWordsClient />
+
+      <RelatedTools
+        tools={[
+          { name: "Kg to Lbs Converter", href: "/converters/kg-to-lbs" },
+          { name: "Word Counter", href: "/text-tools/word-counter" },
+          { name: "JSON Formatter", href: "/text-tools/json-formatter" },
+        ]}
+      />
+
       <ToolSchema
         name="Number to Words Converter"
         description="Convert numbers into words instantly using this free online tool."

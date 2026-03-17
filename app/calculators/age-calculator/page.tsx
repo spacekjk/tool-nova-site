@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
 import ToolSchema from "@/components/ToolSchema";
 import AgeCalculatorClient from "./AgeCalculatorClient";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = buildMetadata({
   title: "Age Calculator - Calculate Exact Age Online",
@@ -39,6 +40,15 @@ export default function Page() {
   return (
     <>
       <AgeCalculatorClient />
+      
+      <RelatedTools
+        tools={[
+          { name: "BMI Calculator", href: "/calculators/bmi-calculator" },
+          { name: "Time Calculator", href: "/calculators/time-calculator" },
+          { name: "Days Between Dates", href: "/calculators/days-between-dates" },
+        ]}
+      />
+
       <ToolSchema
         name="Age Calculator"
         description="Use this free age calculator to calculate your exact age in years, months, and days from your birth date."

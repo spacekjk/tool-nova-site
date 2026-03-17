@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
 import ToolSchema from "@/components/ToolSchema";
 import CaseConverterClient from "./CaseConverterClient";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = buildMetadata({
   title: "Case Converter",
@@ -33,6 +34,15 @@ export default function Page() {
   return (
     <>
       <CaseConverterClient />
+      
+      <RelatedTools
+        tools={[
+          { name: "Word Counter", href: "/text-tools/word-counter" },
+          { name: "Character Counter", href: "/text-tools/character-counter" },
+          { name: "Text Compare", href: "/text-tools/text-compare" },
+        ]}
+      />
+
       <ToolSchema
         name="Case Converter"
         description="Convert text to uppercase, lowercase, or title case easily with this free case converter."

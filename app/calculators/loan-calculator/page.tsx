@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
 import ToolSchema from "@/components/ToolSchema";
 import LoanCalculatorClient from "./LoanCalculatorClient";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = buildMetadata({
   title: "Loan Calculator",
@@ -33,6 +34,15 @@ export default function Page() {
   return (
     <>
       <LoanCalculatorClient />
+
+      <RelatedTools
+        tools={[
+          { name: "Percentage Calculator", href: "/calculators/percentage-calculator" },
+          { name: "Time Calculator", href: "/calculators/time-calculator" },
+          { name: "Days Between Dates", href: "/calculators/days-between-dates" },
+        ]}
+      />
+      
       <ToolSchema
         name="Loan Calculator"
         description="Estimate monthly payments and total loan cost using this free loan calculator."

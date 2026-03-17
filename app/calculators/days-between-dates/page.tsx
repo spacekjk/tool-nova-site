@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
 import ToolSchema from "@/components/ToolSchema";
 import DaysBetweenDatesClient from "./DaysBetweenDatesClient";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = buildMetadata({
   title: "Days Between Dates Calculator",
@@ -33,6 +34,15 @@ export default function Page() {
   return (
     <>
       <DaysBetweenDatesClient />
+
+      <RelatedTools
+        tools={[
+          { name: "Age Calculator", href: "/calculators/age-calculator" },
+          { name: "Time Calculator", href: "/calculators/time-calculator" },
+          { name: "Loan Calculator", href: "/calculators/loan-calculator" },
+        ]}
+      />
+
       <ToolSchema
         name="Days Between Dates Calculator"
         description="Calculate the number of days between two dates quickly using this free online calculator."

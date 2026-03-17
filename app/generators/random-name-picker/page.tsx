@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
 import ToolSchema from "@/components/ToolSchema";
 import RandomNamePickerClient from "./RandomNamePickerClient";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = buildMetadata({
   title: "Random Name Picker",
@@ -32,6 +33,15 @@ export default function Page() {
   return (
     <>
       <RandomNamePickerClient />
+
+      <RelatedTools
+        tools={[
+          { name: "Random Number Generator", href: "/generators/random-number-generator" },
+          { name: "Password Generator", href: "/generators/password-generator" },
+          { name: "Word Counter", href: "/text-tools/word-counter" },
+        ]}
+      />
+
       <ToolSchema
         name="Random Name Picker"
         description="Pick a random name from a list instantly using this free name picker."

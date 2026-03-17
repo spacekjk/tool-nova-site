@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
 import ToolSchema from "@/components/ToolSchema";
 import CharacterCounterClient from "./CharacterCounterClient";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = buildMetadata({
   title: "Character Counter",
@@ -32,6 +33,15 @@ export default function Page() {
   return (
     <>
       <CharacterCounterClient />
+
+      <RelatedTools
+        tools={[
+          { name: "Word Counter", href: "/text-tools/word-counter" },
+          { name: "Case Converter", href: "/text-tools/case-converter" },
+          { name: "Remove Line Breaks", href: "/text-tools/remove-line-breaks" },
+        ]}
+      />
+
       <ToolSchema
         name="Character Counter"
         description="Count characters instantly with this free online character counter."

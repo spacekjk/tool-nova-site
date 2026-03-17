@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
 import ToolSchema from "@/components/ToolSchema";
 import JsonFormatterClient from "./JsonFormatterClient";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = buildMetadata({
   title: "JSON Formatter",
@@ -32,6 +33,15 @@ export default function Page() {
   return (
     <>
       <JsonFormatterClient />
+
+      <RelatedTools
+        tools={[
+          { name: "Text Compare", href: "/text-tools/text-compare" },
+          { name: "Remove Line Breaks", href: "/text-tools/remove-line-breaks" },
+          { name: "Case Converter", href: "/text-tools/case-converter" },
+        ]}
+      />
+
       <ToolSchema
         name="JSON Formatter"
         description="Format and beautify JSON data instantly using this free JSON formatter."

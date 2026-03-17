@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
 import ToolSchema from "@/components/ToolSchema";
 import KgToLbsClient from "./KgToLbsClient";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = buildMetadata({
   title: "Kg to Lbs Converter",
@@ -32,6 +33,15 @@ export default function Page() {
   return (
     <>
       <KgToLbsClient />
+
+      <RelatedTools
+        tools={[
+          { name: "BMI Calculator", href: "/calculators/bmi-calculator" },
+          { name: "Age Calculator", href: "/calculators/age-calculator" },
+          { name: "Number to Words Converter", href: "/converters/number-to-words" },
+        ]}
+      />
+
       <ToolSchema
         name="Kg to Lbs Converter"
         description="Convert kilograms to pounds quickly with this free online converter."

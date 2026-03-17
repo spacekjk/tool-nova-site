@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
 import ToolSchema from "@/components/ToolSchema";
 import TimeCalculatorClient from "./TimeCalculatorClient";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = buildMetadata({
   title: "Time Calculator",
@@ -32,6 +33,15 @@ export default function Page() {
   return (
     <>
       <TimeCalculatorClient />
+
+      <RelatedTools
+        tools={[
+          { name: "Days Between Dates", href: "/calculators/days-between-dates" },
+          { name: "Age Calculator", href: "/calculators/age-calculator" },
+          { name: "Loan Calculator", href: "/calculators/loan-calculator" },
+        ]}
+      />
+
       <ToolSchema
         name="Time Calculator"
         description="Add or subtract time easily with this free online time calculator."

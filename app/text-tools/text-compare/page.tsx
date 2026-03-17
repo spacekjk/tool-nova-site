@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
 import ToolSchema from "@/components/ToolSchema";
 import TextCompareClient from "./TextCompareClient";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = buildMetadata({
   title: "Text Compare Tool",
@@ -32,6 +33,15 @@ export default function Page() {
   return (
     <>
       <TextCompareClient />
+
+      <RelatedTools
+        tools={[
+          { name: "Word Counter", href: "/text-tools/word-counter" },
+          { name: "Case Converter", href: "/text-tools/case-converter" },
+          { name: "JSON Formatter", href: "/text-tools/json-formatter" },
+        ]}
+      />
+
       <ToolSchema
         name="Text Compare Tool"
         description="Compare two pieces of text and highlight differences instantly."

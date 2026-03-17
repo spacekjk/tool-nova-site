@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
 import ToolSchema from "@/components/ToolSchema";
 import WordCounterClient from "./WordCounterClient";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = buildMetadata({
   title: "Word Counter",
@@ -32,6 +33,15 @@ export default function Page() {
   return (
     <>
       <WordCounterClient />
+
+      <RelatedTools
+        tools={[
+          { name: "Character Counter", href: "/text-tools/character-counter" },
+          { name: "Case Converter", href: "/text-tools/case-converter" },
+          { name: "Text Compare", href: "/text-tools/text-compare" },
+        ]}
+      />
+
       <ToolSchema
         name="Word Counter"
         description="Count words instantly with this free online word counter tool."

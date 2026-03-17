@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
 import ToolSchema from "@/components/ToolSchema";
 import BMICalculatorClient from "./BMICalculatorClient";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = buildMetadata({
   title: "BMI Calculator",
@@ -33,6 +34,15 @@ export default function Page() {
   return (
     <>
       <BMICalculatorClient />
+
+      <RelatedTools
+        tools={[
+          { name: "Age Calculator", href: "/calculators/age-calculator" },
+          { name: "Kg to Lbs Converter", href: "/converters/kg-to-lbs" },
+          { name: "Percentage Calculator", href: "/calculators/percentage-calculator" },
+        ]}
+      />
+
       <ToolSchema
         name="BMI Calculator"
         description="Calculate your Body Mass Index (BMI) using height and weight with this free BMI calculator."

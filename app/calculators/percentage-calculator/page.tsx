@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
 import ToolSchema from "@/components/ToolSchema";
 import PercentageCalculatorClient from "./PercentageCalculatorClient";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = buildMetadata({
   title: "Percentage Calculator",
@@ -38,6 +39,15 @@ export default function Page() {
   return (
     <>
       <PercentageCalculatorClient />
+
+      <RelatedTools
+        tools={[
+          { name: "Loan Calculator", href: "/calculators/loan-calculator" },
+          { name: "BMI Calculator", href: "/calculators/bmi-calculator" },
+          { name: "Time Calculator", href: "/calculators/time-calculator" },
+        ]}
+      />
+
       <ToolSchema
         name="Percentage Calculator"
         description="Calculate percentages easily with this free online percentage calculator."

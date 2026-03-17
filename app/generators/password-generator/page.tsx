@@ -2,6 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
 import ToolSchema from "@/components/ToolSchema";
 import PasswordGeneratorClient from "./PasswordGeneratorClient";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = buildMetadata({
   title: "Password Generator",
@@ -32,6 +33,15 @@ export default function Page() {
   return (
     <>
       <PasswordGeneratorClient />
+
+      <RelatedTools
+        tools={[
+          { name: "Random Number Generator", href: "/generators/random-number-generator" },
+          { name: "Random Name Picker", href: "/generators/random-name-picker" },
+          { name: "Word Counter", href: "/text-tools/word-counter" },
+        ]}
+      />
+
       <ToolSchema
         name="Password Generator"
         description="Generate secure passwords instantly with this free password generator."
