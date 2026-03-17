@@ -89,7 +89,30 @@ export const TOOLS: ToolItem[] = [
     ],
     featured: true,
     published: true,
-    relatedSlugs: ["bmi-calculator", "time-calculator", "days-between-dates"],
+    relatedSlugs: ["bmi-calculator", "time-calculator", "days-between-dates", "percentage-calculator"],
+    howItWorksTitle: "How this age calculator works",
+    howItWorks: [
+      "This calculator uses your date of birth and compares it with the current date or a selected end date.",
+      "It calculates the difference in calendar years, months, and days instead of showing only a rough day count.",
+      "You can use it to check exact age for personal records, forms, school use, or general date calculations.",
+    ],
+    faqs: [
+      {
+        question: "How do I calculate my exact age?",
+        answer:
+          "Enter your birth date, and the calculator will show your exact age in years, months, and days.",
+      },
+      {
+        question: "Does this age calculator use the current date automatically?",
+        answer:
+          "Yes. In most cases, the calculator compares your birth date with today unless you provide another date.",
+      },
+      {
+        question: "Is this age calculator free to use?",
+        answer:
+          "Yes. Tool Nova provides this age calculator online for free with no sign-up required.",
+      },
+    ],
   },
   {
     slug: "percentage-calculator",
