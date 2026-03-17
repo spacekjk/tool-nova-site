@@ -111,60 +111,9 @@ export default function AgeCalculatorClient() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-6 pb-14">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">How this age calculator works</h2>
-          <p className="mt-4 leading-8 text-white/70">
-            This calculator compares your birth date with today’s date and
-            shows the difference in years, months, and days. It also estimates
-            the total number of days you have lived so far.
-          </p>
-          <p className="mt-4 leading-8 text-white/70">
-            If your birthday has not happened yet this year, the calculator
-            subtracts one year from the initial result. It then adjusts the
-            month and day values to give a more accurate age breakdown.
-          </p>
-        </div>
-      </section>
+      
 
-      <section className="mx-auto max-w-4xl px-6 pb-16">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
-
-          <div className="mt-6 space-y-6">
-            <div>
-              <h3 className="text-lg font-medium">
-                How do I calculate my exact age?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Enter your birth date and the calculator will compare it with
-                today’s date to show your current age in years, months, and
-                days.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Does this calculator include leap years?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. The calculator uses real calendar dates, so leap years are
-                naturally reflected in the total day count.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Can I use this age calculator online for free?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. Tool Nova provides this age calculator completely free with
-                no sign-up required.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       
     </main>
