@@ -1,4 +1,6 @@
 import { buildMetadata } from "@/lib/seo";
+import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import BMICalculatorClient from "./BMICalculatorClient";
 
 export const metadata = buildMetadata({
@@ -9,6 +11,34 @@ export const metadata = buildMetadata({
   keywords: ["bmi calculator", "body mass index calculator", "bmi tool"],
 });
 
+const faqItems = [
+  {
+    question: "How do I calculate my BMI?",
+    answer:
+      "Enter your height and weight into the calculator and it will instantly calculate your Body Mass Index.",
+  },
+  {
+    question: "What does BMI mean?",
+    answer:
+      "BMI stands for Body Mass Index and is a simple measurement based on height and weight.",
+  },
+  {
+    question: "Is this BMI calculator free?",
+    answer:
+      "Yes. Tool Nova provides this BMI calculator for free with no sign-up required.",
+  },
+];
+
 export default function Page() {
-  return <BMICalculatorClient />;
+  return (
+    <>
+      <BMICalculatorClient />
+      <ToolSchema
+        name="BMI Calculator"
+        description="Calculate your Body Mass Index (BMI) using height and weight with this free BMI calculator."
+        url="https://tool-nova.com/calculators/bmi-calculator"
+      />
+      <FAQSchema items={faqItems} />
+    </>
+  );
 }
