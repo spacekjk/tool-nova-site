@@ -22,10 +22,7 @@ export default function DiscountCalculatorClient() {
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-10">
-      <h1 className="text-3xl font-bold">Discount Calculator</h1>
-      <p className="mt-3 text-white/70">
-        Calculate discount amount, final sale price, and total savings instantly.
-      </p>
+      
 
       <section className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6">
         <div className="grid gap-4 sm:grid-cols-2">

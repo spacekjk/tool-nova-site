@@ -43,15 +43,7 @@ export default function RandomNumberGeneratorPage() {
     <main className="min-h-screen bg-neutral-950 text-white">
       <section className="mx-auto max-w-4xl px-6 py-14">
         <div className="max-w-3xl">
-          <p className="mb-3 text-sm text-white/60">Free Online Generator</p>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            Random Number Generator
-          </h1>
-          <p className="mt-4 text-lg leading-8 text-white/70">
-            Generate a random number between a minimum and maximum value
-            instantly. This free random number generator is simple, fast, and
-            useful for games, picking winners, classroom activities, and more.
-          </p>
+          
         </div>
 
         <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">

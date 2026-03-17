@@ -9,10 +9,7 @@ export default function ReverseTextClient() {
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-10">
-      <h1 className="text-3xl font-bold">Reverse Text</h1>
-      <p className="mt-3 text-white/70">
-        Reverse the order of characters in your text instantly.
-      </p>
+
 
       <section className="mt-8 grid gap-4">
         <textarea

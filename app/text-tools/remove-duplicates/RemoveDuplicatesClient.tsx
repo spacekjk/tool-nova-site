@@ -21,10 +21,7 @@ export default function RemoveDuplicatesClient() {
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-10">
-      <h1 className="text-3xl font-bold">Remove Duplicate Lines</h1>
-      <p className="mt-3 text-white/70">
-        Remove repeated lines and keep only unique lines from your text.
-      </p>
+
 
       <section className="mt-8 grid gap-4">
         <textarea

@@ -38,15 +38,7 @@ export default function BmiCalculatorPage() {
     <main className="min-h-screen bg-neutral-950 text-white">
       <section className="mx-auto max-w-4xl px-6 py-14">
         <div className="max-w-3xl">
-          <p className="mb-3 text-sm text-white/60">Free Online Calculator</p>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            BMI Calculator
-          </h1>
-          <p className="mt-4 text-lg leading-8 text-white/70">
-            Calculate your body mass index using your height and weight. This
-            free BMI calculator helps you quickly estimate whether your BMI is
-            underweight, normal, overweight, or in the obesity range.
-          </p>
+          
         </div>
 
         <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">

@@ -27,10 +27,7 @@ export default function VATCalculatorClient() {
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-10">
-      <h1 className="text-3xl font-bold">VAT Calculator</h1>
-      <p className="mt-3 text-white/70">
-        Add VAT to a price or remove VAT from a VAT-inclusive amount.
-      </p>
+      
 
       <section className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6">
         <div className="grid gap-4 sm:grid-cols-2">

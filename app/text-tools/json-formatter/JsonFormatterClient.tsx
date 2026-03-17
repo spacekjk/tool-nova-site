@@ -58,15 +58,7 @@ export default function JsonFormatterPage() {
     <main className="min-h-screen bg-neutral-950 text-white">
       <section className="mx-auto max-w-6xl px-6 py-14">
         <div className="max-w-3xl">
-          <p className="mb-3 text-sm text-white/60">Free Online Developer Tool</p>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            JSON Formatter
-          </h1>
-          <p className="mt-4 text-lg leading-8 text-white/70">
-            Format and validate JSON instantly. This free online JSON formatter
-            helps you prettify, check, and clean JSON data for development,
-            debugging, and API work.
-          </p>
+ 
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">

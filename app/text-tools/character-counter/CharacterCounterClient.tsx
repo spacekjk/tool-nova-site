@@ -16,19 +16,7 @@ export default function CharacterCounter() {
 
       <section className="mx-auto max-w-4xl px-6 py-14">
 
-        <p className="text-sm text-white/60">
-          Free Online Text Tool
-        </p>
-
-        <h1 className="mt-2 text-4xl font-bold">
-          Character Counter
-        </h1>
-
-        <p className="mt-4 text-white/70">
-          Count characters, words, and sentences instantly. This free
-          character counter helps you analyze text for writing, social media,
-          and essays.
-        </p>
+        
 
         <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6">
 

@@ -16,10 +16,7 @@ export default function SlugGeneratorClient() {
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-10">
-      <h1 className="text-3xl font-bold">Slug Generator</h1>
-      <p className="mt-3 text-white/70">
-        Convert text into a clean SEO-friendly URL slug.
-      </p>
+      
 
       <section className="mt-8 grid gap-4">
         <input

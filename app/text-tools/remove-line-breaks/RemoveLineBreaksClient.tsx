@@ -23,15 +23,8 @@ export default function RemoveLineBreaksPage() {
     <main className="min-h-screen bg-neutral-950 text-white">
       <section className="mx-auto max-w-5xl px-6 py-14">
         <div className="max-w-3xl">
-          <p className="mb-3 text-sm text-white/60">Free Online Text Tool</p>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            Remove Line Breaks
-          </h1>
-          <p className="mt-4 text-lg leading-8 text-white/70">
-            Remove line breaks from text instantly. This free online tool helps
-            you clean up copied text, paragraphs, emails, and notes by turning
-            multiple lines into a single line of text.
-          </p>
+
+
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
