@@ -81,7 +81,7 @@ export default async function ToolPage({ params }: Props) {
       </section>
 
       {tool.howItWorks && tool.howItWorks.length > 0 && (
-        <section className="mb-10 rounded-3xl border border-gray-200 bg-gray-50 p-8 dark:border-gray-800 dark:bg-gray-900">
+        <section className="mb-10 rounded-3xl border border-gray-200 bg-gray-100 p-8 dark:border-gray-800 dark:bg-black">
           <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
             {tool.howItWorksTitle ?? `How this ${tool.name.toLowerCase()} works`}
           </h2>
@@ -95,7 +95,7 @@ export default async function ToolPage({ params }: Props) {
       )}
 
       {tool.faqs && tool.faqs.length > 0 && (
-        <section className="mb-10 rounded-3xl border border-gray-200 bg-gray-50 p-8 dark:border-gray-800 dark:bg-gray-900">
+        <section className="mb-10 rounded-3xl border border-gray-200 bg-gray-100 p-8 dark:border-gray-800 dark:bg-black">
           <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
             Frequently Asked Questions
           </h2>
