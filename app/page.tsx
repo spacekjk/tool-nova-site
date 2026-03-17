@@ -1,92 +1,45 @@
 import Link from "next/link";
 
-const tools = [
+const categories = [
   {
-    title: "Age Calculator",
-    href: "/age-calculator",
-    description: "Calculate your exact age from your birth date.",
+    title: "Calculators",
+    href: "/calculators",
+    description: "Age, percentage, BMI, loan, time, and date calculators.",
+    items: [
+      { title: "Age Calculator", href: "/age-calculator" },
+      { title: "Percentage Calculator", href: "/percentage-calculator" },
+      { title: "Loan Calculator", href: "/loan-calculator" },
+    ],
   },
   {
-    title: "Percentage Calculator",
-    href: "/percentage-calculator",
-    description: "Quickly calculate percentages, increases, and decreases.",
+    title: "Text Tools",
+    href: "/text-tools",
+    description: "Word counters, formatters, cleaners, and comparison tools.",
+    items: [
+      { title: "Word Counter", href: "/word-counter" },
+      { title: "Character Counter", href: "/character-counter" },
+      { title: "JSON Formatter", href: "/json-formatter" },
+    ],
   },
   {
-    title: "BMI Calculator",
-    href: "/bmi-calculator",
-    description: "Check your body mass index in seconds.",
+    title: "Generators",
+    href: "/generators",
+    description: "Random numbers, passwords, and name picker tools.",
+    items: [
+      { title: "Password Generator", href: "/password-generator" },
+      { title: "Random Number Generator", href: "/random-number-generator" },
+      { title: "Random Name Picker", href: "/random-name-picker" },
+    ],
   },
   {
-    title: "Time Calculator",
-    href: "/time-calculator",
-    description: "Add or subtract hours and minutes easily.",
+    title: "Converters",
+    href: "/converters",
+    description: "Weight and number conversion tools.",
+    items: [
+      { title: "Kg to Lbs", href: "/kg-to-lbs" },
+      { title: "Number to Words", href: "/number-to-words" },
+    ],
   },
-  {
-    title: "Word Counter",
-    href: "/word-counter",
-    description: "Count words and characters instantly.",
-  },
-  {
-    title: "Kg to Lbs Converter",
-    href: "/kg-to-lbs",
-    description: "Convert kilograms to pounds fast.",
-  },
-  {
-    title: "Random Number Generator",
-    href: "/random-number-generator",
-    description: "Generate a random number between any two values.",
-  },
-  {
-    title: "Password Generator",
-    href: "/password-generator",
-    description: "Generate strong and secure passwords instantly."
-  },
-  {
-    title: "Character Counter",
-    href: "/character-counter",
-    description: "Count characters, words, and sentences instantly."
-  },
-  {
-    title: "Case Converter",
-    href: "/case-converter",
-    description: "Convert text to uppercase, lowercase, title case, and more.",
-  },  
-  {
-    title: "Random Name Picker",
-    href: "/random-name-picker",
-    description: "Pick a random name from a list instantly.",
-  },
-  {
-    title: "Number to Words",
-    href: "/number-to-words",
-    description: "Convert numbers into English words instantly.",
-  },
-  {
-    title: "Loan Calculator",
-    href: "/loan-calculator",
-    description: "Estimate monthly payments, total repayment, and interest.",
-  },
-  {
-    title: "Days Between Dates",
-    href: "/days-between-dates",
-    description: "Calculate the number of days between two dates instantly.",
-  },
-  {
-    title: "Remove Line Breaks",
-    href: "/remove-line-breaks",
-    description: "Remove line breaks and clean up copied text instantly.",
-  },
-  {
-    title: "Text Compare",
-    href: "/text-compare",
-    description: "Compare two texts side by side and spot differences.",
-  },
-  {
-    title: "JSON Formatter",
-    href: "/json-formatter",
-    description: "Format and validate JSON instantly.",
-  }
-
 ];
 
 export default function HomePage() {
@@ -103,54 +56,63 @@ export default function HomePage() {
           </h1>
 
           <p className="mt-6 text-lg leading-8 text-white/70 sm:text-xl">
-            Free online calculators, converters, and text tools designed for
-            fast answers and simple everyday use.
+            Free online calculators, converters, generators, and text tools
+            built for speed, simplicity, and everyday use.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href="/age-calculator"
+              href="/calculators"
               className="rounded-xl bg-white px-5 py-3 font-medium text-black transition hover:opacity-90"
             >
-              Try Age Calculator
+              Explore Calculators
             </Link>
 
-            <a
-              href="#popular-tools"
+            <Link
+              href="/text-tools"
               className="rounded-xl border border-white/15 px-5 py-3 font-medium text-white transition hover:bg-white/5"
             >
-              Explore Tools
-            </a>
+              Browse Text Tools
+            </Link>
           </div>
         </div>
       </section>
 
-      <section
-        id="popular-tools"
-        className="mx-auto max-w-6xl px-6 pb-16"
-      >
-        <div className="mb-8">
-          <h2 className="text-2xl font-semibold sm:text-3xl">Popular Tools</h2>
-          <p className="mt-2 text-white/60">
-            Start with the most useful calculators and converters.
-          </p>
-        </div>
-
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {tools.map((tool) => (
-            <Link
-              key={tool.href}
-              href={tool.href}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:border-white/20 hover:bg-white/10"
+      <section className="mx-auto max-w-6xl px-6 pb-16">
+        <div className="grid gap-6 lg:grid-cols-2">
+          {categories.map((category) => (
+            <div
+              key={category.href}
+              className="rounded-3xl border border-white/10 bg-white/5 p-8"
             >
-              <h3 className="text-xl font-semibold">{tool.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-white/65">
-                {tool.description}
-              </p>
-              <p className="mt-5 text-sm font-medium text-white/85">
-                Open tool →
-              </p>
-            </Link>
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h2 className="text-2xl font-semibold">{category.title}</h2>
+                  <p className="mt-3 text-sm leading-6 text-white/65">
+                    {category.description}
+                  </p>
+                </div>
+
+                <Link
+                  href={category.href}
+                  className="rounded-xl border border-white/10 px-4 py-2 text-sm text-white/80 hover:bg-white/5"
+                >
+                  View all
+                </Link>
+              </div>
+
+              <div className="mt-6 space-y-3">
+                {category.items.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white/85 transition hover:bg-white/5"
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </section>
@@ -162,19 +124,19 @@ export default function HomePage() {
             <div>
               <h3 className="font-medium">Fast</h3>
               <p className="mt-2 text-sm leading-6 text-white/65">
-                Get results instantly without clutter.
+                Get instant results without clutter.
               </p>
             </div>
             <div>
               <h3 className="font-medium">Free</h3>
               <p className="mt-2 text-sm leading-6 text-white/65">
-                No signup required for everyday tools.
+                Use every tool without sign-up.
               </p>
             </div>
             <div>
-              <h3 className="font-medium">SEO-Friendly Structure</h3>
+              <h3 className="font-medium">Organized</h3>
               <p className="mt-2 text-sm leading-6 text-white/65">
-                Clear pages for calculators, converters, and guides.
+                Browse tools by category for easier navigation and stronger SEO.
               </p>
             </div>
           </div>

@@ -4,6 +4,10 @@ import Link from "next/link";
 import { useState } from "react";
 
 const tools = [
+  { href: "/calculators", label: "All Calculators" },
+  { href: "/text-tools", label: "All Text Tools" },
+  { href: "/generators", label: "All Generators" },
+  { href: "/converters", label: "All Converters" },
   { href: "/age-calculator", label: "Age Calculator" },
   { href: "/percentage-calculator", label: "Percentage Calculator" },
   { href: "/bmi-calculator", label: "BMI Calculator" },
