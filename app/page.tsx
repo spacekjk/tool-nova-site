@@ -142,6 +142,18 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      
+      <section className="mx-auto max-w-6xl px-6 pb-16">
+        <div className="flex flex-wrap gap-4 border-t border-white/10 pt-8 text-sm text-white/60">
+          <a href="/about" className="hover:text-white">About</a>
+          <a href="/privacy" className="hover:text-white">Privacy</a>
+          <a href="/terms" className="hover:text-white">Terms</a>
+          <a href="/contact" className="hover:text-white">Contact</a>
+        </div>
+      </section>
+
+
+
     </main>
   );
 }
