@@ -55,7 +55,7 @@ export default function GeneratorsPage() {
           <Link
             key={tool.href}
             href={tool.href}
-            className="rounded-xl border border-gray-200 bg-white p-5 transition hover:-translate-y-0.5 hover:shadow-md"
+            className="rounded-xl border border-white/10 bg-white/5 p-5 transition hover:-translate-y-0.5 hover:bg-white/10"
           >
             <h2 className="text-lg font-semibold">{tool.name}</h2>
             <p className="mt-2 text-sm text-gray-500">
