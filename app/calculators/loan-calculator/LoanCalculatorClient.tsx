@@ -214,6 +214,34 @@ export default function LoanCalculatorPage() {
           </div>
         </div>
       </section>
+      <section className="mx-auto max-w-4xl px-6 pb-20">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+          <h2 className="text-2xl font-semibold">Related Tools</h2>
+
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            <a
+              href="/calculators/bmi-calculator"
+              className="rounded-xl border border-white/10 bg-white/5 p-4 hover:bg-white/10"
+            >
+              BMI Calculator
+            </a>
+
+            <a
+              href="/calculators/time-calculator"
+              className="rounded-xl border border-white/10 bg-white/5 p-4 hover:bg-white/10"
+            >
+              Time Calculator
+            </a>
+
+            <a
+              href="/calculators/days-between-dates"
+              className="rounded-xl border border-white/10 bg-white/5 p-4 hover:bg-white/10"
+            >
+              Days Between Dates
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
