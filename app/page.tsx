@@ -6,9 +6,9 @@ const categories = [
     href: "/calculators",
     description: "Age, percentage, BMI, loan, time, and date calculators.",
     items: [
-      { title: "Age Calculator", href: "/age-calculator" },
-      { title: "Percentage Calculator", href: "/percentage-calculator" },
-      { title: "Loan Calculator", href: "/loan-calculator" },
+      { title: "Age Calculator", href: "/calculators/age-calculator" },
+      { title: "Percentage Calculator", href: "/calculators/percentage-calculator" },
+      { title: "Loan Calculator", href: "/calculators/loan-calculator" },
     ],
   },
   {
@@ -16,9 +16,9 @@ const categories = [
     href: "/text-tools",
     description: "Word counters, formatters, cleaners, and comparison tools.",
     items: [
-      { title: "Word Counter", href: "/word-counter" },
-      { title: "Character Counter", href: "/character-counter" },
-      { title: "JSON Formatter", href: "/json-formatter" },
+      { title: "Word Counter", href: "/text-tools/word-counter" },
+      { title: "Character Counter", href: "/text-tools/character-counter" },
+      { title: "JSON Formatter", href: "/text-tools/json-formatter" },
     ],
   },
   {
@@ -26,9 +26,9 @@ const categories = [
     href: "/generators",
     description: "Random numbers, passwords, and name picker tools.",
     items: [
-      { title: "Password Generator", href: "/password-generator" },
-      { title: "Random Number Generator", href: "/random-number-generator" },
-      { title: "Random Name Picker", href: "/random-name-picker" },
+      { title: "Password Generator", href: "/generators/password-generator" },
+      { title: "Random Number Generator", href: "/generators/random-number-generator" },
+      { title: "Random Name Picker", href: "/generators/random-name-picker" },
     ],
   },
   {
@@ -36,8 +36,8 @@ const categories = [
     href: "/converters",
     description: "Weight and number conversion tools.",
     items: [
-      { title: "Kg to Lbs", href: "/kg-to-lbs" },
-      { title: "Number to Words", href: "/number-to-words" },
+      { title: "Kg to Lbs", href: "/converters/kg-to-lbs" },
+      { title: "Number to Words", href: "/converters/number-to-words" },
     ],
   },
 ];
@@ -142,7 +142,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      
+
       <section className="mx-auto max-w-6xl px-6 pb-16">
         <div className="flex flex-wrap gap-4 border-t border-white/10 pt-8 text-sm text-white/60">
           <a href="/about" className="hover:text-white">About</a>
@@ -151,9 +151,6 @@ export default function HomePage() {
           <a href="/contact" className="hover:text-white">Contact</a>
         </div>
       </section>
-
-
-
     </main>
   );
 }
