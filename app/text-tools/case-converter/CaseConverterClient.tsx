@@ -14,7 +14,7 @@ function toSentenceCase(text: string) {
     .replace(/(^\s*\w|[.!?]\s*\w)/g, (char) => char.toUpperCase());
 }
 
-export default function CaseConverterPage() {
+export default function CaseConverterClient() {
   const [text, setText] = useState("");
 
   const converted = useMemo(() => {
@@ -31,29 +31,21 @@ export default function CaseConverterPage() {
   };
 
   return (
-    <main className="min-h-screen bg-neutral-950 text-white">
-      <section className="mx-auto max-w-5xl px-6 py-14">
-        <div className="max-w-3xl">
-          
-        </div>
+    <section className="mx-auto max-w-5xl px-6">
+      <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+        <label className="mb-3 block text-sm font-medium text-white/80">
+          Enter or paste your text
+        </label>
 
-        <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <label className="mb-3 block text-sm font-medium text-white/80">
-            Enter or paste your text
-          </label>
+        <textarea
+          rows={8}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Type or paste your text here..."
+          className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-white outline-none focus:border-white/25"
+        />
 
-          <textarea
-            rows={8}
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder="Type or paste your text here..."
-            className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-white outline-none focus:border-white/25"
-          />
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-5xl px-6 pb-14">
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
           {[
             { label: "UPPERCASE", value: converted.upper },
             { label: "lowercase", value: converted.lower },
@@ -62,7 +54,7 @@ export default function CaseConverterPage() {
           ].map((item) => (
             <div
               key={item.label}
-              className="rounded-3xl border border-white/10 bg-white/5 p-6"
+              className="rounded-3xl border border-white/10 bg-black/20 p-6"
             >
               <div className="flex items-center justify-between gap-4">
                 <h2 className="text-xl font-semibold">{item.label}</h2>
@@ -74,7 +66,7 @@ export default function CaseConverterPage() {
                 </button>
               </div>
 
-              <div className="mt-4 rounded-2xl border border-white/10 bg-black/20 p-4">
+              <div className="mt-4 rounded-2xl border border-white/10 bg-black/30 p-4">
                 <p className="whitespace-pre-wrap break-words text-white/85">
                   {item.value || "Your converted text will appear here."}
                 </p>
@@ -82,10 +74,7 @@ export default function CaseConverterPage() {
             </div>
           ))}
         </div>
-      </section>
-
-      
-      
-    </main>
+      </div>
+    </section>
   );
 }

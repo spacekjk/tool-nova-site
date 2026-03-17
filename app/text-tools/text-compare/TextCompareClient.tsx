@@ -39,101 +39,100 @@ export default function TextComparePage() {
   }, [leftText, rightText]);
 
   return (
-    <main className="min-h-screen bg-neutral-950 text-white">
-      <section className="mx-auto max-w-6xl px-6 py-14">
-        <div className="max-w-3xl">
 
+    <section className="mx-auto max-w-6xl px-6 py-14">
+      <div className="max-w-3xl">
+
+      </div>
+
+      <div className="mt-10 grid gap-6 lg:grid-cols-2">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+          <label className="mb-3 block text-sm font-medium text-white/80">
+            Text A
+          </label>
+
+          <textarea
+            rows={12}
+            value={leftText}
+            onChange={(e) => setLeftText(e.target.value)}
+            placeholder="Paste the first text here..."
+            className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-white outline-none focus:border-white/25"
+          />
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-            <label className="mb-3 block text-sm font-medium text-white/80">
-              Text A
-            </label>
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+          <label className="mb-3 block text-sm font-medium text-white/80">
+            Text B
+          </label>
 
-            <textarea
-              rows={12}
-              value={leftText}
-              onChange={(e) => setLeftText(e.target.value)}
-              placeholder="Paste the first text here..."
-              className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-white outline-none focus:border-white/25"
-            />
-          </div>
-
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-            <label className="mb-3 block text-sm font-medium text-white/80">
-              Text B
-            </label>
-
-            <textarea
-              rows={12}
-              value={rightText}
-              onChange={(e) => setRightText(e.target.value)}
-              placeholder="Paste the second text here..."
-              className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-white outline-none focus:border-white/25"
-            />
-          </div>
+          <textarea
+            rows={12}
+            value={rightText}
+            onChange={(e) => setRightText(e.target.value)}
+            placeholder="Paste the second text here..."
+            className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-white outline-none focus:border-white/25"
+          />
         </div>
+      </div>
 
-        <div className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">Comparison Result</h2>
+      <div className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+        <h2 className="text-2xl font-semibold">Comparison Result</h2>
 
-          {!leftText && !rightText ? (
-            <p className="mt-4 text-white/60">
-              Paste two texts above to compare them.
+        {!leftText && !rightText ? (
+          <p className="mt-4 text-white/60">
+            Paste two texts above to compare them.
+          </p>
+        ) : (
+          <>
+            <p className="mt-4 text-lg">
+              Overall result:{" "}
+              <span
+                className={
+                  comparison.isSame
+                    ? "font-semibold text-green-400"
+                    : "font-semibold text-yellow-300"
+                }
+              >
+                {comparison.isSame ? "Texts match" : "Texts are different"}
+              </span>
             </p>
-          ) : (
-            <>
-              <p className="mt-4 text-lg">
-                Overall result:{" "}
-                <span
-                  className={
-                    comparison.isSame
-                      ? "font-semibold text-green-400"
-                      : "font-semibold text-yellow-300"
-                  }
-                >
-                  {comparison.isSame ? "Texts match" : "Texts are different"}
-                </span>
-              </p>
 
-              <div className="mt-6 space-y-3">
-                {comparison.lineResults.map((row) => (
-                  <div
-                    key={row.line}
-                    className={`grid gap-3 rounded-2xl border p-4 md:grid-cols-2 ${
-                      row.same
-                        ? "border-white/10 bg-black/20"
-                        : "border-yellow-400/20 bg-yellow-400/5"
+            <div className="mt-6 space-y-3">
+              {comparison.lineResults.map((row) => (
+                <div
+                  key={row.line}
+                  className={`grid gap-3 rounded-2xl border p-4 md:grid-cols-2 ${row.same
+                      ? "border-white/10 bg-black/20"
+                      : "border-yellow-400/20 bg-yellow-400/5"
                     }`}
-                  >
-                    <div>
-                      <p className="mb-2 text-xs uppercase tracking-wide text-white/45">
-                        Line {row.line} · Text A
-                      </p>
-                      <p className="whitespace-pre-wrap break-words text-white/85">
-                        {row.left || "—"}
-                      </p>
-                    </div>
-
-                    <div>
-                      <p className="mb-2 text-xs uppercase tracking-wide text-white/45">
-                        Line {row.line} · Text B
-                      </p>
-                      <p className="whitespace-pre-wrap break-words text-white/85">
-                        {row.right || "—"}
-                      </p>
-                    </div>
+                >
+                  <div>
+                    <p className="mb-2 text-xs uppercase tracking-wide text-white/45">
+                      Line {row.line} · Text A
+                    </p>
+                    <p className="whitespace-pre-wrap break-words text-white/85">
+                      {row.left || "—"}
+                    </p>
                   </div>
-                ))}
-              </div>
-            </>
-          )}
-        </div>
-      </section>
 
-      
-      
-    </main>
+                  <div>
+                    <p className="mb-2 text-xs uppercase tracking-wide text-white/45">
+                      Line {row.line} · Text B
+                    </p>
+                    <p className="whitespace-pre-wrap break-words text-white/85">
+                      {row.right || "—"}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </section>
+
+
+
+
   );
 }

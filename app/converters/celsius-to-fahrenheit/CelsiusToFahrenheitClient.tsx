@@ -12,25 +12,23 @@ export default function CelsiusToFahrenheitClient() {
   }, [celsius]);
 
   return (
-    <main className="mx-auto max-w-4xl px-6 py-10">
 
+    <section className="mt-8 grid gap-4 sm:grid-cols-2">
+      <input
+        type="number"
+        value={celsius}
+        onChange={(e) => setCelsius(e.target.value)}
+        placeholder="Celsius"
+        className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 outline-none"
+      />
+      <input
+        type="text"
+        value={fahrenheit}
+        readOnly
+        placeholder="Fahrenheit"
+        className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 outline-none"
+      />
+    </section>
 
-      <section className="mt-8 grid gap-4 sm:grid-cols-2">
-        <input
-          type="number"
-          value={celsius}
-          onChange={(e) => setCelsius(e.target.value)}
-          placeholder="Celsius"
-          className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 outline-none"
-        />
-        <input
-          type="text"
-          value={fahrenheit}
-          readOnly
-          placeholder="Fahrenheit"
-          className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 outline-none"
-        />
-      </section>
-    </main>
   );
 }

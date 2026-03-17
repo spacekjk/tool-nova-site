@@ -12,25 +12,25 @@ export default function CmToInchesClient() {
   }, [cm]);
 
   return (
-    <main className="mx-auto max-w-4xl px-6 py-10">
-  
 
-      <section className="mt-8 grid gap-4 sm:grid-cols-2">
-        <input
-          type="number"
-          value={cm}
-          onChange={(e) => setCm(e.target.value)}
-          placeholder="Centimeters"
-          className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 outline-none"
-        />
-        <input
-          type="text"
-          value={inches}
-          readOnly
-          placeholder="Inches"
-          className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 outline-none"
-        />
-      </section>
-    </main>
+
+
+    <section className="mt-8 grid gap-4 sm:grid-cols-2">
+      <input
+        type="number"
+        value={cm}
+        onChange={(e) => setCm(e.target.value)}
+        placeholder="Centimeters"
+        className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 outline-none"
+      />
+      <input
+        type="text"
+        value={inches}
+        readOnly
+        placeholder="Inches"
+        className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 outline-none"
+      />
+    </section>
+
   );
 }

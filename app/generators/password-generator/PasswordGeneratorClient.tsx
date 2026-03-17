@@ -51,99 +51,99 @@ export default function PasswordGenerator() {
   };
 
   return (
-    <main className="min-h-screen bg-neutral-950 text-white">
-      <section className="mx-auto max-w-4xl px-6 py-14">
 
-        <p className="text-sm text-white/60">Free Online Generator</p>
+    <section className="mx-auto max-w-4xl px-6 py-14">
 
-        <h1 className="mt-2 text-4xl font-bold">
-          Password Generator
-        </h1>
+      <p className="text-sm text-white/60">Free Online Generator</p>
 
-        <p className="mt-4 text-white/70">
-          Generate strong and secure passwords instantly. Choose the password
-          length and character types to create a safe password for your
-          accounts.
-        </p>
+      <h1 className="mt-2 text-4xl font-bold">
+        Password Generator
+      </h1>
 
-        <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6">
+      <p className="mt-4 text-white/70">
+        Generate strong and secure passwords instantly. Choose the password
+        length and character types to create a safe password for your
+        accounts.
+      </p>
 
-          <label className="text-sm text-white/80">
-            Password Length
+      <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6">
+
+        <label className="text-sm text-white/80">
+          Password Length
+        </label>
+
+        <input
+          type="number"
+          value={length}
+          min={4}
+          max={64}
+          onChange={(e) => setLength(Number(e.target.value))}
+          className="mt-2 w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3"
+        />
+
+        <div className="mt-6 space-y-3">
+
+          <label className="flex gap-2">
+            <input
+              type="checkbox"
+              checked={uppercase}
+              onChange={(e) => setUppercase(e.target.checked)}
+            />
+            Uppercase Letters
           </label>
 
-          <input
-            type="number"
-            value={length}
-            min={4}
-            max={64}
-            onChange={(e) => setLength(Number(e.target.value))}
-            className="mt-2 w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3"
-          />
+          <label className="flex gap-2">
+            <input
+              type="checkbox"
+              checked={lowercase}
+              onChange={(e) => setLowercase(e.target.checked)}
+            />
+            Lowercase Letters
+          </label>
 
-          <div className="mt-6 space-y-3">
+          <label className="flex gap-2">
+            <input
+              type="checkbox"
+              checked={numbers}
+              onChange={(e) => setNumbers(e.target.checked)}
+            />
+            Numbers
+          </label>
 
-            <label className="flex gap-2">
-              <input
-                type="checkbox"
-                checked={uppercase}
-                onChange={(e) => setUppercase(e.target.checked)}
-              />
-              Uppercase Letters
-            </label>
+          <label className="flex gap-2">
+            <input
+              type="checkbox"
+              checked={symbols}
+              onChange={(e) => setSymbols(e.target.checked)}
+            />
+            Symbols
+          </label>
 
-            <label className="flex gap-2">
-              <input
-                type="checkbox"
-                checked={lowercase}
-                onChange={(e) => setLowercase(e.target.checked)}
-              />
-              Lowercase Letters
-            </label>
-
-            <label className="flex gap-2">
-              <input
-                type="checkbox"
-                checked={numbers}
-                onChange={(e) => setNumbers(e.target.checked)}
-              />
-              Numbers
-            </label>
-
-            <label className="flex gap-2">
-              <input
-                type="checkbox"
-                checked={symbols}
-                onChange={(e) => setSymbols(e.target.checked)}
-              />
-              Symbols
-            </label>
-
-          </div>
-
-          <button
-            onClick={handleGenerate}
-            className="mt-6 rounded-xl bg-white px-6 py-3 text-black font-medium"
-          >
-            Generate Password
-          </button>
-
-          {password && (
-            <div className="mt-6 rounded-xl border border-white/10 p-4">
-              <p className="text-lg font-mono">{password}</p>
-
-              <button
-                onClick={handleCopy}
-                className="mt-3 text-sm text-white/70 underline"
-              >
-                Copy
-              </button>
-            </div>
-          )}
         </div>
 
-      </section>
-      
-    </main>
+        <button
+          onClick={handleGenerate}
+          className="mt-6 rounded-xl bg-white px-6 py-3 text-black font-medium"
+        >
+          Generate Password
+        </button>
+
+        {password && (
+          <div className="mt-6 rounded-xl border border-white/10 p-4">
+            <p className="text-lg font-mono">{password}</p>
+
+            <button
+              onClick={handleCopy}
+              className="mt-3 text-sm text-white/70 underline"
+            >
+              Copy
+            </button>
+          </div>
+        )}
+      </div>
+
+    </section>
+
+
   );
 }

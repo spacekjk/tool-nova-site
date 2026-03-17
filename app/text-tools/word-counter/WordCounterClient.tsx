@@ -58,63 +58,63 @@ export default function WordCounterPage() {
   }, [text]);
 
   return (
-    <main className="min-h-screen bg-neutral-950 text-white">
-      <section className="mx-auto max-w-5xl px-6 py-14">
-        <div className="max-w-3xl">
-          
-        </div>
 
-        <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <label className="mb-3 block text-sm font-medium text-white/80">
-            Enter or paste your text
-          </label>
+    <section className="mx-auto max-w-5xl px-6 py-14">
+      <div className="max-w-3xl">
 
-          <textarea
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder="Type or paste your text here..."
-            rows={10}
-            className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-white outline-none focus:border-white/25"
-          />
+      </div>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-              <p className="text-sm text-white/55">Words</p>
-              <p className="mt-2 text-3xl font-bold">{stats.words}</p>
-            </div>
+      <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+        <label className="mb-3 block text-sm font-medium text-white/80">
+          Enter or paste your text
+        </label>
 
-            <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-              <p className="text-sm text-white/55">Characters</p>
-              <p className="mt-2 text-3xl font-bold">{stats.characters}</p>
-            </div>
+        <textarea
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Type or paste your text here..."
+          rows={10}
+          className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-white outline-none focus:border-white/25"
+        />
 
-            <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-              <p className="text-sm text-white/55">Characters (No Spaces)</p>
-              <p className="mt-2 text-3xl font-bold">
-                {stats.charactersNoSpaces}
-              </p>
-            </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+            <p className="text-sm text-white/55">Words</p>
+            <p className="mt-2 text-3xl font-bold">{stats.words}</p>
+          </div>
 
-            <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-              <p className="text-sm text-white/55">Sentences</p>
-              <p className="mt-2 text-3xl font-bold">{stats.sentences}</p>
-            </div>
+          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+            <p className="text-sm text-white/55">Characters</p>
+            <p className="mt-2 text-3xl font-bold">{stats.characters}</p>
+          </div>
 
-            <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-              <p className="text-sm text-white/55">Paragraphs</p>
-              <p className="mt-2 text-3xl font-bold">{stats.paragraphs}</p>
-            </div>
+          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+            <p className="text-sm text-white/55">Characters (No Spaces)</p>
+            <p className="mt-2 text-3xl font-bold">
+              {stats.charactersNoSpaces}
+            </p>
+          </div>
 
-            <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
-              <p className="text-sm text-white/55">Estimated Reading Time</p>
-              <p className="mt-2 text-2xl font-semibold">{stats.readingTime}</p>
-            </div>
+          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+            <p className="text-sm text-white/55">Sentences</p>
+            <p className="mt-2 text-3xl font-bold">{stats.sentences}</p>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+            <p className="text-sm text-white/55">Paragraphs</p>
+            <p className="mt-2 text-3xl font-bold">{stats.paragraphs}</p>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+            <p className="text-sm text-white/55">Estimated Reading Time</p>
+            <p className="mt-2 text-2xl font-semibold">{stats.readingTime}</p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      
-      
-    </main>
+
+
+
   );
 }
