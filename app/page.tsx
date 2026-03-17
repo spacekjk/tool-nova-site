@@ -1,49 +1,15 @@
 import Link from "next/link";
-
-const categories = [
-  {
-    title: "Calculators",
-    href: "/calculators",
-    description: "Age, percentage, BMI, loan, time, and date calculators.",
-    items: [
-      { title: "Age Calculator", href: "/calculators/age-calculator" },
-      { title: "Discount Calculator", href: "/calculators/discount-calculator" },
-      { title: "VAT Calculator", href: "/calculators/vat-calculator" },
-    ],
-  },
-  {
-    title: "Text Tools",
-    href: "/text-tools",
-    description: "Word counters, formatters, cleaners, and comparison tools.",
-    items: [
-      { title: "Word Counter", href: "/text-tools/word-counter" },
-      { title: "Reverse Text", href: "/text-tools/reverse-text" },
-      { title: "Sort Text", href: "/text-tools/sort-text" },
-    ],
-  },
-  {
-    title: "Generators",
-    href: "/generators",
-    description: "Random numbers, passwords, and name picker tools.",
-    items: [
-      { title: "Password Generator", href: "/generators/password-generator" },
-      { title: "UUID Generator", href: "/generators/uuid-generator" },
-      { title: "Slug Generator", href: "/generators/slug-generator" },
-    ],
-  },
-  {
-    title: "Converters",
-    href: "/converters",
-    description: "Weight and number conversion tools.",
-    items: [
-      { title: "Kg to Lbs", href: "/converters/kg-to-lbs" },
-      { title: "Cm to Inches", href: "/converters/cm-to-inches" },
-      { title: "Celsius to Fahrenheit", href: "/converters/celsius-to-fahrenheit" },
-    ],
-  },
-];
+import {
+  getFeaturedTools,
+  getHomeCategorySections,
+  getCategoryPath,
+  getToolPath,
+} from "@/lib/tools";
 
 export default function HomePage() {
+  const featuredTools = getFeaturedTools(8);
+  const sections = getHomeCategorySections();
+
   return (
     <main className="min-h-screen bg-neutral-950 text-white">
       <section className="mx-auto max-w-6xl px-6 py-16">
@@ -80,22 +46,46 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pb-16">
+        <div className="mb-8">
+          <h2 className="text-2xl font-semibold">Featured Tools</h2>
+          <p className="mt-2 text-sm text-white/65">
+            Popular tools from across Tool Nova.
+          </p>
+        </div>
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {featuredTools.map((tool) => (
+            <Link
+              key={tool.slug}
+              href={getToolPath(tool)}
+              className="rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"
+            >
+              <h3 className="text-lg font-semibold">{tool.name}</h3>
+              <p className="mt-2 text-sm leading-6 text-white/65">
+                {tool.shortDescription ?? tool.description}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-16">
         <div className="grid gap-6 lg:grid-cols-2">
-          {categories.map((category) => (
+          {sections.map((category) => (
             <div
-              key={category.href}
+              key={category.slug}
               className="rounded-3xl border border-white/10 bg-white/5 p-8"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h2 className="text-2xl font-semibold">{category.title}</h2>
+                  <h2 className="text-2xl font-semibold">{category.name}</h2>
                   <p className="mt-3 text-sm leading-6 text-white/65">
                     {category.description}
                   </p>
                 </div>
 
                 <Link
-                  href={category.href}
+                  href={getCategoryPath(category.slug)}
                   className="rounded-xl border border-white/10 px-4 py-2 text-sm text-white/80 hover:bg-white/5"
                 >
                   View all
@@ -103,13 +93,13 @@ export default function HomePage() {
               </div>
 
               <div className="mt-6 space-y-3">
-                {category.items.map((item) => (
+                {category.tools.slice(0, 5).map((tool) => (
                   <Link
-                    key={item.href}
-                    href={item.href}
+                    key={tool.slug}
+                    href={getToolPath(tool)}
                     className="block rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white/85 transition hover:bg-white/5"
                   >
-                    {item.title}
+                    {tool.name}
                   </Link>
                 ))}
               </div>

@@ -2,35 +2,14 @@
 
 import Link from "next/link";
 import { useState } from "react";
-
-const tools = [
-  { href: "/calculators", label: "All Calculators" },
-  { href: "/text-tools", label: "All Text Tools" },
-  { href: "/generators", label: "All Generators" },
-  { href: "/converters", label: "All Converters" },
-  { href: "/age-calculator", label: "Age Calculator" },
-  { href: "/percentage-calculator", label: "Percentage Calculator" },
-  { href: "/bmi-calculator", label: "BMI Calculator" },
-  { href: "/word-counter", label: "Word Counter" },
-  { href: "/character-counter", label: "Character Counter" },
-  { href: "/time-calculator", label: "Time Calculator" },
-  { href: "/kg-to-lbs", label: "Kg to Lbs Converter" },
-  { href: "/random-number-generator", label: "Random Number Generator" },
-  { href: "/password-generator", label: "Password Generator" },
-  { href: "/case-converter", label: "Case Converter" },
-  { href: "/random-name-picker", label: "Random Name Picker" },
-  { href: "/number-to-words", label: "Number to Words" },
-  { href: "/loan-calculator", label: "Loan Calculator" },
-  { href: "/days-between-dates", label: "Days Between Dates" },
-  { href: "/remove-line-breaks", label: "Remove Line Breaks" },
-  { href: "/text-compare", label: "Text Compare" },
-  { href: "/json-formatter", label: "JSON Formatter" },
-];
+import { getNavbarGroups } from "@/lib/tools";
 
 export function Navbar() {
   const [desktopOpen, setDesktopOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileToolsOpen, setMobileToolsOpen] = useState(false);
+
+  const tools = getNavbarGroups();
 
   return (
     <nav className="sticky top-0 z-50 border-b border-white/10 bg-neutral-950/95 text-white backdrop-blur">
@@ -56,7 +35,7 @@ export function Navbar() {
 
               {desktopOpen && (
                 <div className="absolute right-0 top-full z-50 pt-2">
-                  <div className="w-72 rounded-xl border border-white/10 bg-neutral-900 shadow-xl">
+                  <div className="max-h-[70vh] w-72 overflow-y-auto rounded-xl border border-white/10 bg-neutral-900 shadow-xl">
                     <div className="grid grid-cols-1">
                       {tools.map((tool) => (
                         <Link
@@ -103,7 +82,7 @@ export function Navbar() {
               </button>
 
               {mobileToolsOpen && (
-                <div className="mt-1 flex flex-col border-t border-white/10 pt-2">
+                <div className="mt-1 flex max-h-[60vh] flex-col overflow-y-auto border-t border-white/10 pt-2">
                   {tools.map((tool) => (
                     <Link
                       key={tool.href}
