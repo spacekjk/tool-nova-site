@@ -142,34 +142,7 @@ export default function CaseConverterPage() {
           </div>
         </div>
       </section>
-      <section className="mx-auto max-w-4xl px-6 pb-20">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">Related Tools</h2>
-
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            <a
-              href="/text-tools/Character-Counter"
-              className="rounded-xl border border-white/10 bg-white/5 p-4 hover:bg-white/10"
-            >
-              Character Counter
-            </a>
-
-            <a
-              href="/text-tools/word-counter"
-              className="rounded-xl border border-white/10 bg-white/5 p-4 hover:bg-white/10"
-            >
-              Word Counter
-            </a>
-
-            <a
-              href="/text-tools/text-compare"
-              className="rounded-xl border border-white/10 bg-white/5 p-4 hover:bg-white/10"
-            >
-              Text Compare
-            </a>
-          </div>
-        </div>
-      </section>
+      
     </main>
   );
 }

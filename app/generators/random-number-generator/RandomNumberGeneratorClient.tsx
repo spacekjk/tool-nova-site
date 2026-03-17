@@ -165,28 +165,7 @@ export default function RandomNumberGeneratorPage() {
           </div>
         </div>
       </section>
-      <section className="mx-auto max-w-4xl px-6 pb-20">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">Related Tools</h2>
-
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            <a
-              href="/generators/password-generator"
-              className="rounded-xl border border-white/10 bg-white/5 p-4 hover:bg-white/10"
-            >
-              Password Generator
-            </a>
-
-            <a
-              href="/generators/random-name-picker"
-              className="rounded-xl border border-white/10 bg-white/5 p-4 hover:bg-white/10"
-            >
-              Random Name Picker
-            </a>
-
-          </div>
-        </div>
-      </section>
+      
     </main>
   );
 }
