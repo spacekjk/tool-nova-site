@@ -89,65 +89,7 @@ export default function DaysBetweenDatesPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 pb-14">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">
-            How this days between dates calculator works
-          </h2>
-          <div className="mt-4 space-y-4 text-white/70">
-            <p>
-              This calculator compares two calendar dates and returns the total
-              number of days between them.
-            </p>
-            <p>
-              It works by converting both dates into a standard day-based format
-              and then measuring the difference.
-            </p>
-            <p>
-              You can use it for deadlines, project planning, age tracking,
-              travel planning, and counting time periods.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-5xl px-6 pb-16">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
-
-          <div className="mt-6 space-y-6">
-            <div>
-              <h3 className="text-lg font-medium">
-                How do I calculate the number of days between two dates?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Select a start date and an end date. The calculator will show
-                the total number of days between them.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Does this tool include leap years?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. Because it uses actual calendar dates, leap years are
-                automatically reflected in the result.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Is this days between dates calculator free?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. Tool Nova provides this date calculator online for free
-                with no sign-up required.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
       
     </main>
   );

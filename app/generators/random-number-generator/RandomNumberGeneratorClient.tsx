@@ -99,64 +99,7 @@ export default function RandomNumberGeneratorPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-6 pb-14">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">
-            How this random number generator works
-          </h2>
-          <div className="mt-4 space-y-4 text-white/70">
-            <p>
-              This tool generates a random whole number between the minimum and
-              maximum values you choose.
-            </p>
-            <p>
-              It is useful for choosing winners, rolling custom number ranges,
-              classroom activities, decision-making, and simple games.
-            </p>
-            <p>
-              Enter two whole numbers, then click the generate button to get a
-              random result instantly.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-4xl px-6 pb-16">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
-
-          <div className="mt-6 space-y-6">
-            <div>
-              <h3 className="text-lg font-medium">
-                Can I generate a random number between any two values?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. Enter your minimum and maximum values, and the tool will
-                generate a random whole number in that range.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Is this random number generator free?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. Tool Nova provides this generator online for free with no
-                sign-up required.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Does it generate decimal numbers?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                No. This version generates whole numbers only.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
       
     </main>
   );

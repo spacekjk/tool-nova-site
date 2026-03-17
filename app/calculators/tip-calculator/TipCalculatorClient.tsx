@@ -74,14 +74,7 @@ export default function TipCalculatorClient() {
         </div>
       </section>
 
-      <section className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6">
-        <h2 className="text-2xl font-semibold">How this tip calculator works</h2>
-        <p className="mt-4 leading-8 text-white/70">
-          The calculator multiplies the bill amount by the tip percentage to find the
-          tip, adds it to the bill total, and optionally divides the result by the
-          number of people for bill splitting.
-        </p>
-      </section>
+      
     </main>
   );
 }

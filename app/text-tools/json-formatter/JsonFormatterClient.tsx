@@ -149,61 +149,7 @@ export default function JsonFormatterPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 pb-14">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">How this JSON formatter works</h2>
-          <div className="mt-4 space-y-4 text-white/70">
-            <p>
-              This tool parses your JSON input and reformats it into a clean,
-              readable structure with proper indentation.
-            </p>
-            <p>
-              If the JSON is invalid, the tool shows an error message so you can
-              quickly spot formatting problems.
-            </p>
-            <p>
-              It is useful for API responses, configuration files, debugging,
-              and development workflows.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 pb-16">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
-
-          <div className="mt-6 space-y-6">
-            <div>
-              <h3 className="text-lg font-medium">What is a JSON formatter?</h3>
-              <p className="mt-2 leading-7 text-white/70">
-                A JSON formatter takes raw JSON data and displays it in a
-                cleaner, more readable format with spacing and indentation.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Can this tool validate JSON too?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. It checks whether your input is valid JSON and shows an
-                error if the format is incorrect.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Is this JSON formatter free?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. Tool Nova provides this JSON formatter online for free with
-                no sign-up required.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
       
     </main>
   );

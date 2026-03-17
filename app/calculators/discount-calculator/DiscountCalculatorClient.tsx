@@ -60,32 +60,7 @@ export default function DiscountCalculatorClient() {
         </div>
       </section>
 
-      <section className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6">
-        <h2 className="text-2xl font-semibold">How this discount calculator works</h2>
-        <p className="mt-4 leading-8 text-white/70">
-          This tool calculates the discount amount by multiplying the original price
-          by the discount percentage. It then subtracts that discount from the
-          original price to show the final sale price.
-        </p>
-      </section>
-
-      <section className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6">
-        <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
-        <div className="mt-6 space-y-6">
-          <div>
-            <h3 className="text-lg font-medium">How do I calculate a discount?</h3>
-            <p className="mt-2 leading-7 text-white/70">
-              Enter the original price and the discount percentage to see the savings and final price.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-medium">Can I use this for shopping sales?</h3>
-            <p className="mt-2 leading-7 text-white/70">
-              Yes. This calculator is useful for sale prices, promotions, and markdowns.
-            </p>
-          </div>
-        </div>
-      </section>
+      
     </main>
   );
 }

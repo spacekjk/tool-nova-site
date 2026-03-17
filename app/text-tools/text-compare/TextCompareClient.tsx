@@ -132,64 +132,7 @@ export default function TextComparePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 pb-14">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">How this text compare tool works</h2>
-          <div className="mt-4 space-y-4 text-white/70">
-            <p>
-              This tool compares two blocks of text line by line. If the content
-              is the same, the result shows a match. If any line is different,
-              the result highlights that row.
-            </p>
-            <p>
-              It is useful for checking revisions, copied content, document
-              drafts, and quick proofreading tasks.
-            </p>
-            <p>
-              Paste your original text into one box and the edited or copied
-              version into the other box to compare them instantly.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 pb-16">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
-
-          <div className="mt-6 space-y-6">
-            <div>
-              <h3 className="text-lg font-medium">
-                How do I compare two texts online?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Paste one text into the first box and the other into the second
-                box. The tool will compare them line by line.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Does this tool show whether the texts match exactly?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. It shows an overall match result and highlights lines that
-                are different.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Is this text compare tool free?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. Tool Nova provides this text compare tool online for free
-                with no sign-up required.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
       
     </main>
   );

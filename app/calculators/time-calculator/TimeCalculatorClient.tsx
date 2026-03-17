@@ -152,64 +152,7 @@ export default function TimeCalculatorPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-6 pb-14">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">How this time calculator works</h2>
-          <div className="mt-4 space-y-4 text-white/70">
-            <p>
-              This time calculator converts hours and minutes into total
-              minutes, then either adds or subtracts the values depending on
-              the option you select.
-            </p>
-            <p>
-              For example, 2 hours 30 minutes plus 1 hour 45 minutes equals 4
-              hours 15 minutes.
-            </p>
-            <p>
-              You can use this tool for work shifts, study sessions, project
-              planning, and general time calculations.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-4xl px-6 pb-16">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
-
-          <div className="mt-6 space-y-6">
-            <div>
-              <h3 className="text-lg font-medium">
-                How do I add hours and minutes?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Enter the first time value and the second time value, then
-                choose the add option to calculate the total.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Can this calculator subtract time?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. Choose the subtract option to find the difference between
-                two time values.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Can I use this online time calculator for free?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. Tool Nova provides this time calculator online for free
-                with no sign-up required.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
       
     </main>
   );

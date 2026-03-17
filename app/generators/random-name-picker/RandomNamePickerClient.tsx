@@ -84,60 +84,7 @@ export default function RandomNamePickerPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 pb-14">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">
-            How this random name picker works
-          </h2>
-          <div className="mt-4 space-y-4 text-white/70">
-            <p>
-              Enter a list of names, either one name per line or separated by
-              commas. The tool will randomly choose one name from the list.
-            </p>
-            <p>
-              This is useful for classroom participation, raffles, giveaways,
-              team assignments, and fair random selection.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-5xl px-6 pb-16">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
-
-          <div className="mt-6 space-y-6">
-            <div>
-              <h3 className="text-lg font-medium">
-                How do I use the random name picker?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Enter your list of names into the box, then click the button to
-                choose one name at random.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Can I paste multiple names at once?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. You can paste names separated by lines or commas.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Is this random name picker free?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. Tool Nova provides this random name picker online for free
-                with no sign-up required.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
       
     </main>
   );

@@ -148,64 +148,7 @@ export default function LoanCalculatorPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 pb-14">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">How this loan calculator works</h2>
-          <div className="mt-4 space-y-4 text-white/70">
-            <p>
-              This loan calculator uses the standard amortized loan payment formula
-              to estimate your monthly payment based on the loan amount, annual
-              interest rate, and repayment period.
-            </p>
-            <p>
-              It also calculates the total amount you will repay over the full loan
-              term and the total interest paid.
-            </p>
-            <p>
-              This tool is useful for estimating personal loans, car loans, and other
-              simple installment loans.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-5xl px-6 pb-16">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
-
-          <div className="mt-6 space-y-6">
-            <div>
-              <h3 className="text-lg font-medium">
-                How do I calculate a monthly loan payment?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Enter the loan amount, interest rate, and loan term. The calculator
-                uses these values to estimate your monthly repayment.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Does this calculator show total interest?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. It shows both the total repayment amount and the total interest
-                paid over the full loan term.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Is this loan calculator free to use?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. Tool Nova provides this loan calculator online for free with no
-                sign-up required.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
       
     </main>
   );

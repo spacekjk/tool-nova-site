@@ -132,73 +132,7 @@ export default function PercentageCalculatorPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-6 pb-14">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">
-            How this percentage calculator works
-          </h2>
-          <div className="mt-4 space-y-4 text-white/70">
-            <p>
-              This online percentage calculator supports three common
-              calculations. You can find what percentage one number is of
-              another, calculate a percentage of a value, or measure percentage
-              increase and decrease.
-            </p>
-            <p>
-              For example, if you want to know what percentage 25 is of 200, the
-              formula is:
-              <span className="ml-1 font-medium text-white">
-                (25 ÷ 200) × 100 = 12.5%
-              </span>
-            </p>
-            <p>
-              If you want to calculate percentage change from 80 to 100, the
-              formula is:
-              <span className="ml-1 font-medium text-white">
-                ((100 - 80) ÷ 80) × 100 = 25%
-              </span>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-4xl px-6 pb-16">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
-
-          <div className="mt-6 space-y-6">
-            <div>
-              <h3 className="text-lg font-medium">
-                How do I calculate percentage?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Divide the part by the whole, then multiply by 100. This gives
-                you the percentage value.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                How do I calculate percentage increase?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Subtract the original value from the new value, divide by the
-                original value, and multiply by 100.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Can I use this percentage calculator for free?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. Tool Nova provides this percentage calculator online for
-                free with no sign-up required.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
       
     </main>
   );

@@ -131,6 +131,26 @@ export const TOOLS: ToolItem[] = [
     featured: true,
     published: true,
     relatedSlugs: ["loan-calculator", "bmi-calculator", "time-calculator"],
+    howItWorksTitle: "How this percentage calculator works",
+    howItWorks: [
+      "This calculator helps you find percentages, percentage change, increases, and decreases quickly.",
+      "It uses standard percentage formulas to convert values into percentage results based on your inputs.",
+      "You can use it for discounts, prices, grades, finance, and everyday math calculations.",
+    ],
+    faqs: [
+      {
+        question: "What can I calculate with this percentage calculator?",
+        answer: "You can calculate basic percentages, percentage increase, percentage decrease, and related values.",
+      },
+      {
+        question: "Can I use this tool for discounts and price changes?",
+        answer: "Yes. This percentage calculator is useful for shopping discounts, markups, and price comparisons.",
+      },
+      {
+        question: "Is this percentage calculator free to use?",
+        answer: "Yes. Tool Nova provides this percentage calculator online for free.",
+      },
+    ],
   },
   {
     slug: "bmi-calculator",
@@ -140,14 +160,30 @@ export const TOOLS: ToolItem[] = [
     description:
       "Calculate your body mass index instantly with this free BMI calculator.",
     shortDescription: "Check body mass index quickly.",
-    keywords: [
-      "bmi calculator",
-      "body mass index calculator",
-      "health calculator",
-    ],
+    keywords: ["bmi calculator", "body mass index calculator", "health calculator"],
     featured: true,
     published: true,
     relatedSlugs: ["age-calculator", "kg-to-lbs", "percentage-calculator"],
+    howItWorksTitle: "How this BMI calculator works",
+    howItWorks: [
+      "This calculator uses your height and weight to estimate your body mass index, also called BMI.",
+      "BMI is calculated by dividing body weight by height squared, using a standard health screening formula.",
+      "It can help you quickly check whether your BMI falls into a common underweight, normal, overweight, or obesity range.",
+    ],
+    faqs: [
+      {
+        question: "What is BMI?",
+        answer: "BMI stands for body mass index. It is a simple measurement based on height and weight.",
+      },
+      {
+        question: "Is BMI a medical diagnosis?",
+        answer: "No. BMI is a screening tool, not a full medical diagnosis. It is useful for general guidance only.",
+      },
+      {
+        question: "Can I use this BMI calculator for free?",
+        answer: "Yes. Tool Nova provides this BMI calculator online for free.",
+      },
+    ],
   },
   {
     slug: "time-calculator",
@@ -161,6 +197,31 @@ export const TOOLS: ToolItem[] = [
     featured: true,
     published: true,
     relatedSlugs: ["days-between-dates", "age-calculator", "percentage-calculator"],
+
+    howItWorksTitle: "How this time calculator works",
+    howItWorks: [
+      "This calculator allows you to add or subtract time values such as hours and minutes quickly.",
+      "It converts time inputs into a consistent format and performs calculations to give accurate results.",
+      "You can use it for tracking work hours, calculating durations, scheduling, and everyday time management.",
+    ],
+
+    faqs: [
+      {
+        question: "What can I do with this time calculator?",
+        answer:
+          "You can add or subtract hours and minutes, calculate time differences, and manage time durations easily.",
+      },
+      {
+        question: "Can I use this time calculator for work hours?",
+        answer:
+          "Yes. This tool is useful for calculating work shifts, total hours, and time intervals.",
+      },
+      {
+        question: "Is this time calculator free to use?",
+        answer:
+          "Yes. Tool Nova provides this time calculator online for free with no sign-up required.",
+      },
+    ],
   },
   {
     slug: "loan-calculator",
@@ -174,6 +235,26 @@ export const TOOLS: ToolItem[] = [
     featured: true,
     published: true,
     relatedSlugs: ["percentage-calculator", "discount-calculator", "vat-calculator"],
+    howItWorksTitle: "How this loan calculator works",
+    howItWorks: [
+      "This calculator estimates monthly loan payments based on the loan amount, interest rate, and repayment term.",
+      "It uses a standard amortization formula to calculate how much you may pay each month over time.",
+      "You can use it to compare borrowing options, estimate total repayment, and understand interest costs more clearly.",
+    ],
+    faqs: [
+      {
+        question: "What does this loan calculator show?",
+        answer: "It shows an estimated monthly payment and can help you understand total repayment and interest over the loan term.",
+      },
+      {
+        question: "Does this loan calculator work for personal loans?",
+        answer: "Yes. It can be used for many general fixed-rate loan estimates, including personal loans and similar borrowing scenarios.",
+      },
+      {
+        question: "Is this loan calculator free?",
+        answer: "Yes. Tool Nova provides this loan calculator online for free with no sign-up required.",
+      },
+    ],
   },
   {
     slug: "days-between-dates",
@@ -186,6 +267,26 @@ export const TOOLS: ToolItem[] = [
     keywords: ["days between dates", "date difference calculator", "days calculator"],
     published: true,
     relatedSlugs: ["age-calculator", "time-calculator", "percentage-calculator"],
+    howItWorksTitle: "How this days between dates calculator works",
+    howItWorks: [
+      "This calculator compares two calendar dates and returns the total number of days between them.",
+      "It works by converting both dates into a standard day-based format and then measuring the difference.",
+      "You can use it for deadlines, project planning, age tracking, travel planning, and counting time periods.",
+    ],
+    faqs: [
+      {
+        question: "How do I calculate the number of days between two dates?",
+        answer: "Select a start date and an end date. The calculator will show the total number of days between them.",
+      },
+      {
+        question: "Does this tool include leap years?",
+        answer: "Yes. Because it uses actual calendar dates, leap years are automatically reflected in the result.",
+      },
+      {
+        question: "Is this days between dates calculator free?",
+        answer: "Yes. Tool Nova provides this date calculator online for free with no sign-up required.",
+      },
+    ],
   },
   {
     slug: "discount-calculator",
@@ -199,6 +300,31 @@ export const TOOLS: ToolItem[] = [
     featured: true,
     published: true,
     relatedSlugs: ["percentage-calculator", "vat-calculator", "loan-calculator"],
+
+    howItWorksTitle: "How this discount calculator works",
+    howItWorks: [
+      "This calculator helps you find the final price after applying a discount to the original price.",
+      "It calculates the discount amount and subtracts it from the original value to show your savings.",
+      "You can use it for shopping, sales comparisons, budgeting, and quickly estimating discounted prices.",
+    ],
+
+    faqs: [
+      {
+        question: "How do I calculate a discount?",
+        answer:
+          "Enter the original price and the discount percentage. The calculator will show the final price and how much you save.",
+      },
+      {
+        question: "Can I use this discount calculator for shopping?",
+        answer:
+          "Yes. It is useful for comparing deals, checking sale prices, and estimating savings while shopping.",
+      },
+      {
+        question: "Is this discount calculator free to use?",
+        answer:
+          "Yes. Tool Nova provides this discount calculator online for free with no sign-up required.",
+      },
+    ],
   },
   {
     slug: "tip-calculator",
@@ -211,6 +337,31 @@ export const TOOLS: ToolItem[] = [
     keywords: ["tip calculator", "gratuity calculator", "bill split calculator"],
     published: true,
     relatedSlugs: ["percentage-calculator", "discount-calculator", "vat-calculator"],
+
+    howItWorksTitle: "How this tip calculator works",
+    howItWorks: [
+      "This calculator helps you determine how much tip to leave based on your total bill and selected percentage.",
+      "It calculates the tip amount and adds it to the bill to show the total payment.",
+      "You can also split the total amount between multiple people to quickly see how much each person should pay.",
+    ],
+
+    faqs: [
+      {
+        question: "How do I calculate a tip?",
+        answer:
+          "Enter your bill amount and choose a tip percentage. The calculator will show the tip amount and total bill.",
+      },
+      {
+        question: "Can I split the bill using this tip calculator?",
+        answer:
+          "Yes. You can divide the total amount by the number of people to see how much each person should pay.",
+      },
+      {
+        question: "Is this tip calculator free to use?",
+        answer:
+          "Yes. Tool Nova provides this tip calculator online for free with no sign-up required.",
+      },
+    ],
   },
   {
     slug: "vat-calculator",
@@ -224,6 +375,31 @@ export const TOOLS: ToolItem[] = [
     featured: true,
     published: true,
     relatedSlugs: ["discount-calculator", "percentage-calculator", "loan-calculator"],
+
+    howItWorksTitle: "How this VAT calculator works",
+    howItWorks: [
+      "This calculator helps you add or remove value added tax (VAT) from a given amount quickly.",
+      "It calculates the tax portion based on the VAT rate and shows both the net and gross values.",
+      "You can use it for invoices, pricing, business calculations, and understanding tax-inclusive prices.",
+    ],
+
+    faqs: [
+      {
+        question: "What is VAT?",
+        answer:
+          "VAT (Value Added Tax) is a consumption tax added to goods and services in many countries.",
+      },
+      {
+        question: "Can I remove VAT from a price?",
+        answer:
+          "Yes. This calculator allows you to reverse VAT to find the original price before tax.",
+      },
+      {
+        question: "Is this VAT calculator free to use?",
+        answer:
+          "Yes. Tool Nova provides this VAT calculator online for free with no sign-up required.",
+      },
+    ],
   },
 
   // text-tools
@@ -239,6 +415,31 @@ export const TOOLS: ToolItem[] = [
     featured: true,
     published: true,
     relatedSlugs: ["character-counter", "case-converter", "text-compare"],
+
+    howItWorksTitle: "How this word counter works",
+    howItWorks: [
+      "This tool analyzes your text input and instantly counts words, characters, sentences, and paragraphs.",
+      "It processes the text in real time, so results update automatically as you type or paste content.",
+      "You can use it for writing, editing, SEO optimization, and checking content length requirements.",
+    ],
+
+    faqs: [
+      {
+        question: "What does this word counter measure?",
+        answer:
+          "It counts words, characters, sentences, and paragraphs in your text automatically.",
+      },
+      {
+        question: "Can I use this word counter for SEO or writing limits?",
+        answer:
+          "Yes. It is useful for blog posts, essays, and any content that has word or character limits.",
+      },
+      {
+        question: "Is this word counter free to use?",
+        answer:
+          "Yes. Tool Nova provides this word counter online for free with no sign-up required.",
+      },
+    ],
   },
   {
     slug: "character-counter",
@@ -251,6 +452,31 @@ export const TOOLS: ToolItem[] = [
     featured: true,
     published: true,
     relatedSlugs: ["word-counter", "case-converter", "remove-line-breaks"],
+
+    howItWorksTitle: "How this character counter works",
+    howItWorks: [
+      "This tool analyzes your text input and counts characters instantly, both with and without spaces.",
+      "It updates results in real time as you type or paste content into the input area.",
+      "You can use it for writing limits, social media posts, coding, and general text analysis.",
+    ],
+
+    faqs: [
+      {
+        question: "What does this character counter measure?",
+        answer:
+          "It counts total characters, including spaces and optionally excluding spaces depending on your needs.",
+      },
+      {
+        question: "Can I use this tool for writing limits or social media?",
+        answer:
+          "Yes. It is useful for platforms like Twitter, essays, or any content with character limits.",
+      },
+      {
+        question: "Is this character counter free to use?",
+        answer:
+          "Yes. Tool Nova provides this character counter online for free with no sign-up required.",
+      },
+    ],
   },
   {
     slug: "case-converter",
@@ -264,6 +490,31 @@ export const TOOLS: ToolItem[] = [
     featured: true,
     published: true,
     relatedSlugs: ["word-counter", "character-counter", "reverse-text"],
+
+    howItWorksTitle: "How this case converter works",
+    howItWorks: [
+      "This tool transforms your text into different letter cases such as uppercase, lowercase, title case, and sentence case.",
+      "It processes your input instantly, allowing you to switch between formats in real time.",
+      "You can use it for writing, formatting documents, coding, and improving text consistency.",
+    ],
+
+    faqs: [
+      {
+        question: "What types of text case can I convert?",
+        answer:
+          "You can convert text to uppercase, lowercase, title case, and sentence case instantly.",
+      },
+      {
+        question: "Can I use this case converter for formatting documents?",
+        answer:
+          "Yes. It is useful for editing content, correcting capitalization, and formatting text quickly.",
+      },
+      {
+        question: "Is this case converter free to use?",
+        answer:
+          "Yes. Tool Nova provides this case converter online for free with no sign-up required.",
+      },
+    ],
   },
   {
     slug: "remove-line-breaks",
@@ -276,6 +527,31 @@ export const TOOLS: ToolItem[] = [
     keywords: ["remove line breaks", "join lines", "text cleanup"],
     published: true,
     relatedSlugs: ["remove-duplicates", "sort-text", "word-counter"],
+
+    howItWorksTitle: "How this remove line breaks tool works",
+    howItWorks: [
+      "This tool removes line breaks from your text and combines multiple lines into a single continuous paragraph.",
+      "It processes pasted or typed text instantly, replacing line breaks with spaces or removing them entirely.",
+      "You can use it to clean copied text, format paragraphs, and prepare content for documents or web publishing.",
+    ],
+
+    faqs: [
+      {
+        question: "What does remove line breaks mean?",
+        answer:
+          "It removes newline characters from text and joins lines together into one continuous paragraph.",
+      },
+      {
+        question: "Can I use this tool to clean copied text?",
+        answer:
+          "Yes. It is useful when copying text from PDFs, emails, or websites where line breaks are inconsistent.",
+      },
+      {
+        question: "Is this remove line breaks tool free to use?",
+        answer:
+          "Yes. Tool Nova provides this tool online for free with no sign-up required.",
+      },
+    ],
   },
   {
     slug: "text-compare",
@@ -289,6 +565,31 @@ export const TOOLS: ToolItem[] = [
     featured: true,
     published: true,
     relatedSlugs: ["word-counter", "json-formatter", "remove-line-breaks"],
+
+    howItWorksTitle: "How this text compare tool works",
+    howItWorks: [
+      "This tool compares two blocks of text and highlights the differences between them.",
+      "It analyzes both inputs and identifies added, removed, or changed content instantly.",
+      "You can use it for editing, proofreading, version comparison, and checking changes in documents or code.",
+    ],
+
+    faqs: [
+      {
+        question: "What does this text compare tool do?",
+        answer:
+          "It compares two text inputs and shows the differences between them so you can easily spot changes.",
+      },
+      {
+        question: "Can I use this tool for code or documents?",
+        answer:
+          "Yes. It works for any type of text, including code, articles, notes, and documents.",
+      },
+      {
+        question: "Is this text compare tool free to use?",
+        answer:
+          "Yes. Tool Nova provides this text comparison tool online for free with no sign-up required.",
+      },
+    ],
   },
   {
     slug: "json-formatter",
@@ -302,6 +603,31 @@ export const TOOLS: ToolItem[] = [
     featured: true,
     published: true,
     relatedSlugs: ["text-compare", "remove-line-breaks", "case-converter"],
+
+    howItWorksTitle: "How this JSON formatter works",
+    howItWorks: [
+      "This tool formats raw JSON data into a clean and readable structure with proper indentation.",
+      "It also validates your JSON input and highlights errors if the syntax is incorrect.",
+      "You can use it for debugging, development, API responses, and improving JSON readability.",
+    ],
+
+    faqs: [
+      {
+        question: "What does a JSON formatter do?",
+        answer:
+          "It organizes JSON data into a structured and readable format, making it easier to understand and debug.",
+      },
+      {
+        question: "Can this tool validate JSON?",
+        answer:
+          "Yes. It checks whether your JSON is valid and helps identify syntax errors.",
+      },
+      {
+        question: "Is this JSON formatter free to use?",
+        answer:
+          "Yes. Tool Nova provides this JSON formatter online for free with no sign-up required.",
+      },
+    ],
   },
   {
     slug: "reverse-text",
@@ -315,6 +641,31 @@ export const TOOLS: ToolItem[] = [
     featured: true,
     published: true,
     relatedSlugs: ["sort-text", "remove-duplicates", "case-converter"],
+
+    howItWorksTitle: "How this reverse text tool works",
+    howItWorks: [
+      "This tool reverses the order of characters in your text instantly.",
+      "It processes your input in real time, allowing you to see reversed text as you type or paste content.",
+      "You can use it for fun, encoding simple messages, testing text formats, or creative writing.",
+    ],
+
+    faqs: [
+      {
+        question: "What does this reverse text tool do?",
+        answer:
+          "It takes your input text and reverses the order of all characters from end to beginning.",
+      },
+      {
+        question: "Can I reverse words instead of characters?",
+        answer:
+          "Some versions allow word-level reversing, but this tool focuses on reversing the full text string.",
+      },
+      {
+        question: "Is this reverse text tool free to use?",
+        answer:
+          "Yes. Tool Nova provides this text reverser online for free with no sign-up required.",
+      },
+    ],
   },
   {
     slug: "sort-text",
@@ -327,6 +678,31 @@ export const TOOLS: ToolItem[] = [
     keywords: ["sort text", "alphabetize text", "sort lines"],
     published: true,
     relatedSlugs: ["reverse-text", "remove-duplicates", "remove-line-breaks"],
+
+    howItWorksTitle: "How this sort text tool works",
+    howItWorks: [
+      "This tool takes multiple lines of text and sorts them based on your selected order.",
+      "It can arrange lines alphabetically, reverse the order, or organize them for easier readability.",
+      "You can use it for lists, data cleanup, organizing content, and improving text structure.",
+    ],
+
+    faqs: [
+      {
+        question: "What can I sort with this tool?",
+        answer:
+          "You can sort any list of text lines alphabetically, in reverse order, or in different arrangements depending on your needs.",
+      },
+      {
+        question: "Does this tool change the content of my text?",
+        answer:
+          "No. It only changes the order of the lines without modifying the actual content.",
+      },
+      {
+        question: "Is this sort text tool free to use?",
+        answer:
+          "Yes. Tool Nova provides this text sorting tool online for free with no sign-up required.",
+      },
+    ],
   },
   {
     slug: "remove-duplicates",
@@ -339,6 +715,31 @@ export const TOOLS: ToolItem[] = [
     keywords: ["remove duplicate lines", "dedupe text", "duplicate remover"],
     published: true,
     relatedSlugs: ["sort-text", "remove-line-breaks", "reverse-text"],
+
+    howItWorksTitle: "How this remove duplicate lines tool works",
+    howItWorks: [
+      "This tool scans your text and removes repeated lines, keeping only unique entries.",
+      "It processes the input instantly and filters out duplicates while preserving the original structure.",
+      "You can use it for cleaning lists, organizing data, and removing repeated content from text.",
+    ],
+
+    faqs: [
+      {
+        question: "What does this tool do?",
+        answer:
+          "It removes duplicate lines from your text so that only unique lines remain.",
+      },
+      {
+        question: "Will this tool change my original text?",
+        answer:
+          "No. It only removes repeated lines and keeps the remaining content unchanged.",
+      },
+      {
+        question: "Is this remove duplicate lines tool free to use?",
+        answer:
+          "Yes. Tool Nova provides this tool online for free with no sign-up required.",
+      },
+    ],
   },
 
   // generators
@@ -354,6 +755,31 @@ export const TOOLS: ToolItem[] = [
     featured: true,
     published: true,
     relatedSlugs: ["random-number-generator", "random-name-picker", "uuid-generator"],
+
+    howItWorksTitle: "How this password generator works",
+    howItWorks: [
+      "This tool generates strong and secure passwords using a mix of letters, numbers, and special characters.",
+      "It uses randomization to create unpredictable combinations that are difficult to guess or crack.",
+      "You can use it to create passwords for accounts, applications, and any situation where security is important.",
+    ],
+
+    faqs: [
+      {
+        question: "What makes a password secure?",
+        answer:
+          "A secure password includes a mix of uppercase and lowercase letters, numbers, and special characters, and avoids predictable patterns.",
+      },
+      {
+        question: "Can I use this password generator for any account?",
+        answer:
+          "Yes. You can generate passwords for websites, apps, email accounts, and other services.",
+      },
+      {
+        question: "Is this password generator free to use?",
+        answer:
+          "Yes. Tool Nova provides this password generator online for free with no sign-up required.",
+      },
+    ],
   },
   {
     slug: "random-number-generator",
@@ -367,6 +793,31 @@ export const TOOLS: ToolItem[] = [
     featured: true,
     published: true,
     relatedSlugs: ["random-name-picker", "password-generator", "uuid-generator"],
+
+    howItWorksTitle: "How this random number generator works",
+    howItWorks: [
+      "This tool generates random numbers within a specified range based on your input.",
+      "It uses randomization logic to ensure fair and unbiased number selection.",
+      "You can use it for games, classroom activities, testing, giveaways, and decision making.",
+    ],
+
+    faqs: [
+      {
+        question: "How do I generate a random number?",
+        answer:
+          "Enter a minimum and maximum value, and the tool will generate a random number within that range.",
+      },
+      {
+        question: "Is this random number generator truly random?",
+        answer:
+          "It uses a pseudo-random algorithm that provides sufficiently random results for most everyday uses.",
+      },
+      {
+        question: "Is this random number generator free to use?",
+        answer:
+          "Yes. Tool Nova provides this tool online for free with no sign-up required.",
+      },
+    ],
   },
   {
     slug: "random-name-picker",
@@ -379,6 +830,31 @@ export const TOOLS: ToolItem[] = [
     keywords: ["random name picker", "name picker", "random selector"],
     published: true,
     relatedSlugs: ["random-number-generator", "password-generator", "slug-generator"],
+
+    howItWorksTitle: "How this random name picker works",
+    howItWorks: [
+      "This tool selects a random name from a list that you provide.",
+      "It uses random selection logic to ensure each name has an equal chance of being chosen.",
+      "You can use it for giveaways, classroom activities, team selection, or decision making.",
+    ],
+
+    faqs: [
+      {
+        question: "How do I use the random name picker?",
+        answer:
+          "Enter or paste a list of names, and the tool will randomly select one from the list.",
+      },
+      {
+        question: "Is the selection fair?",
+        answer:
+          "Yes. Each name has an equal probability of being selected using randomization.",
+      },
+      {
+        question: "Is this random name picker free to use?",
+        answer:
+          "Yes. Tool Nova provides this tool online for free with no sign-up required.",
+      },
+    ],
   },
   {
     slug: "uuid-generator",
@@ -392,6 +868,31 @@ export const TOOLS: ToolItem[] = [
     featured: true,
     published: true,
     relatedSlugs: ["slug-generator", "password-generator", "random-number-generator"],
+
+    howItWorksTitle: "How this UUID generator works",
+    howItWorks: [
+      "This tool generates universally unique identifiers (UUIDs) using random or pseudo-random values.",
+      "Each generated UUID is designed to be globally unique, making it suitable for databases and systems.",
+      "You can use it for development, APIs, database keys, and tracking unique records.",
+    ],
+
+    faqs: [
+      {
+        question: "What is a UUID?",
+        answer:
+          "A UUID (Universally Unique Identifier) is a 128-bit value used to uniquely identify information across systems.",
+      },
+      {
+        question: "Can I use these UUIDs in production?",
+        answer:
+          "Yes. UUIDs generated by this tool are suitable for most applications including development and production use.",
+      },
+      {
+        question: "Is this UUID generator free to use?",
+        answer:
+          "Yes. Tool Nova provides this UUID generator online for free with no sign-up required.",
+      },
+    ],
   },
   {
     slug: "slug-generator",
@@ -404,6 +905,31 @@ export const TOOLS: ToolItem[] = [
     keywords: ["slug generator", "url slug generator", "seo slug tool"],
     published: true,
     relatedSlugs: ["uuid-generator", "password-generator", "case-converter"],
+
+    howItWorksTitle: "How this slug generator works",
+    howItWorks: [
+      "This tool converts your text into a clean, URL-friendly slug by removing special characters and formatting it properly.",
+      "It replaces spaces with hyphens and normalizes text to make it suitable for web URLs.",
+      "You can use it for SEO optimization, blog URLs, product pages, and clean link structures.",
+    ],
+
+    faqs: [
+      {
+        question: "What is a URL slug?",
+        answer:
+          "A slug is the part of a URL that identifies a specific page in a readable and SEO-friendly format.",
+      },
+      {
+        question: "Why are slugs important for SEO?",
+        answer:
+          "Clean and descriptive slugs help search engines understand your content and improve visibility in search results.",
+      },
+      {
+        question: "Is this slug generator free to use?",
+        answer:
+          "Yes. Tool Nova provides this slug generator online for free with no sign-up required.",
+      },
+    ],
   },
 
   // converters

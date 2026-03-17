@@ -113,64 +113,7 @@ export default function WordCounterPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 pb-14">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">How this word counter works</h2>
-          <div className="mt-4 space-y-4 text-white/70">
-            <p>
-              This online word counter analyzes your text and shows the total
-              number of words, characters, sentences, and paragraphs in real
-              time.
-            </p>
-            <p>
-              It is useful for checking essay length, article word count, social
-              media drafts, and writing assignments with strict limits.
-            </p>
-            <p>
-              The reading time estimate is based on a typical reading speed of
-              around 200 words per minute.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-5xl px-6 pb-16">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
-
-          <div className="mt-6 space-y-6">
-            <div>
-              <h3 className="text-lg font-medium">
-                How do I count words in a paragraph?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Paste the paragraph into the text box and the tool will count
-                the words automatically.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Does this tool count characters too?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. It counts total characters, characters without spaces,
-                sentences, paragraphs, and estimated reading time.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Can I use this online word counter for free?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. Tool Nova provides this word counter online for free with
-                no sign-up required.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
       
     </main>
   );

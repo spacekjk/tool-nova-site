@@ -42,65 +42,7 @@ export default function KgToLbsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-6 pb-14">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">
-            How this kg to lbs converter works
-          </h2>
-          <div className="mt-4 space-y-4 text-white/70">
-            <p>
-              This converter uses the standard conversion formula from kilograms
-              to pounds.
-            </p>
-            <p>
-              The formula is:
-              <span className="ml-1 font-medium text-white">
-                pounds = kilograms × 2.20462
-              </span>
-            </p>
-            <p>
-              For example, 70 kg is equal to about 154.32 lbs.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-4xl px-6 pb-16">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
-
-          <div className="mt-6 space-y-6">
-            <div>
-              <h3 className="text-lg font-medium">
-                How many pounds are in 1 kilogram?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                One kilogram is equal to about 2.20462 pounds.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Can I use this kg to lbs converter for free?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. Tool Nova provides this converter online for free with no
-                sign-up required.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Is this conversion accurate?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. The converter uses the standard kilogram to pound
-                conversion factor.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
     </main>
   );
 }

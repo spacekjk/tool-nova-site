@@ -74,65 +74,7 @@ export default function RemoveLineBreaksPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 pb-14">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">
-            How this remove line breaks tool works
-          </h2>
-          <div className="mt-4 space-y-4 text-white/70">
-            <p>
-              This tool removes line breaks and extra spacing from your text,
-              then combines everything into a cleaner single-line result.
-            </p>
-            <p>
-              It is useful when you copy text from PDFs, emails, websites, or
-              documents and want to remove unwanted line breaks quickly.
-            </p>
-            <p>
-              You can paste your text into the input box, then copy the cleaned
-              version from the output area.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-5xl px-6 pb-16">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
-
-          <div className="mt-6 space-y-6">
-            <div>
-              <h3 className="text-lg font-medium">
-                What does remove line breaks mean?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                It means deleting line breaks and combining multiple lines of
-                text into one continuous line.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Can I use this tool for copied PDF text?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. This is one of the most common uses for a remove line
-                breaks tool.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Is this remove line breaks tool free?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. Tool Nova provides this text tool online for free with no
-                sign-up required.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
       
     </main>
   );

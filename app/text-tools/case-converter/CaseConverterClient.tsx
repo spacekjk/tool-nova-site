@@ -84,56 +84,7 @@ export default function CaseConverterPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 pb-14">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">How this case converter works</h2>
-          <div className="mt-4 space-y-4 text-white/70">
-            <p>
-              This tool changes the letter case of your text instantly. You can
-              convert text to uppercase, lowercase, title case, or sentence
-              case depending on your writing needs.
-            </p>
-            <p>
-              It is useful for editing titles, fixing formatting, preparing
-              social media text, and quickly cleaning up copied content.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-5xl px-6 pb-16">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-          <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
-
-          <div className="mt-6 space-y-6">
-            <div>
-              <h3 className="text-lg font-medium">What is title case?</h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Title case capitalizes the first letter of each major word in a
-                title or heading.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">Can I convert text to all caps?</h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. Use the uppercase option to convert all letters to capital
-                letters.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-medium">
-                Is this case converter free to use?
-              </h3>
-              <p className="mt-2 leading-7 text-white/70">
-                Yes. Tool Nova provides this case converter online for free with
-                no sign-up required.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
       
     </main>
   );
