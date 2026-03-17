@@ -87,7 +87,7 @@ export default async function ToolPage({ params }: Props) {
                 {tool.howItWorksTitle ?? `How this ${tool.name.toLowerCase()} works`}
                 </h2>
 
-                <div className="mt-5 space-y-4 text-base leading-7 text-gray-700 dark:text-gray-300">
+                <div className="mt-8 space-y-6 rounded-3xl border border-white/10 bg-white/5 p-8 text-white/75">
                 {tool.howItWorks.map((text, i) => (
                     <p key={i}>{text}</p>
                 ))}
@@ -97,7 +97,7 @@ export default async function ToolPage({ params }: Props) {
 
         {/* FAQ */}
         {tool.faqs && tool.faqs.length > 0 && (
-            <section className="mb-10 rounded-3xl border border-gray-200 bg-gray-50 p-8 dark:border-gray-800 dark:bg-neutral-900">
+            <section className="mt-8 space-y-6 rounded-3xl border border-white/10 bg-white/5 p-8 text-white/75">
                 <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
                 Frequently Asked Questions
                 </h2>
