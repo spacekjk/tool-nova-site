@@ -48,15 +48,7 @@ export default function AgeCalculatorClient() {
     <main className="min-h-screen bg-neutral-950 text-white">
       <section className="mx-auto max-w-4xl px-6 py-14">
         <div className="max-w-3xl">
-          <p className="mb-3 text-sm text-white/60">Free Online Calculator</p>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            Age Calculator
-          </h1>
-          <p className="mt-4 text-lg leading-8 text-white/70">
-            Calculate your exact age in years, months, and days from your date
-            of birth. This free online age calculator is fast, simple, and easy
-            to use.
-          </p>
+          
         </div>
 
         <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
