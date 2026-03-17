@@ -1,61 +1,6 @@
-import type { Metadata } from "next";
+// app/layout.tsx
+import Link from "next/link";
 import "./globals.css";
-
-export const metadata: Metadata = {
-  metadataBase: new URL("https://tool-nova.com"),
-  title: {
-    default: "Tool Nova - Free Online SEO, Text, Calculator & Converter Tools",
-    template: "%s | Tool Nova",
-  },
-  description:
-    "Free online tools for calculators, text editing, generators, converters, and SEO productivity. Fast, simple, and mobile-friendly.",
-  keywords: [
-    "free online tools",
-    "seo tools",
-    "calculator tools",
-    "text tools",
-    "generators",
-    "converters",
-    "age calculator",
-    "word counter",
-    "json formatter",
-    "loan calculator",
-  ],
-  applicationName: "Tool Nova",
-  authors: [{ name: "Tool Nova" }],
-  creator: "Tool Nova",
-  publisher: "Tool Nova",
-  alternates: {
-    canonical: "https://tool-nova.com",
-  },
-  openGraph: {
-    type: "website",
-    url: "https://tool-nova.com",
-    title: "Tool Nova - Free Online SEO, Text, Calculator & Converter Tools",
-    description:
-      "Free online tools for calculators, text editing, generators, converters, and SEO productivity.",
-    siteName: "Tool Nova",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Tool Nova",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Tool Nova - Free Online SEO, Text, Calculator & Converter Tools",
-    description:
-      "Free online tools for calculators, text editing, generators, converters, and SEO productivity.",
-    images: ["/og-image.png"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
 
 export default function RootLayout({
   children,
@@ -64,7 +9,34 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="bg-white text-gray-900 dark:bg-black dark:text-white">
+        
+        {/* ✅ 상단 고정 Home 버튼 */}
+        <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur dark:border-gray-800 dark:bg-black/80">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+            
+            {/* 로고 (왼쪽) */}
+            <Link
+              href="/"
+              className="text-lg font-bold tracking-tight text-gray-900 dark:text-white"
+            >
+              Tool Nova
+            </Link>
+
+            {/* Home 버튼 (오른쪽) */}
+            <Link
+              href="/"
+              className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium transition hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800"
+            >
+              Home
+            </Link>
+          </div>
+        </header>
+
+        {/* 본문 */}
+        <main>{children}</main>
+
+      </body>
     </html>
   );
 }
