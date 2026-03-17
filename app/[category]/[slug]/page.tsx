@@ -80,40 +80,43 @@ export default async function ToolPage({ params }: Props) {
         <ToolComponent />
       </section>
 
-      {tool.howItWorks && tool.howItWorks.length > 0 && (
-        <section className="mb-10 rounded-3xl border border-gray-200 bg-gray-100 p-8 dark:border-gray-800 dark:bg-black">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
-            {tool.howItWorksTitle ?? `How this ${tool.name.toLowerCase()} works`}
-          </h2>
+      {/* How it works */}
+        {tool.howItWorks && tool.howItWorks.length > 0 && (
+            <section className="mb-10 rounded-3xl border border-gray-200 bg-gray-50 p-8 dark:border-gray-800 dark:bg-neutral-900">
+                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                {tool.howItWorksTitle ?? `How this ${tool.name.toLowerCase()} works`}
+                </h2>
 
-          <div className="mt-5 space-y-4 text-base leading-7 text-gray-700 dark:text-gray-300">
-            {tool.howItWorks.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
-          </div>
-        </section>
-      )}
+                <div className="mt-5 space-y-4 text-base leading-7 text-gray-700 dark:text-gray-300">
+                {tool.howItWorks.map((text, i) => (
+                    <p key={i}>{text}</p>
+                ))}
+                </div>
+            </section>
+        )}
 
-      {tool.faqs && tool.faqs.length > 0 && (
-        <section className="mb-10 rounded-3xl border border-gray-200 bg-gray-100 p-8 dark:border-gray-800 dark:bg-black">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
-            Frequently Asked Questions
-          </h2>
+        {/* FAQ */}
+        {tool.faqs && tool.faqs.length > 0 && (
+            <section className="mb-10 rounded-3xl border border-gray-200 bg-gray-50 p-8 dark:border-gray-800 dark:bg-neutral-900">
+                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
+                Frequently Asked Questions
+                </h2>
 
-          <div className="mt-6 space-y-6">
-            {tool.faqs.map((faq, index) => (
-              <div key={index}>
-                <h3 className="text-xl font-medium text-gray-900 dark:text-white">
-                  {faq.question}
-                </h3>
-                <p className="mt-2 text-base leading-7 text-gray-700 dark:text-gray-300">
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
+                <div className="mt-6 space-y-6">
+                {tool.faqs.map((faq, i) => (
+                    <div key={i}>
+                    <h3 className="text-lg font-medium text-gray-900 dark:text-white">
+                        {faq.question}
+                    </h3>
+                    <p className="mt-2 text-base leading-7 text-gray-700 dark:text-gray-300">
+                        {faq.answer}
+                    </p>
+                    </div>
+                ))}
+                </div>
+            </section>
+     )}
+    
 
       {relatedTools.length > 0 && (
         <section className="rounded-3xl border border-gray-200 bg-gray-50 p-8 dark:border-gray-800 dark:bg-gray-900">
