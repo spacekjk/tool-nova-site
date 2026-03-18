@@ -402,6 +402,54 @@ export const TOOLS: ToolItem[] = [
     ],
   },
 
+  {
+    slug: "compound-interest-calculator",
+    category: "calculators",
+    name: "Compound Interest Calculator",
+    title: "Compound Interest Calculator",
+    description:
+      "Calculate compound interest, final balance, and total interest with this free online compound interest calculator.",
+    shortDescription: "Calculate compound interest and investment growth.",
+    keywords: [
+      "compound interest calculator",
+      "investment calculator",
+      "compound growth calculator",
+      "interest calculator",
+      "savings calculator",
+    ],
+    featured: true,
+    published: true,
+    relatedSlugs: [
+      "loan-calculator",
+      "percentage-calculator",
+      "vat-calculator",
+      "time-calculator",
+    ],
+    howItWorksTitle: "How this compound interest calculator works",
+    howItWorks: [
+      "This calculator estimates how your money grows when interest is added repeatedly over time.",
+      "It uses the standard compound interest formula based on your principal amount, annual interest rate, compounding frequency, and number of years.",
+      "You can use it to estimate savings growth, investment returns, and long-term interest accumulation.",
+    ],
+    faqs: [
+      {
+        question: "What is compound interest?",
+        answer:
+          "Compound interest is interest calculated on both the original principal and the interest already added over time.",
+      },
+      {
+        question: "What is the formula for compound interest?",
+        answer:
+          "A common formula is A = P(1 + r / n)^(n × t), where P is principal, r is annual rate, n is compounding frequency, and t is time in years.",
+      },
+      {
+        question: "Can I use this compound interest calculator for free?",
+        answer:
+          "Yes. Tool Nova provides this compound interest calculator online for free with no sign-up required.",
+      },
+    ],
+  },
+
   // text-tools
   {
     slug: "word-counter",

@@ -10,6 +10,7 @@ import DaysBetweenDatesClient from "@/app/calculators/days-between-dates/DaysBet
 import DiscountCalculatorClient from "@/app/calculators/discount-calculator/DiscountCalculatorClient";
 import TipCalculatorClient from "@/app/calculators/tip-calculator/TipCalculatorClient";
 import VATCalculatorClient from "@/app/calculators/vat-calculator/VATCalculatorClient";
+import CompoundInterestCalculatorClient from "@/app/calculators/compound-interest-calculator/CompoundInterestCalculatorClient";
 
 import WordCounterClient from "@/app/text-tools/word-counter/WordCounterClient";
 import CharacterCounterClient from "@/app/text-tools/character-counter/CharacterCounterClient";
@@ -42,6 +43,7 @@ const TOOL_COMPONENTS: Record<string, ComponentType> = {
   "discount-calculator": DiscountCalculatorClient,
   "tip-calculator": TipCalculatorClient,
   "vat-calculator": VATCalculatorClient,
+  "compound-interest-calculator": CompoundInterestCalculatorClient,
 
   "word-counter": WordCounterClient,
   "character-counter": CharacterCounterClient,

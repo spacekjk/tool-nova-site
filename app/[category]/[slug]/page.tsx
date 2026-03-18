@@ -11,6 +11,7 @@ import {
 import { getToolComponent } from "@/lib/tool-registry";
 import FAQSchema from "@/components/FAQSchema";
 
+
 type Props = {
   params: Promise<{
     category: string;
