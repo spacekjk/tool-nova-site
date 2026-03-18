@@ -63,7 +63,7 @@ export default function PercentageCalculatorPage() {
 
   return (
 
-    <section className="mx-auto max-w-4xl px-6 py-14">
+    <section className="mx-auto max-w-4xl px-6">
 
 
       <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
