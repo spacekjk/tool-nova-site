@@ -21,7 +21,7 @@ export default function RemoveLineBreaksPage() {
 
   return (
 
-    <section className="mx-auto max-w-5xl px-6 py-14">
+    <section className="mx-auto max-w-4xl px-6">
       <div className="max-w-3xl">
 
 

@@ -52,7 +52,7 @@ export default function PasswordGenerator() {
 
   return (
 
-    <section className="mx-auto max-w-4xl px-6 py-14">
+    <section className="mx-auto max-w-4xl px-6">
 
       <p className="text-sm text-white/60">Free Online Generator</p>
 

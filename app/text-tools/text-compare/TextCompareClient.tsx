@@ -40,7 +40,7 @@ export default function TextComparePage() {
 
   return (
 
-    <section className="mx-auto max-w-6xl px-6 py-14">
+    <section className="mx-auto max-w-6xl px-6">
       <div className="max-w-3xl">
 
       </div>

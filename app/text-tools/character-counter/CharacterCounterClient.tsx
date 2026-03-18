@@ -14,7 +14,7 @@ export default function CharacterCounter() {
   return (
 
 
-    <section className="mx-auto max-w-4xl px-6 py-14">
+    <section className="mx-auto max-w-4xl px-6">
 
 
 

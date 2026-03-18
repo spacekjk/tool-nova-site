@@ -68,32 +68,48 @@ export default async function CategoryPage({ params }: Props) {
   }
 
   return (
-    <main className="mx-auto max-w-6xl px-6 py-10">
-      <header className="mb-10">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
-          {meta.title}
-        </h1>
-        <p className="mt-4 max-w-3xl text-base leading-7 text-gray-600 dark:text-gray-300">
-          {meta.description}
-        </p>
-      </header>
+    <main className="min-h-screen bg-neutral-950 text-white">
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="max-w-4xl">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            {meta.title}
+          </h1>
+          <p className="mt-4 text-base leading-8 text-white/70 sm:text-lg">
+            {meta.description}
+          </p>
+        </div>
+      </section>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {tools.map((tool) => (
-          <Link
-            key={tool.slug}
-            href={getToolPath(tool)}
-            className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-gray-800 dark:bg-gray-900"
-          >
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-              {tool.name}
-            </h2>
-            <p className="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">
-              {tool.shortDescription ?? tool.description}
-            </p>
-          </Link>
-        ))}
-      </div>
+      <section className="mx-auto max-w-6xl px-6 pb-16">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {tools.map((tool) => (
+            <Link
+              key={tool.slug}
+              href={getToolPath(tool)}
+              className="rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"
+            >
+              <h2 className="text-xl font-semibold text-white">
+                {tool.name}
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-white/65">
+                {tool.shortDescription ?? tool.description}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-16">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
+          <h2 className="text-2xl font-semibold">Why use {meta.name.toLowerCase()}?</h2>
+          <p className="mt-4 text-base leading-8 text-white/70">
+            Tool Nova&apos;s {meta.name.toLowerCase()} are designed to be fast,
+            simple, and easy to use on desktop and mobile. Whether you need a quick
+            result or a reliable utility for everyday tasks, these browser-based tools
+            help you save time without extra setup.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }

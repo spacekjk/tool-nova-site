@@ -39,7 +39,7 @@ export default function DaysBetweenDatesClient() {
   }, [startDate, endDate]);
 
   return (
-    <section className="mx-auto max-w-5xl px-6">
+    <section className="mx-auto max-w-4xl px-6">
       <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
