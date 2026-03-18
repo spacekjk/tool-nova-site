@@ -449,6 +449,53 @@ export const TOOLS: ToolItem[] = [
       },
     ],
   },
+  {
+    slug: "mortgage-calculator",
+    category: "calculators",
+    name: "Mortgage Calculator",
+    title: "Mortgage Calculator",
+    description:
+      "Calculate monthly mortgage payments, total repayment, and total interest with this free online mortgage calculator.",
+    shortDescription: "Estimate monthly mortgage payments easily.",
+    keywords: [
+      "mortgage calculator",
+      "home loan calculator",
+      "monthly mortgage payment calculator",
+      "mortgage payment calculator",
+      "house payment calculator",
+    ],
+    featured: true,
+    published: true,
+    relatedSlugs: [
+      "loan-calculator",
+      "compound-interest-calculator",
+      "percentage-calculator",
+      "vat-calculator",
+    ],
+    howItWorksTitle: "How this mortgage calculator works",
+    howItWorks: [
+      "This calculator estimates your monthly mortgage payment based on the loan amount, interest rate, and loan term.",
+      "It uses a standard amortization formula to calculate how much you may pay each month over the full mortgage period.",
+      "You can use it to compare different home loan options, estimate total repayment, and understand total interest costs.",
+    ],
+    faqs: [
+      {
+        question: "What does this mortgage calculator show?",
+        answer:
+          "It shows an estimated monthly payment, total repayment amount, and total interest paid over the loan term.",
+      },
+      {
+        question: "What is included in this mortgage estimate?",
+        answer:
+          "This calculator estimates principal and interest payments. It does not automatically include taxes, insurance, or other housing costs unless you add them separately.",
+      },
+      {
+        question: "Can I use this mortgage calculator for free?",
+        answer:
+          "Yes. Tool Nova provides this mortgage calculator online for free with no sign-up required.",
+      },
+    ],
+  },
 
   // text-tools
   {
@@ -786,6 +833,147 @@ export const TOOLS: ToolItem[] = [
         question: "Is this remove duplicate lines tool free to use?",
         answer:
           "Yes. Tool Nova provides this tool online for free with no sign-up required.",
+      },
+    ],
+  },
+  {
+    slug: "base64-encoder-decoder",
+    category: "text-tools",
+    name: "Base64 Encoder / Decoder",
+    title: "Base64 Encoder / Decoder",
+    description:
+      "Encode text to Base64 or decode Base64 strings instantly with this free online tool.",
+    shortDescription: "Encode and decode Base64 instantly.",
+    keywords: [
+      "base64 encoder",
+      "base64 decoder",
+      "base64 encode decode",
+      "online base64 tool",
+      "text to base64",
+    ],
+    featured: true,
+    published: true,
+    relatedSlugs: [
+      "json-formatter",
+      "text-compare",
+      "case-converter",
+      "remove-line-breaks",
+    ],
+    howItWorksTitle: "How this Base64 encoder and decoder works",
+    howItWorks: [
+      "This tool converts plain text into Base64 format and can also decode Base64 strings back into readable text.",
+      "Base64 is commonly used to safely represent text data using only ASCII characters.",
+      "You can use it for development, APIs, debugging, and data transformation tasks in your browser.",
+    ],
+    faqs: [
+      {
+        question: "What is Base64 encoding?",
+        answer:
+          "Base64 encoding converts text or binary data into a text format using a limited set of ASCII characters.",
+      },
+      {
+        question: "Can I decode Base64 back to normal text?",
+        answer:
+          "Yes. This tool can decode valid Base64 strings back into readable text instantly.",
+      },
+      {
+        question: "Is this Base64 encoder and decoder free to use?",
+        answer:
+          "Yes. Tool Nova provides this Base64 tool online for free with no sign-up required.",
+      },
+    ],
+  },
+  {
+    slug: "remove-extra-spaces",
+    category: "text-tools",
+    name: "Remove Extra Spaces",
+    title: "Remove Extra Spaces",
+    description:
+      "Remove extra spaces from text instantly with this free online text cleanup tool.",
+    shortDescription: "Remove extra spaces from text quickly.",
+    keywords: [
+      "remove extra spaces",
+      "extra spaces remover",
+      "text cleanup tool",
+      "remove multiple spaces",
+      "trim spaces online",
+    ],
+    featured: true,
+    published: true,
+    relatedSlugs: [
+      "remove-line-breaks",
+      "remove-duplicates",
+      "word-counter",
+      "case-converter",
+    ],
+    howItWorksTitle: "How this remove extra spaces tool works",
+    howItWorks: [
+      "This tool removes repeated spaces and cleans up unnecessary spacing in your text.",
+      "It can convert multiple spaces into a single space while keeping the text readable and tidy.",
+      "You can use it for writing, pasted content cleanup, document editing, and text formatting tasks.",
+    ],
+    faqs: [
+      {
+        question: "What does remove extra spaces mean?",
+        answer:
+          "It means deleting repeated or unnecessary spaces so your text becomes cleaner and easier to read.",
+      },
+      {
+        question: "Can this tool keep single spaces between words?",
+        answer:
+          "Yes. It removes extra spacing while keeping normal single spaces between words.",
+      },
+      {
+        question: "Is this remove extra spaces tool free to use?",
+        answer:
+          "Yes. Tool Nova provides this text cleanup tool online for free with no sign-up required.",
+      },
+    ],
+  },
+  {
+    slug: "url-encoder-decoder",
+    category: "text-tools",
+    name: "URL Encoder / Decoder",
+    title: "URL Encoder / Decoder",
+    description:
+      "Encode or decode URLs instantly with this free online URL encoder and decoder tool.",
+    shortDescription: "Encode and decode URLs instantly.",
+    keywords: [
+      "url encoder",
+      "url decoder",
+      "url encode decode",
+      "percent encoding tool",
+      "online url encoder",
+    ],
+    featured: true,
+    published: true,
+    relatedSlugs: [
+      "base64-encoder-decoder",
+      "json-formatter",
+      "remove-line-breaks",
+      "case-converter",
+    ],
+    howItWorksTitle: "How this URL encoder and decoder works",
+    howItWorks: [
+      "This tool converts unsafe URL characters into percent-encoded format and can also decode encoded URLs back into readable text.",
+      "URL encoding is commonly used when working with query strings, web forms, APIs, and browser-safe links.",
+      "You can use it for development, debugging, link generation, and text transformation tasks directly in your browser.",
+    ],
+    faqs: [
+      {
+        question: "What is URL encoding?",
+        answer:
+          "URL encoding replaces unsafe characters in a URL with percent-encoded values so they can be transmitted safely on the web.",
+      },
+      {
+        question: "Can I decode an encoded URL back to normal text?",
+        answer:
+          "Yes. This tool can decode valid percent-encoded URLs back into readable text instantly.",
+      },
+      {
+        question: "Is this URL encoder and decoder free to use?",
+        answer:
+          "Yes. Tool Nova provides this URL encoder and decoder online for free with no sign-up required.",
       },
     ],
   },

@@ -11,6 +11,7 @@ import DiscountCalculatorClient from "@/app/calculators/discount-calculator/Disc
 import TipCalculatorClient from "@/app/calculators/tip-calculator/TipCalculatorClient";
 import VATCalculatorClient from "@/app/calculators/vat-calculator/VATCalculatorClient";
 import CompoundInterestCalculatorClient from "@/app/calculators/compound-interest-calculator/CompoundInterestCalculatorClient";
+import MortgageCalculatorClient from "@/app/calculators/mortgage-calculator/MortgageCalculatorClient";
 
 import WordCounterClient from "@/app/text-tools/word-counter/WordCounterClient";
 import CharacterCounterClient from "@/app/text-tools/character-counter/CharacterCounterClient";
@@ -21,6 +22,9 @@ import JsonFormatterClient from "@/app/text-tools/json-formatter/JsonFormatterCl
 import ReverseTextClient from "@/app/text-tools/reverse-text/ReverseTextClient";
 import SortTextClient from "@/app/text-tools/sort-text/SortTextClient";
 import RemoveDuplicatesClient from "@/app/text-tools/remove-duplicates/RemoveDuplicatesClient";
+import Base64EncoderDecoderClient from "@/app/text-tools/base64-encoder-decoder/Base64EncoderDecoderClient";
+import RemoveExtraSpacesClient from "@/app/text-tools/remove-extra-spaces/RemoveExtraSpacesClient";
+import UrlEncoderDecoderClient from "@/app/text-tools/url-encoder-decoder/UrlEncoderDecoderClient";
 
 import PasswordGeneratorClient from "@/app/generators/password-generator/PasswordGeneratorClient";
 import RandomNumberGeneratorClient from "@/app/generators/random-number-generator/RandomNumberGeneratorClient";
@@ -44,6 +48,7 @@ const TOOL_COMPONENTS: Record<string, ComponentType> = {
   "tip-calculator": TipCalculatorClient,
   "vat-calculator": VATCalculatorClient,
   "compound-interest-calculator": CompoundInterestCalculatorClient,
+  "mortgage-calculator": MortgageCalculatorClient,
 
   "word-counter": WordCounterClient,
   "character-counter": CharacterCounterClient,
@@ -54,6 +59,9 @@ const TOOL_COMPONENTS: Record<string, ComponentType> = {
   "reverse-text": ReverseTextClient,
   "sort-text": SortTextClient,
   "remove-duplicates": RemoveDuplicatesClient,
+  "base64-encoder-decoder": Base64EncoderDecoderClient,
+  "remove-extra-spaces": RemoveExtraSpacesClient,
+  "url-encoder-decoder": UrlEncoderDecoderClient,
 
   "password-generator": PasswordGeneratorClient,
   "random-number-generator": RandomNumberGeneratorClient,
