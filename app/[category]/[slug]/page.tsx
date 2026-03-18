@@ -9,6 +9,7 @@ import {
   getToolPath,
 } from "@/lib/tools";
 import { getToolComponent } from "@/lib/tool-registry";
+import FAQSchema from "@/components/FAQSchema";
 
 type Props = {
   params: Promise<{
@@ -80,7 +81,6 @@ export default async function ToolPage({ params }: Props) {
         <ToolComponent />
       </section>
 
-      {/* How it works */}
       {tool.howItWorks && tool.howItWorks.length > 0 && (
         <section className="mx-auto max-w-4xl px-6 pb-14">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
@@ -97,7 +97,6 @@ export default async function ToolPage({ params }: Props) {
         </section>
       )}
 
-      {/* FAQ */}
       {tool.faqs && tool.faqs.length > 0 && (
         <section className="mx-auto max-w-4xl px-6 pb-14">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
@@ -121,7 +120,6 @@ export default async function ToolPage({ params }: Props) {
         </section>
       )}
 
-      {/* Related Tools */}
       {relatedTools.length > 0 && (
         <section className="mx-auto max-w-4xl px-6 pb-14">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
@@ -149,6 +147,7 @@ export default async function ToolPage({ params }: Props) {
         </section>
       )}
 
+      {tool.faqs && <FAQSchema items={tool.faqs} />}
     </main>
   );
 }
