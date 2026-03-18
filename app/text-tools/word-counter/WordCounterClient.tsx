@@ -59,13 +59,13 @@ export default function WordCounterPage() {
 
   return (
 
-    <section className="mx-auto max-w-5xl px-6 py-14">
+    <section className="mx-auto max-w-4xl px-6 py-14">
       <div className="max-w-3xl">
 
       </div>
 
       <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-        <label className="mb-3 block text-sm font-medium text-white/80">
+        <label className="mb-2 block text-sm font-medium text-white/80">
           Enter or paste your text
         </label>
 
