@@ -12,6 +12,10 @@ import TipCalculatorClient from "@/app/calculators/tip-calculator/TipCalculatorC
 import VATCalculatorClient from "@/app/calculators/vat-calculator/VATCalculatorClient";
 import CompoundInterestCalculatorClient from "@/app/calculators/compound-interest-calculator/CompoundInterestCalculatorClient";
 import MortgageCalculatorClient from "@/app/calculators/mortgage-calculator/MortgageCalculatorClient";
+import BusinessDaysCalculatorClient from "@/app/calculators/business-days-calculator/BusinessDaysCalculatorClient";
+import SalaryCalculatorClient from "@/app/calculators/salary-calculator/SalaryCalculatorClient";
+import CalorieCalculatorClient from "@/app/calculators/calorie-calculator/CalorieCalculatorClient";
+import PercentageIncreaseCalculatorClient from "@/app/calculators/percentage-increase-calculator/PercentageIncreaseCalculatorClient";
 
 import WordCounterClient from "@/app/text-tools/word-counter/WordCounterClient";
 import CharacterCounterClient from "@/app/text-tools/character-counter/CharacterCounterClient";
@@ -49,6 +53,10 @@ const TOOL_COMPONENTS: Record<string, ComponentType> = {
   "vat-calculator": VATCalculatorClient,
   "compound-interest-calculator": CompoundInterestCalculatorClient,
   "mortgage-calculator": MortgageCalculatorClient,
+  "business-days-calculator": BusinessDaysCalculatorClient,
+  "salary-calculator": SalaryCalculatorClient,
+  "calorie-calculator": CalorieCalculatorClient,
+  "percentage-increase-calculator": PercentageIncreaseCalculatorClient,
 
   "word-counter": WordCounterClient,
   "character-counter": CharacterCounterClient,

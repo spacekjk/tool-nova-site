@@ -502,7 +502,194 @@ export const TOOLS: ToolItem[] = [
       },
     ],
   },
-
+  {
+    slug: "business-days-calculator",
+    category: "calculators",
+    name: "Business Days Calculator",
+    title: "Business Days Calculator",
+    description:
+      "Calculate business days between two dates instantly with this free online calculator that excludes weekends.",
+    shortDescription: "Calculate weekdays between two dates.",
+    keywords: [
+      "business days calculator",
+      "working days calculator",
+      "weekdays between dates",
+      "exclude weekends calculator",
+      "work days between dates",
+    ],
+    featured: true,
+    published: true,
+    relatedSlugs: [
+      "days-between-dates",
+      "time-calculator",
+      "age-calculator",
+      "percentage-calculator",
+    ],
+    howItWorksTitle: "How this business days calculator works",
+    howItWorks: [
+      "This calculator counts the number of weekdays between a start date and an end date.",
+      "It excludes Saturdays and Sundays automatically so you can estimate business or working days more accurately.",
+      "You can use it for project planning, delivery estimates, work schedules, deadlines, and date calculations.",
+    ],
+    faqs: [
+      {
+        question: "What are business days?",
+        answer:
+          "Business days usually mean weekdays from Monday to Friday and exclude weekends such as Saturday and Sunday.",
+      },
+      {
+        question: "Does this business days calculator exclude weekends?",
+        answer:
+          "Yes. This calculator excludes Saturdays and Sundays automatically when counting the days.",
+      },
+      {
+        question: "Can I use this business days calculator for free?",
+        answer:
+          "Yes. Tool Nova provides this business days calculator online for free with no sign-up required.",
+      },
+    ],
+  },
+  {
+    slug: "salary-calculator",
+    category: "calculators",
+    name: "Salary Calculator",
+    title: "Salary Calculator",
+    description:
+      "Calculate salary conversions instantly with this free online salary calculator for yearly, monthly, weekly, daily, and hourly pay.",
+    shortDescription: "Convert salary across pay periods.",
+    keywords: [
+      "salary calculator",
+      "salary converter",
+      "annual to monthly salary",
+      "hourly to salary",
+      "weekly pay calculator",
+    ],
+    featured: true,
+    published: true,
+    relatedSlugs: [
+      "percentage-calculator",
+      "loan-calculator",
+      "time-calculator",
+      "business-days-calculator",
+    ],
+    howItWorksTitle: "How this salary calculator works",
+    howItWorks: [
+      "This calculator converts a salary amount into different pay periods such as yearly, monthly, weekly, daily, and hourly pay.",
+      "It uses your selected pay period and standard assumptions for work weeks, work days, and work hours to estimate equivalent earnings.",
+      "You can use it to compare job offers, estimate hourly pay, and understand your income across different time frames.",
+    ],
+    faqs: [
+      {
+        question: "What does this salary calculator show?",
+        answer:
+          "It shows equivalent salary values across yearly, monthly, weekly, daily, and hourly pay periods.",
+      },
+      {
+        question: "Can I convert hourly pay into annual salary?",
+        answer:
+          "Yes. This calculator can estimate annual salary from hourly pay using standard work assumptions.",
+      },
+      {
+        question: "Is this salary calculator free to use?",
+        answer:
+          "Yes. Tool Nova provides this salary calculator online for free with no sign-up required.",
+      },
+    ],
+  },
+  {
+    slug: "calorie-calculator",
+    category: "calculators",
+    name: "Calorie Calculator",
+    title: "Calorie Calculator",
+    description:
+      "Calculate your daily calorie needs based on age, gender, weight, height, and activity level.",
+    shortDescription: "Estimate daily calorie needs easily.",
+    keywords: [
+      "calorie calculator",
+      "daily calorie calculator",
+      "how many calories do I need",
+      "tdee calculator",
+      "calories per day calculator",
+    ],
+    featured: true,
+    published: true,
+    relatedSlugs: [
+      "bmi-calculator",
+      "age-calculator",
+      "percentage-calculator",
+      "salary-calculator",
+    ],
+    howItWorksTitle: "How this calorie calculator works",
+    howItWorks: [
+      "This calculator estimates your daily calorie needs using your age, gender, height, and weight.",
+      "It calculates your Basal Metabolic Rate (BMR) and adjusts it based on your activity level.",
+      "You can use it to plan weight loss, maintenance, or muscle gain goals.",
+    ],
+    faqs: [
+      {
+        question: "How many calories do I need per day?",
+        answer:
+          "Your daily calorie needs depend on your age, gender, weight, height, and activity level. This calculator estimates it for you.",
+      },
+      {
+        question: "What is BMR?",
+        answer:
+          "BMR (Basal Metabolic Rate) is the number of calories your body needs at rest to maintain basic functions.",
+      },
+      {
+        question: "Is this calorie calculator free?",
+        answer:
+          "Yes. Tool Nova provides this calorie calculator online for free with no sign-up required.",
+      },
+    ],
+  },
+  {
+    slug: "percentage-increase-calculator",
+    category: "calculators",
+    name: "Percentage Increase Calculator",
+    title: "Percentage Increase Calculator",
+    description:
+      "Calculate percentage increase or decrease instantly with this free online calculator.",
+    shortDescription: "Calculate percentage change quickly.",
+    keywords: [
+      "percentage increase calculator",
+      "percentage decrease calculator",
+      "percent change calculator",
+      "calculate percentage increase",
+      "percentage difference calculator",
+    ],
+    featured: true,
+    published: true,
+    relatedSlugs: [
+      "percentage-calculator",
+      "discount-calculator",
+      "salary-calculator",
+      "loan-calculator",
+    ],
+    howItWorksTitle: "How this percentage increase calculator works",
+    howItWorks: [
+      "This calculator compares an original value and a new value to find the percentage change between them.",
+      "It can show both percentage increase and percentage decrease depending on whether the new value is higher or lower.",
+      "You can use it for prices, salary changes, growth rates, discounts, business reports, and everyday math.",
+    ],
+    faqs: [
+      {
+        question: "How do I calculate percentage increase?",
+        answer:
+          "Subtract the original value from the new value, divide by the original value, and multiply by 100.",
+      },
+      {
+        question: "Can this tool calculate percentage decrease too?",
+        answer:
+          "Yes. If the new value is lower than the original value, the calculator will show the percentage decrease.",
+      },
+      {
+        question: "Is this percentage increase calculator free to use?",
+        answer:
+          "Yes. Tool Nova provides this percentage increase calculator online for free with no sign-up required.",
+      },
+    ],
+  },
   // text-tools
   {
     slug: "word-counter",
@@ -1181,7 +1368,7 @@ export const TOOLS: ToolItem[] = [
     name: "Kg to Lbs",
     title: "Kg to Lbs Converter",
     description:
-        "Convert kilograms to pounds quickly with this free online converter.",
+      "Convert kilograms to pounds quickly with this free online converter.",
     shortDescription: "Convert kilograms to pounds quickly.",
     keywords: ["kg to lbs", "kilogram to pounds converter"],
     featured: true,
@@ -1189,25 +1376,25 @@ export const TOOLS: ToolItem[] = [
     relatedSlugs: ["bmi-calculator", "age-calculator", "number-to-words"],
     howItWorksTitle: "How this kg to lbs converter works",
     howItWorks: [
-        "This converter uses the standard conversion formula from kilograms to pounds.",
-        "The formula is: pounds = kilograms × 2.20462.",
-        "For example, 70 kilograms is equal to about 154.32 pounds.",
+      "This converter uses the standard conversion formula from kilograms to pounds.",
+      "The formula is: pounds = kilograms × 2.20462.",
+      "For example, 70 kilograms is equal to about 154.32 pounds.",
     ],
     faqs: [
-        {
+      {
         question: "How many pounds are in 1 kilogram?",
         answer: "One kilogram is equal to about 2.20462 pounds.",
-        },
-        {
+      },
+      {
         question: "Can I use this kg to lbs converter for free?",
         answer:
-            "Yes. Tool Nova provides this converter online for free with no sign-up required.",
-        },
-        {
+          "Yes. Tool Nova provides this converter online for free with no sign-up required.",
+      },
+      {
         question: "Is this conversion accurate?",
         answer:
-            "Yes. This converter uses the standard kilogram to pound conversion factor.",
-        },
+          "Yes. This converter uses the standard kilogram to pound conversion factor.",
+      },
     ],
   },
   {
@@ -1216,7 +1403,7 @@ export const TOOLS: ToolItem[] = [
     name: "Number to Words",
     title: "Number to Words Converter",
     description:
-        "Convert numbers into written words instantly with this free online converter.",
+      "Convert numbers into written words instantly with this free online converter.",
     shortDescription: "Convert numbers into written words.",
     keywords: ["number to words", "number to text", "spell number"],
     featured: true,
@@ -1224,26 +1411,26 @@ export const TOOLS: ToolItem[] = [
     relatedSlugs: ["kg-to-lbs", "cm-to-inches", "celsius-to-fahrenheit"],
     howItWorksTitle: "How this number to words converter works",
     howItWorks: [
-        "This converter takes a numeric value and changes it into its written word form in English.",
-        "It is useful for writing checks, invoices, forms, and documents where numbers need to be spelled out clearly.",
-        "For example, 125 becomes one hundred twenty-five, and 1000 becomes one thousand.",
+      "This converter takes a numeric value and changes it into its written word form in English.",
+      "It is useful for writing checks, invoices, forms, and documents where numbers need to be spelled out clearly.",
+      "For example, 125 becomes one hundred twenty-five, and 1000 becomes one thousand.",
     ],
     faqs: [
-        {
+      {
         question: "What does this number to words converter do?",
         answer:
-            "It converts numeric values into written English words automatically.",
-        },
-        {
+          "It converts numeric values into written English words automatically.",
+      },
+      {
         question: "Can I use number to words for checks or formal writing?",
         answer:
-            "Yes. This tool can help when you need to spell out numbers for checks, documents, or other formal uses.",
-        },
-        {
+          "Yes. This tool can help when you need to spell out numbers for checks, documents, or other formal uses.",
+      },
+      {
         question: "Is this converter free to use online?",
         answer:
-            "Yes. Tool Nova provides this number to words converter for free in your browser.",
-        },
+          "Yes. Tool Nova provides this number to words converter for free in your browser.",
+      },
     ],
   },
   {
@@ -1252,32 +1439,32 @@ export const TOOLS: ToolItem[] = [
     name: "Cm to Inches",
     title: "Cm to Inches Converter",
     description:
-        "Convert centimeters to inches instantly with this free online converter.",
+      "Convert centimeters to inches instantly with this free online converter.",
     shortDescription: "Convert centimeters to inches quickly.",
     keywords: ["cm to inches", "centimeters to inches converter"],
     published: true,
     relatedSlugs: ["kg-to-lbs", "celsius-to-fahrenheit", "number-to-words"],
     howItWorksTitle: "How this cm to inches converter works",
     howItWorks: [
-        "This converter changes centimeters into inches using the standard length conversion formula.",
-        "The formula is: inches = centimeters ÷ 2.54.",
-        "For example, 10 centimeters is equal to about 3.94 inches.",
+      "This converter changes centimeters into inches using the standard length conversion formula.",
+      "The formula is: inches = centimeters ÷ 2.54.",
+      "For example, 10 centimeters is equal to about 3.94 inches.",
     ],
     faqs: [
-        {
+      {
         question: "How many inches are in 1 centimeter?",
         answer: "One centimeter is equal to about 0.3937 inches.",
-        },
-        {
+      },
+      {
         question: "Why is 2.54 used in the formula?",
         answer:
-            "Because 1 inch is defined as exactly 2.54 centimeters, so this is the standard conversion value.",
-        },
-        {
+          "Because 1 inch is defined as exactly 2.54 centimeters, so this is the standard conversion value.",
+      },
+      {
         question: "Can I use this cm to inches converter on mobile?",
         answer:
-            "Yes. The converter works on desktop, tablet, and mobile devices in your browser.",
-        },
+          "Yes. The converter works on desktop, tablet, and mobile devices in your browser.",
+      },
     ],
   },
   {
@@ -1286,34 +1473,34 @@ export const TOOLS: ToolItem[] = [
     name: "Celsius to Fahrenheit",
     title: "Celsius to Fahrenheit Converter",
     description:
-        "Convert Celsius to Fahrenheit instantly with this free online temperature converter.",
+      "Convert Celsius to Fahrenheit instantly with this free online temperature converter.",
     shortDescription: "Convert Celsius to Fahrenheit quickly.",
     keywords: ["celsius to fahrenheit", "temperature converter"],
     published: true,
     relatedSlugs: ["cm-to-inches", "kg-to-lbs", "number-to-words"],
     howItWorksTitle: "How this Celsius to Fahrenheit converter works",
     howItWorks: [
-        "This converter uses the standard temperature conversion formula from Celsius to Fahrenheit.",
-        "The formula is: Fahrenheit = (Celsius × 9/5) + 32.",
-        "For example, 0 degrees Celsius is equal to 32 degrees Fahrenheit, and 25 degrees Celsius is equal to 77 degrees Fahrenheit.",
+      "This converter uses the standard temperature conversion formula from Celsius to Fahrenheit.",
+      "The formula is: Fahrenheit = (Celsius × 9/5) + 32.",
+      "For example, 0 degrees Celsius is equal to 32 degrees Fahrenheit, and 25 degrees Celsius is equal to 77 degrees Fahrenheit.",
     ],
     faqs: [
-        {
+      {
         question: "What is 0°C in Fahrenheit?",
         answer: "0 degrees Celsius is equal to 32 degrees Fahrenheit.",
-        },
-        {
+      },
+      {
         question: "What is the formula to convert Celsius to Fahrenheit?",
         answer:
-            "The standard formula is Fahrenheit = (Celsius × 9/5) + 32.",
-        },
-        {
+          "The standard formula is Fahrenheit = (Celsius × 9/5) + 32.",
+      },
+      {
         question: "Is this temperature converter free to use?",
         answer:
-            "Yes. You can use this Celsius to Fahrenheit converter online for free.",
-        },
+          "Yes. You can use this Celsius to Fahrenheit converter online for free.",
+      },
     ],
- },
+  },
 ];
 
 export function getAllTools() {
