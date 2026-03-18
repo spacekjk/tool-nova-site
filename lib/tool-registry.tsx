@@ -16,6 +16,7 @@ import BusinessDaysCalculatorClient from "@/app/calculators/business-days-calcul
 import SalaryCalculatorClient from "@/app/calculators/salary-calculator/SalaryCalculatorClient";
 import CalorieCalculatorClient from "@/app/calculators/calorie-calculator/CalorieCalculatorClient";
 import PercentageIncreaseCalculatorClient from "@/app/calculators/percentage-increase-calculator/PercentageIncreaseCalculatorClient";
+import TimeDurationCalculatorClient from "@/app/calculators/time-duration-calculator/TimeDurationCalculatorClient";
 
 import WordCounterClient from "@/app/text-tools/word-counter/WordCounterClient";
 import CharacterCounterClient from "@/app/text-tools/character-counter/CharacterCounterClient";
@@ -29,6 +30,7 @@ import RemoveDuplicatesClient from "@/app/text-tools/remove-duplicates/RemoveDup
 import Base64EncoderDecoderClient from "@/app/text-tools/base64-encoder-decoder/Base64EncoderDecoderClient";
 import RemoveExtraSpacesClient from "@/app/text-tools/remove-extra-spaces/RemoveExtraSpacesClient";
 import UrlEncoderDecoderClient from "@/app/text-tools/url-encoder-decoder/UrlEncoderDecoderClient";
+import HtmlEncoderDecoderClient from "@/app/text-tools/html-encoder-decoder/HtmlEncoderDecoderClient";
 
 import PasswordGeneratorClient from "@/app/generators/password-generator/PasswordGeneratorClient";
 import RandomNumberGeneratorClient from "@/app/generators/random-number-generator/RandomNumberGeneratorClient";
@@ -57,6 +59,7 @@ const TOOL_COMPONENTS: Record<string, ComponentType> = {
   "salary-calculator": SalaryCalculatorClient,
   "calorie-calculator": CalorieCalculatorClient,
   "percentage-increase-calculator": PercentageIncreaseCalculatorClient,
+  "time-duration-calculator": TimeDurationCalculatorClient,
 
   "word-counter": WordCounterClient,
   "character-counter": CharacterCounterClient,
@@ -70,6 +73,7 @@ const TOOL_COMPONENTS: Record<string, ComponentType> = {
   "base64-encoder-decoder": Base64EncoderDecoderClient,
   "remove-extra-spaces": RemoveExtraSpacesClient,
   "url-encoder-decoder": UrlEncoderDecoderClient,
+  "html-encoder-decoder": HtmlEncoderDecoderClient,
 
   "password-generator": PasswordGeneratorClient,
   "random-number-generator": RandomNumberGeneratorClient,

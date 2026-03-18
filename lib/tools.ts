@@ -690,6 +690,53 @@ export const TOOLS: ToolItem[] = [
       },
     ],
   },
+  {
+    slug: "time-duration-calculator",
+    category: "calculators",
+    name: "Time Duration Calculator",
+    title: "Time Duration Calculator",
+    description:
+      "Calculate the exact time duration between two times instantly with this free online calculator.",
+    shortDescription: "Calculate duration between two times.",
+    keywords: [
+      "time duration calculator",
+      "time difference calculator",
+      "hours between times",
+      "minutes between times",
+      "duration calculator",
+    ],
+    featured: true,
+    published: true,
+    relatedSlugs: [
+      "time-calculator",
+      "days-between-dates",
+      "business-days-calculator",
+      "age-calculator",
+    ],
+    howItWorksTitle: "How this time duration calculator works",
+    howItWorks: [
+      "This calculator finds the exact duration between a start time and an end time.",
+      "It converts both time values into minutes, compares them, and returns the result in hours and minutes.",
+      "You can use it for shift planning, scheduling, work logs, and everyday time calculations.",
+    ],
+    faqs: [
+      {
+        question: "How do I calculate the duration between two times?",
+        answer:
+          "Enter a start time and an end time, and the calculator will show the exact difference in hours and minutes.",
+      },
+      {
+        question: "Can this calculator handle times across midnight?",
+        answer:
+          "Yes. If the end time is earlier than the start time, the calculator treats it as crossing midnight into the next day.",
+      },
+      {
+        question: "Is this time duration calculator free to use?",
+        answer:
+          "Yes. Tool Nova provides this time duration calculator online for free with no sign-up required.",
+      },
+    ],
+  },
   // text-tools
   {
     slug: "word-counter",
@@ -1167,6 +1214,53 @@ export const TOOLS: ToolItem[] = [
         question: "Is this URL encoder and decoder free to use?",
         answer:
           "Yes. Tool Nova provides this URL encoder and decoder online for free with no sign-up required.",
+      },
+    ],
+  },
+  {
+    slug: "html-encoder-decoder",
+    category: "text-tools",
+    name: "HTML Encoder / Decoder",
+    title: "HTML Encoder / Decoder",
+    description:
+      "Encode or decode HTML entities instantly with this free online HTML encoder and decoder tool.",
+    shortDescription: "Encode and decode HTML entities.",
+    keywords: [
+      "html encoder",
+      "html decoder",
+      "html entity encoder",
+      "html entity decoder",
+      "encode html online",
+    ],
+    featured: true,
+    published: true,
+    relatedSlugs: [
+      "url-encoder-decoder",
+      "base64-encoder-decoder",
+      "json-formatter",
+      "text-compare",
+    ],
+    howItWorksTitle: "How this HTML encoder and decoder works",
+    howItWorks: [
+      "This tool converts special HTML characters into encoded entities and can also decode entities back into readable text.",
+      "It helps protect reserved characters like angle brackets, quotes, and ampersands when working with HTML content.",
+      "You can use it for development, debugging, content formatting, and safe text transformation in your browser.",
+    ],
+    faqs: [
+      {
+        question: "What does HTML encoding do?",
+        answer:
+          "HTML encoding replaces special characters like <, >, &, and quotes with safe HTML entities.",
+      },
+      {
+        question: "Can this tool decode HTML entities back into normal text?",
+        answer:
+          "Yes. This tool can decode valid HTML entities back into readable text instantly.",
+      },
+      {
+        question: "Is this HTML encoder and decoder free to use?",
+        answer:
+          "Yes. Tool Nova provides this HTML encoder and decoder online for free with no sign-up required.",
       },
     ],
   },
