@@ -91,7 +91,7 @@ export default async function CategoryPage({ params }: Props) {
               <h2 className="text-xl font-semibold text-white">
                 {tool.name}
               </h2>
-              <p className="mt-3 text-sm leading-6 text-white/65">
+              <p className="mt-3 text-sm leading-6 text-white">
                 {tool.shortDescription ?? tool.description}
               </p>
             </Link>
@@ -102,7 +102,7 @@ export default async function CategoryPage({ params }: Props) {
       <section className="mx-auto max-w-6xl px-6 pb-16">
         <div className="rounded-3xl border border-white/10 bg-white/5 p-8">
           <h2 className="text-2xl font-semibold">Why use {meta.name.toLowerCase()}?</h2>
-          <p className="mt-4 text-base leading-8 text-white/70">
+          <p className="mt-4 text-base leading-8 text-white">
             Tool Nova&apos;s {meta.name.toLowerCase()} are designed to be fast,
             simple, and easy to use on desktop and mobile. Whether you need a quick
             result or a reliable utility for everyday tasks, these browser-based tools
