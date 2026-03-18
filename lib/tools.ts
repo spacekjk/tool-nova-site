@@ -78,34 +78,40 @@ export const TOOLS: ToolItem[] = [
     name: "Age Calculator",
     title: "Age Calculator - Calculate Exact Age Online",
     description:
-      "Use this free age calculator to calculate your exact age in years, months, and days from your birth date.",
-    shortDescription: "Calculate exact age in years, months, and days.",
+      "Use this free age calculator to calculate exact age in years, months, and days from a birth date to today.",
+    shortDescription: "Calculate exact age from a birth date.",
     keywords: [
       "age calculator",
       "exact age calculator",
       "calculate age online",
       "birth date calculator",
       "online age calculator",
+      "age in years months days",
     ],
     featured: true,
     published: true,
-    relatedSlugs: ["bmi-calculator", "time-calculator", "days-between-dates", "percentage-calculator"],
+    relatedSlugs: [
+      "days-between-dates",
+      "time-calculator",
+      "percentage-calculator",
+      "bmi-calculator",
+    ],
     howItWorksTitle: "How this age calculator works",
     howItWorks: [
-      "This calculator uses your date of birth and compares it with the current date or a selected end date.",
-      "It calculates the difference in calendar years, months, and days instead of showing only a rough day count.",
-      "You can use it to check exact age for personal records, forms, school use, or general date calculations.",
+      "This calculator uses your birth date and compares it with today to calculate your exact age.",
+      "It shows the result in years, months, and days instead of only showing a rough total day count.",
+      "You can use it for personal records, forms, school use, and general age calculations.",
     ],
     faqs: [
       {
         question: "How do I calculate my exact age?",
         answer:
-          "Enter your birth date, and the calculator will show your exact age in years, months, and days.",
+          "Enter your birth date, and the calculator will show your exact age in years, months, and days based on today.",
       },
       {
-        question: "Does this age calculator use the current date automatically?",
+        question: "Does this age calculator use today's date automatically?",
         answer:
-          "Yes. In most cases, the calculator compares your birth date with today unless you provide another date.",
+          "Yes. This age calculator compares your birth date with today automatically.",
       },
       {
         question: "Is this age calculator free to use?",
