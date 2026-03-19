@@ -60,36 +60,55 @@ export const TEXT_TOOLS: ToolItem[] = [
         slug: "character-counter",
         category: "text-tools",
         name: "Character Counter",
-        title: "Character Counter",
-        description: "Count characters with and without spaces in real time.",
-        shortDescription: "Count characters with and without spaces.",
-        keywords: ["character counter", "letter counter", "text character count"],
+        title: "Character Counter - Count Characters, Words, Lines, and Reading Time",
+        description:
+            "Use this free character counter to count characters, characters without spaces, words, lines, sentences, paragraphs, and reading time instantly.",
+        shortDescription:
+            "Count characters, words, lines, sentences, paragraphs, and reading time.",
+        keywords: [
+            "character counter",
+            "character count tool",
+            "count characters online",
+            "word and character counter",
+            "line counter",
+            "sentence counter",
+            "paragraph counter",
+        ],
         featured: true,
         published: true,
-        relatedSlugs: ["word-counter", "case-converter", "remove-line-breaks"],
-
+        relatedSlugs: [
+            "word-counter",
+            "case-converter",
+            "remove-extra-spaces",
+            "text-compare",
+        ],
         howItWorksTitle: "How this character counter works",
         howItWorks: [
-            "This tool analyzes your text input and counts characters instantly, both with and without spaces.",
-            "It updates results in real time as you type or paste content into the input area.",
-            "You can use it for writing limits, social media posts, coding, and general text analysis.",
+            "This character counter analyzes your text instantly and shows the total number of characters, words, lines, sentences, and paragraphs.",
+            "It also calculates character count without spaces, which is useful for metadata, forms, and social media limits.",
+            "The tool includes estimated reading time so you can measure how long your content may take to read.",
+            "You can paste essays, articles, descriptions, captions, and any other text into the editor to get live results.",
         ],
-
         faqs: [
             {
-                question: "What does this character counter measure?",
+                question: "What does this character counter count?",
                 answer:
-                    "It counts total characters, including spaces and optionally excluding spaces depending on your needs.",
+                    "This tool counts characters, characters without spaces, words, lines, sentences, paragraphs, and estimated reading time.",
             },
             {
-                question: "Can I use this tool for writing limits or social media?",
+                question: "Does it count characters without spaces?",
                 answer:
-                    "Yes. It is useful for platforms like Twitter, essays, or any content with character limits.",
+                    "Yes. The tool shows both total characters and characters without spaces.",
+            },
+            {
+                question: "Can I use this for SEO metadata?",
+                answer:
+                    "Yes. This character counter is useful for checking title tags, meta descriptions, captions, and other text with length limits.",
             },
             {
                 question: "Is this character counter free to use?",
                 answer:
-                    "Yes. Tool Nova provides this character counter online for free with no sign-up required.",
+                    "Yes. You can use it online for free with no sign-up required.",
             },
         ],
     },
@@ -395,47 +414,48 @@ export const TEXT_TOOLS: ToolItem[] = [
     {
         slug: "base64-encoder-decoder",
         category: "text-tools",
-        name: "Base64 Encoder / Decoder",
-        title: "Base64 Encoder / Decoder",
+        name: "Base64 Encoder Decoder",
+        title: "Base64 Encoder Decoder - Encode and Decode Base64 Online",
         description:
-            "Encode text to Base64 or decode Base64 strings instantly with this free online tool.",
-        shortDescription: "Encode and decode Base64 instantly.",
+            "Use this free Base64 encoder decoder to encode text to Base64 and decode Base64 back to plain text instantly online.",
+        shortDescription:
+            "Encode text to Base64 and decode Base64 online.",
         keywords: [
             "base64 encoder",
             "base64 decoder",
             "base64 encode decode",
-            "online base64 tool",
-            "text to base64",
+            "encode to base64",
+            "decode base64 online",
         ],
         featured: true,
         published: true,
         relatedSlugs: [
             "json-formatter",
+            "url-encoder-decoder",
+            "html-encoder-decoder",
             "text-compare",
-            "case-converter",
-            "remove-line-breaks",
         ],
-        howItWorksTitle: "How this Base64 encoder and decoder works",
+        howItWorksTitle: "How this Base64 encoder decoder works",
         howItWorks: [
-            "This tool converts plain text into Base64 format and can also decode Base64 strings back into readable text.",
-            "Base64 is commonly used to safely represent text data using only ASCII characters.",
-            "You can use it for development, APIs, debugging, and data transformation tasks in your browser.",
+            "Paste plain text into the input box and click Encode Base64 to convert it into Base64 format.",
+            "Paste Base64 text into the input box and click Decode Base64 to convert it back into readable text.",
+            "You can copy the result instantly for use in APIs, debugging, data transfer, or testing workflows.",
         ],
         faqs: [
             {
                 question: "What is Base64 encoding?",
                 answer:
-                    "Base64 encoding converts text or binary data into a text format using a limited set of ASCII characters.",
+                    "Base64 encoding converts text or binary data into an ASCII string format that is easier to transfer and store in some systems.",
             },
             {
-                question: "Can I decode Base64 back to normal text?",
+                question: "Can I decode Base64 back to text?",
                 answer:
-                    "Yes. This tool can decode valid Base64 strings back into readable text instantly.",
+                    "Yes. This tool can decode Base64 input and return readable plain text when the input is valid.",
             },
             {
-                question: "Is this Base64 encoder and decoder free to use?",
+                question: "Why does Base64 decoding fail?",
                 answer:
-                    "Yes. Tool Nova provides this Base64 tool online for free with no sign-up required.",
+                    "Decoding usually fails when the input is incomplete, corrupted, or not valid Base64 text.",
             },
         ],
     },
@@ -443,93 +463,102 @@ export const TEXT_TOOLS: ToolItem[] = [
         slug: "remove-extra-spaces",
         category: "text-tools",
         name: "Remove Extra Spaces",
-        title: "Remove Extra Spaces",
+        title: "Remove Extra Spaces - Clean Text and Remove Line Breaks Instantly",
         description:
-            "Remove extra spaces from text instantly with this free online text cleanup tool.",
-        shortDescription: "Remove extra spaces from text quickly.",
+            "Remove extra spaces, line breaks, and empty lines from text instantly. Clean messy text for documents, coding, and SEO.",
+        shortDescription:
+            "Clean text by removing extra spaces and line breaks.",
         keywords: [
             "remove extra spaces",
-            "extra spaces remover",
-            "text cleanup tool",
-            "remove multiple spaces",
-            "trim spaces online",
+            "remove line breaks",
+            "text cleaner",
+            "remove empty lines",
+            "clean text online",
+            "fix spacing text"
         ],
         featured: true,
         published: true,
         relatedSlugs: [
-            "remove-line-breaks",
-            "remove-duplicates",
             "word-counter",
+            "character-counter",
             "case-converter",
+            "text-compare"
         ],
-        howItWorksTitle: "How this remove extra spaces tool works",
         howItWorks: [
-            "This tool removes repeated spaces and cleans up unnecessary spacing in your text.",
-            "It can convert multiple spaces into a single space while keeping the text readable and tidy.",
-            "You can use it for writing, pasted content cleanup, document editing, and text formatting tasks.",
+            "Paste your text into the input box.",
+            "The tool removes unnecessary spaces, line breaks, or empty lines.",
+            "Copy the cleaned text instantly.",
+            "Use it for documents, coding, or formatting text."
         ],
         faqs: [
             {
-                question: "What does remove extra spaces mean?",
+                question: "What does this tool do?",
                 answer:
-                    "It means deleting repeated or unnecessary spaces so your text becomes cleaner and easier to read.",
+                    "It removes extra spaces, line breaks, and empty lines from text to make it clean and readable."
             },
             {
-                question: "Can this tool keep single spaces between words?",
+                question: "Can I remove line breaks only?",
                 answer:
-                    "Yes. It removes extra spacing while keeping normal single spaces between words.",
+                    "Yes. You can choose to remove line breaks while keeping words properly spaced."
             },
             {
-                question: "Is this remove extra spaces tool free to use?",
+                question: "Is this useful for coding?",
                 answer:
-                    "Yes. Tool Nova provides this text cleanup tool online for free with no sign-up required.",
+                    "Yes. It helps clean copied code or data formatting issues."
             },
-        ],
+            {
+                question: "Is this tool free?",
+                answer:
+                    "Yes. You can use it online for free without any limits."
+            }
+        ]
     },
     {
         slug: "url-encoder-decoder",
         category: "text-tools",
-        name: "URL Encoder / Decoder",
-        title: "URL Encoder / Decoder",
+        name: "URL Encoder Decoder",
+        title: "URL Encoder Decoder - Encode and Decode URL Strings Online",
         description:
-            "Encode or decode URLs instantly with this free online URL encoder and decoder tool.",
-        shortDescription: "Encode and decode URLs instantly.",
+            "Use this free URL encoder decoder to encode URLs, query strings, and text safely, then decode them back instantly online.",
+        shortDescription:
+            "Encode and decode URLs and query strings online.",
         keywords: [
             "url encoder",
             "url decoder",
+            "encode url",
+            "decode url",
+            "query string encoder",
             "url encode decode",
-            "percent encoding tool",
-            "online url encoder",
         ],
         featured: true,
         published: true,
         relatedSlugs: [
             "base64-encoder-decoder",
+            "html-encoder-decoder",
             "json-formatter",
-            "remove-line-breaks",
-            "case-converter",
+            "slug-generator",
         ],
-        howItWorksTitle: "How this URL encoder and decoder works",
+        howItWorksTitle: "How this URL encoder decoder works",
         howItWorks: [
-            "This tool converts unsafe URL characters into percent-encoded format and can also decode encoded URLs back into readable text.",
-            "URL encoding is commonly used when working with query strings, web forms, APIs, and browser-safe links.",
-            "You can use it for development, debugging, link generation, and text transformation tasks directly in your browser.",
+            "Paste a URL, query string, or plain text into the input box and click URL Encode to convert reserved characters safely.",
+            "Paste encoded URL text into the input box and click URL Decode to make it readable again.",
+            "You can copy the converted output instantly for use in links, tracking parameters, APIs, and debugging.",
         ],
         faqs: [
             {
-                question: "What is URL encoding?",
+                question: "What does URL encoding do?",
                 answer:
-                    "URL encoding replaces unsafe characters in a URL with percent-encoded values so they can be transmitted safely on the web.",
+                    "URL encoding converts special characters into a safe encoded format so they can be used correctly inside URLs and query strings.",
             },
             {
-                question: "Can I decode an encoded URL back to normal text?",
+                question: "Why do I need URL decoding?",
                 answer:
-                    "Yes. This tool can decode valid percent-encoded URLs back into readable text instantly.",
+                    "URL decoding helps you read encoded parameters and values in a human-readable format.",
             },
             {
-                question: "Is this URL encoder and decoder free to use?",
+                question: "Can I encode a full URL?",
                 answer:
-                    "Yes. Tool Nova provides this URL encoder and decoder online for free with no sign-up required.",
+                    "Yes. You can encode full URLs, query strings, or individual text values with this tool.",
             },
         ],
     },

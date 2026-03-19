@@ -156,37 +156,48 @@ export const GENERATOR_TOOLS: ToolItem[] = [
         slug: "slug-generator",
         category: "generators",
         name: "Slug Generator",
-        title: "Slug Generator",
+        title: "Slug Generator - Create SEO-Friendly URL Slugs Instantly",
         description:
-            "Convert text into a clean URL slug instantly with this free online slug generator.",
-        shortDescription: "Generate SEO-friendly URL slugs.",
-        keywords: ["slug generator", "url slug generator", "seo slug tool"],
-        published: true,
-        relatedSlugs: ["uuid-generator", "password-generator", "case-converter"],
-
-        howItWorksTitle: "How this slug generator works",
-        howItWorks: [
-            "This tool converts your text into a clean, URL-friendly slug by removing special characters and formatting it properly.",
-            "It replaces spaces with hyphens and normalizes text to make it suitable for web URLs.",
-            "You can use it for SEO optimization, blog URLs, product pages, and clean link structures.",
+            "Generate clean, SEO-friendly URL slugs from any text. Convert titles into optimized slugs for blogs, websites, and CMS.",
+        shortDescription:
+            "Create SEO-friendly URL slugs instantly.",
+        keywords: [
+            "slug generator",
+            "url slug generator",
+            "seo slug",
+            "kebab case generator",
+            "slugify text",
+            "seo url creator"
         ],
-
+        featured: true,
+        published: true,
+        relatedSlugs: [
+            "case-converter",
+            "word-counter",
+            "character-counter"
+        ],
+        howItWorks: [
+            "Enter any title or sentence into the input field.",
+            "The tool converts it into a clean, SEO-friendly URL slug.",
+            "Special characters are removed and spaces are replaced with hyphens.",
+            "Copy the slug and use it in your blog, CMS, or website."
+        ],
         faqs: [
             {
-                question: "What is a URL slug?",
+                question: "What is a slug in SEO?",
                 answer:
-                    "A slug is the part of a URL that identifies a specific page in a readable and SEO-friendly format.",
+                    "A slug is the readable part of a URL that describes the page content. It helps improve SEO and user experience."
             },
             {
-                question: "Why are slugs important for SEO?",
+                question: "Why are slugs important?",
                 answer:
-                    "Clean and descriptive slugs help search engines understand your content and improve visibility in search results.",
+                    "Slugs make URLs easier to read, improve search rankings, and increase click-through rates."
             },
             {
-                question: "Is this slug generator free to use?",
+                question: "Does this remove special characters?",
                 answer:
-                    "Yes. Tool Nova provides this slug generator online for free with no sign-up required.",
-            },
-        ],
+                    "Yes. The tool removes unnecessary characters and keeps only SEO-friendly text."
+            }
+        ]
     },
 ];
