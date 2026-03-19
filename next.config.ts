@@ -19,6 +19,21 @@ const nextConfig: NextConfig = {
         destination: "/calculators/bmi-calculator",
         permanent: true,
       },
+      {
+        source: "/kg-to-lbs",
+        destination: "/converters/kg-to-lbs",
+        permanent: true,
+      },
+      {
+        source: "/random-number-generator",
+        destination: "/generators/random-number-generator",
+        permanent: true,
+      },
+      {
+        source: "/time-calculator",
+        destination: "/calculators/time-calculator",
+        permanent: true,
+      },
     ];
   },
 };
