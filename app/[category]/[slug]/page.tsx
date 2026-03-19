@@ -73,6 +73,61 @@ export default async function ToolPage({ params }: Props) {
         <ToolComponent />
       </section>
 
+      {tool.extendedContent?.length ? (
+        <section className="mx-auto mb-12 max-w-4xl">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+            <h2 className="text-2xl font-semibold text-white">
+              {tool.extendedContentTitle ?? "More about this tool"}
+            </h2>
+
+            <div className="mt-5 space-y-4 text-base leading-7 text-gray-300">
+              {tool.extendedContent.map((text, i) => (
+                <p key={i}>{text}</p>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {tool.useCases?.length ? (
+        <section className="mx-auto mb-12 max-w-4xl">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+            <h2 className="text-2xl font-semibold text-white">
+              {tool.useCasesTitle ?? "Common use cases"}
+            </h2>
+
+            <ul className="mt-5 space-y-3 text-base leading-7 text-gray-300">
+              {tool.useCases.map((item, i) => (
+                <li key={i} className="ml-5 list-disc">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
+
+      {tool.quickExamples?.length ? (
+        <section className="mx-auto mb-12 max-w-4xl">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+            <h2 className="text-2xl font-semibold text-white">
+              {tool.quickExamplesTitle ?? "Quick examples"}
+            </h2>
+
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              {tool.quickExamples.map((example, i) => (
+                <div
+                  key={i}
+                  className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-base text-gray-300"
+                >
+                  {example}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
       {tool.howItWorks?.length ? (
         <section className="mx-auto mb-12 max-w-4xl">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
