@@ -216,7 +216,7 @@ export default function UrlEncoderDecoderClient() {
               value={output}
               readOnly
               placeholder="Encoded or decoded result will appear here."
-              rows={14}
+              
               className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-4 text-white outline-none"
             />
           </div>
