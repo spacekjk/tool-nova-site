@@ -1,7 +1,8 @@
 // components/CategorySection.tsx
 import Link from "next/link";
 import ToolGrid from "./ToolGrid";
-import { CategoryMeta, ToolItem, getCategoryPath } from "@/lib/tools";
+import type { CategoryMeta, ToolItem } from "@/lib/tools";
+import { getCategoryPath } from "@/lib/tools";
 
 type Props = {
   category: CategoryMeta;

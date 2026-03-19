@@ -7,7 +7,7 @@ import { SITE_URL } from "./types";
 import type { ToolCategory, ToolItem } from "./types";
 
 export { CATEGORY_META, SITE_URL };
-export type { ToolCategory, ToolItem };
+export type { ToolCategory, ToolItem, CategoryMeta } from "./types";
 
 export const TOOLS: ToolItem[] = [
   ...CALCULATOR_TOOLS,
