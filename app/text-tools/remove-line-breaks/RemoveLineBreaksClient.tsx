@@ -1,65 +1,20 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 export default function RemoveLineBreaksPage() {
   const [text, setText] = useState("");
-  const [preserveParagraphs, setPreserveParagraphs] = useState(true);
-  const [trimSpaces, setTrimSpaces] = useState(true);
-  const [removeExtraSpaces, setRemoveExtraSpaces] = useState(true);
   const [copySuccess, setCopySuccess] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const cleanedText = useMemo(() => {
     if (!text) return "";
-
-    let result = text.replace(/\r\n/g, "\n");
-
-    if (preserveParagraphs) {
-      // 빈 줄(문단 구분)은 유지하고, 문단 내부 줄바꿈만 공백으로 변환
-      result = result
-        .split(/\n\s*\n/g)
-        .map((paragraph) => paragraph.replace(/\n+/g, " "))
-        .join("\n\n");
-    } else {
-      // 모든 줄바꿈 제거
-      result = result.replace(/\n+/g, " ");
-    }
-
-    if (removeExtraSpaces) {
-      result = result.replace(/[ \t]+/g, " ");
-    }
-
-    if (trimSpaces) {
-      result = result
-        .split("\n")
-        .map((line) => line.trim())
-        .join("\n")
-        .trim();
-    }
-
-    return result;
-  }, [text, preserveParagraphs, trimSpaces, removeExtraSpaces]);
-
-  const originalStats = useMemo(() => {
-    const chars = text.length;
-    const charsNoSpaces = text.replace(/\s/g, "").length;
-    const lines = text ? text.split(/\r?\n/).length : 0;
-    const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-
-    return { chars, charsNoSpaces, lines, words };
+    return text.replace(/\r?\n+/g, " ").replace(/\s+/g, " ").trim();
   }, [text]);
-
-  const resultStats = useMemo(() => {
-    const chars = cleanedText.length;
-    const charsNoSpaces = cleanedText.replace(/\s/g, "").length;
-    const lines = cleanedText ? cleanedText.split(/\r?\n/).length : 0;
-    const words = cleanedText.trim() ? cleanedText.trim().split(/\s+/).length : 0;
-
-    return { chars, charsNoSpaces, lines, words };
-  }, [cleanedText]);
 
   const handleCopy = async () => {
     if (!cleanedText) return;
+
     try {
       await navigator.clipboard.writeText(cleanedText);
       setCopySuccess(true);
@@ -69,29 +24,12 @@ export default function RemoveLineBreaksPage() {
     }
   };
 
-  const handlePaste = async () => {
-    try {
-      const clipboardText = await navigator.clipboard.readText();
-      setText(clipboardText);
-    } catch (error) {
-      console.error("Paste failed:", error);
-    }
-  };
-
   const handleClear = () => {
     setText("");
     setCopySuccess(false);
-  };
-
-  const handleSample = () => {
-    setText(`This is a sample text
-with several line breaks
-inside the same paragraph.
-
-This is another paragraph
-that should stay separated.
-
-And this     line has     too many spaces.`);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
   };
 
   const handleDownload = () => {
@@ -108,119 +46,75 @@ And this     line has     too many spaces.`);
     URL.revokeObjectURL(url);
   };
 
+  const handleFileUpload = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    if (file.type !== "text/plain" && !file.name.endsWith(".txt")) {
+      alert("Please upload a .txt file only.");
+      return;
+    }
+
+    try {
+      const fileText = await file.text();
+      setText(fileText);
+    } catch (error) {
+      console.error("File read failed:", error);
+      alert("Failed to read the file.");
+    }
+  };
+
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 text-white">
+    <div className="mx-auto max-w-5xl px-4 py-10 text-white">
       <div className="mb-8">
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
           Remove Line Breaks
         </h1>
         <p className="mt-2 text-sm text-white/60 sm:text-base">
-          Clean pasted text instantly with paragraph control, whitespace cleanup,
-          copy, paste, and download.
+          Paste text or upload a .txt file to remove line breaks instantly.
         </p>
       </div>
 
-      <div className="mb-6 grid gap-3 rounded-3xl border border-white/10 bg-white/[0.04] p-4 sm:grid-cols-2 xl:grid-cols-4">
-        <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-white/10 bg-black/20 px-4 py-3">
-          <input
-            type="checkbox"
-            checked={preserveParagraphs}
-            onChange={(e) => setPreserveParagraphs(e.target.checked)}
-            className="h-4 w-4 accent-white"
-          />
-          <div>
-            <p className="text-sm font-medium">Preserve paragraphs</p>
-            <p className="text-xs text-white/50">
-              Keep blank-line paragraph separation
-            </p>
-          </div>
-        </label>
-
-        <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-white/10 bg-black/20 px-4 py-3">
-          <input
-            type="checkbox"
-            checked={removeExtraSpaces}
-            onChange={(e) => setRemoveExtraSpaces(e.target.checked)}
-            className="h-4 w-4 accent-white"
-          />
-          <div>
-            <p className="text-sm font-medium">Collapse spaces</p>
-            <p className="text-xs text-white/50">
-              Remove repeated spaces and tabs
-            </p>
-          </div>
-        </label>
-
-        <label className="flex cursor-pointer items-center gap-3 rounded-2xl border border-white/10 bg-black/20 px-4 py-3">
-          <input
-            type="checkbox"
-            checked={trimSpaces}
-            onChange={(e) => setTrimSpaces(e.target.checked)}
-            className="h-4 w-4 accent-white"
-          />
-          <div>
-            <p className="text-sm font-medium">Trim edges</p>
-            <p className="text-xs text-white/50">
-              Remove leading and trailing spaces
-            </p>
-          </div>
-        </label>
-
-        <div className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">
-          <p className="text-sm font-medium">Mode</p>
-          <p className="text-xs text-white/50">
-            {preserveParagraphs
-              ? "Paragraph-aware cleanup"
-              : "Single-line cleanup"}
-          </p>
-        </div>
-      </div>
-
       <div className="grid gap-6 lg:grid-cols-2">
-        <section className="rounded-3xl border border-white/10 bg-white/[0.05] p-6 shadow-2xl shadow-black/20 backdrop-blur-sm sm:p-8">
+        <section className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
           <div className="mb-4 flex items-center justify-between gap-4">
             <label className="text-sm font-medium text-white/80">
               Original Text
             </label>
-            <div className="flex flex-wrap gap-2">
-              <button
-                onClick={handlePaste}
-                className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 transition hover:bg-white/10"
-              >
-                Paste
-              </button>
-              <button
-                onClick={handleSample}
-                className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 transition hover:bg-white/10"
-              >
-                Sample
-              </button>
-              <button
-                onClick={handleClear}
-                className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 transition hover:bg-white/10"
-              >
-                Clear
-              </button>
-            </div>
+
+            <button
+              onClick={handleClear}
+              className="rounded-xl border border-white/10 px-4 py-2 text-sm text-white/80 hover:bg-white/5"
+            >
+              Clear
+            </button>
           </div>
 
           <textarea
             rows={14}
             value={text}
             onChange={(e) => setText(e.target.value)}
-            placeholder="Paste your text with line breaks here..."
-            className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-white placeholder:text-white/30 outline-none transition focus:border-white/25 focus:bg-black/40"
+            placeholder="Paste your text here..."
+            className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-white placeholder:text-white/30 outline-none focus:border-white/25"
           />
 
-          <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            <StatCard label="Chars" value={originalStats.chars} />
-            <StatCard label="No spaces" value={originalStats.charsNoSpaces} />
-            <StatCard label="Words" value={originalStats.words} />
-            <StatCard label="Lines" value={originalStats.lines} />
+          <div className="mt-4">
+            <label className="mb-2 block text-sm text-white/70">
+              Upload .txt file
+            </label>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept=".txt,text/plain"
+              onChange={handleFileUpload}
+              className="block w-full rounded-xl border border-white/10 bg-black/20 px-3 py-2 text-sm text-white/70 file:mr-4 file:rounded-lg file:border-0 file:bg-white/10 file:px-3 file:py-2 file:text-sm file:text-white hover:file:bg-white/20"
+            />
           </div>
         </section>
 
-        <section className="rounded-3xl border border-white/10 bg-white/[0.05] p-6 shadow-2xl shadow-black/20 backdrop-blur-sm sm:p-8">
+        <section className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
           <div className="mb-4 flex items-center justify-between gap-4">
             <label className="text-sm font-medium text-white/80">Result</label>
 
@@ -228,14 +122,15 @@ And this     line has     too many spaces.`);
               <button
                 onClick={handleDownload}
                 disabled={!cleanedText}
-                className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
+                className="rounded-xl border border-white/10 px-4 py-2 text-sm text-white/80 hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
               >
                 Download
               </button>
+
               <button
                 onClick={handleCopy}
                 disabled={!cleanedText}
-                className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
+                className="rounded-xl border border-white/10 px-4 py-2 text-sm text-white/80 hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
               >
                 {copySuccess ? "Copied!" : "Copy"}
               </button>
@@ -247,24 +142,8 @@ And this     line has     too many spaces.`);
               {cleanedText || "Your cleaned text will appear here."}
             </p>
           </div>
-
-          <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            <StatCard label="Chars" value={resultStats.chars} />
-            <StatCard label="No spaces" value={resultStats.charsNoSpaces} />
-            <StatCard label="Words" value={resultStats.words} />
-            <StatCard label="Lines" value={resultStats.lines} />
-          </div>
         </section>
       </div>
-    </div>
-  );
-}
-
-function StatCard({ label, value }: { label: string; value: number }) {
-  return (
-    <div className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">
-      <p className="text-xs uppercase tracking-wide text-white/45">{label}</p>
-      <p className="mt-1 text-lg font-semibold text-white">{value}</p>
     </div>
   );
 }
