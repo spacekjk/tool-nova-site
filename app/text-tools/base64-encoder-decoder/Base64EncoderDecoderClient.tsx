@@ -182,10 +182,11 @@ export default function Base64EncoderDecoderClient() {
         ) : null}
 
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
-          <div>
-            <label className="mb-3 block text-sm font-medium text-white/80">
-              Input
-            </label>
+          <div className="flex flex-col">
+            <div className="mb-3 flex min-h-[40px] items-center justify-between">
+              <label className="text-sm font-medium text-white/80">Input</label>
+              <div />
+            </div>
 
             <textarea
               value={input}
@@ -200,8 +201,8 @@ export default function Base64EncoderDecoderClient() {
             />
           </div>
 
-          <div>
-            <div className="mb-3 flex items-center justify-between">
+          <div className="flex flex-col">
+            <div className="mb-3 flex min-h-[40px] items-center justify-between">
               <label className="text-sm font-medium text-white/80">Output</label>
 
               <button
