@@ -178,10 +178,16 @@ export function getSitemapEntries() {
 
   const staticEntries = [
     { url: SITE_URL, lastModified: DEFAULT_LAST_MODIFIED },
+
+    { url: `${SITE_URL}/all-tools`, lastModified: DEFAULT_LAST_MODIFIED },
+    { url: `${SITE_URL}/popular-tools`, lastModified: DEFAULT_LAST_MODIFIED },
+    { url: `${SITE_URL}/new-tools`, lastModified: DEFAULT_LAST_MODIFIED },
+    
     { url: `${SITE_URL}/about`, lastModified: DEFAULT_LAST_MODIFIED },
     { url: `${SITE_URL}/contact`, lastModified: DEFAULT_LAST_MODIFIED },
     { url: `${SITE_URL}/privacy`, lastModified: DEFAULT_LAST_MODIFIED },
     { url: `${SITE_URL}/terms`, lastModified: DEFAULT_LAST_MODIFIED },
+    
   ];
 
   return [...staticEntries, ...categoryEntries, ...toolEntries];
