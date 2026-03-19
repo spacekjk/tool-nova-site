@@ -193,37 +193,55 @@ export const TEXT_TOOLS: ToolItem[] = [
         slug: "json-formatter",
         category: "text-tools",
         name: "JSON Formatter",
-        title: "JSON Formatter",
+        title: "JSON Formatter - Format, Validate, and Minify JSON Online",
         description:
-            "Format, beautify, and validate JSON instantly with this free online JSON formatter.",
-        shortDescription: "Format and validate JSON instantly.",
-        keywords: ["json formatter", "json beautifier", "json validator"],
+            "Use this free JSON formatter to format, validate, minify, and beautify JSON instantly. Paste JSON text or upload a JSON file.",
+        shortDescription:
+            "Format, validate, minify, and beautify JSON online.",
+        keywords: [
+            "json formatter",
+            "json validator",
+            "json beautifier",
+            "json minify",
+            "format json online",
+            "validate json online",
+            "json viewer",
+        ],
         featured: true,
         published: true,
-        relatedSlugs: ["text-compare", "remove-line-breaks", "case-converter"],
-
+        relatedSlugs: [
+            "base64-encoder-decoder",
+            "html-encoder-decoder",
+            "url-encoder-decoder",
+            "text-compare",
+        ],
         howItWorksTitle: "How this JSON formatter works",
         howItWorks: [
-            "This tool formats raw JSON data into a clean and readable structure with proper indentation.",
-            "It also validates your JSON input and highlights errors if the syntax is incorrect.",
-            "You can use it for debugging, development, API responses, and improving JSON readability.",
+            "This JSON formatter parses your JSON input and converts it into clean, readable output with proper indentation.",
+            "You can also validate JSON to check for syntax errors before using it in an API, app, or configuration file.",
+            "The minify option removes spaces and line breaks to create compact JSON output for production use.",
+            "You can paste JSON directly into the editor or upload a JSON file from your device.",
         ],
-
         faqs: [
             {
                 question: "What does a JSON formatter do?",
                 answer:
-                    "It organizes JSON data into a structured and readable format, making it easier to understand and debug.",
+                    "A JSON formatter makes raw or messy JSON easier to read by adding indentation, spacing, and line breaks.",
             },
             {
-                question: "Can this tool validate JSON?",
+                question: "How do I validate JSON?",
                 answer:
-                    "Yes. It checks whether your JSON is valid and helps identify syntax errors.",
+                    "Paste your JSON into the input box and click Validate JSON. The tool will tell you whether the JSON is valid or show an error message.",
             },
             {
-                question: "Is this JSON formatter free to use?",
+                question: "What is minified JSON?",
                 answer:
-                    "Yes. Tool Nova provides this JSON formatter online for free with no sign-up required.",
+                    "Minified JSON is compact JSON without extra spaces or line breaks. It is useful when you want smaller file sizes.",
+            },
+            {
+                question: "Can I upload a JSON file?",
+                answer:
+                    "Yes. You can upload a .json file, edit it, then format, validate, minify, copy, or download the result.",
             },
         ],
     },
