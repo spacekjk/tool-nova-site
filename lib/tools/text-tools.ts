@@ -169,41 +169,108 @@ export const TEXT_TOOLS: ToolItem[] = [
         ],
     },
     {
-        slug: "remove-line-breaks",
-        category: "text-tools",
-        name: "Remove Line Breaks",
-        title: "Remove Line Breaks",
-        description:
-            "Remove line breaks and join text into a clean paragraph instantly.",
-        shortDescription: "Remove line breaks from text quickly.",
-        keywords: ["remove line breaks", "join lines", "text cleanup"],
-        published: true,
-        relatedSlugs: ["remove-duplicates", "sort-text", "word-counter"],
-
-        howItWorksTitle: "How this remove line breaks tool works",
-        howItWorks: [
-            "This tool removes line breaks from your text and combines multiple lines into a single continuous paragraph.",
-            "It processes pasted or typed text instantly, replacing line breaks with spaces or removing them entirely.",
-            "You can use it to clean copied text, format paragraphs, and prepare content for documents or web publishing.",
+      slug: "remove-line-breaks",
+      category: "text-tools",
+      name: "Remove Line Breaks",
+      title: "Remove Line Breaks Tool (Online Text Cleaner)",
+      description:
+        "Remove line breaks from text instantly with this free online tool. Clean up copied text, merge paragraphs, and format content for documents, emails, or SEO.",
+      shortDescription:
+        "Remove line breaks from text instantly and clean formatting.",
+      keywords: [
+        "remove line breaks",
+        "remove line breaks online",
+        "text line break remover",
+        "delete line breaks",
+        "merge lines into one",
+        "remove newline characters",
+        "text cleaner tool",
+        "format text online",
+        "remove paragraph breaks",
+        "text formatting tool",
+        "copy paste text cleaner"
+      ],
+      featured: true,
+      published: true,
+      new: true,
+      relatedSlugs: [
+        "word-counter",
+        "remove-extra-spaces",
+        "number-to-words"
+      ],
+    
+      howItWorksTitle: "How this line break remover works",
+      howItWorks: [
+        "This tool removes all line breaks from your text and replaces them with spaces.",
+        "It detects newline characters such as \\n and \\r\\n from copied or uploaded text.",
+        "All line breaks are converted into a single continuous line for easier readability.",
+        "Extra spaces are optionally reduced to keep the text clean and properly formatted.",
+        "The tool works instantly in your browser without uploading your data to any server.",
+      ],
+    
+      extendedContentTitle: "What is a line break and why remove it?",
+      extendedContent: [
+        "A line break is a character that moves text to a new line, commonly represented as \\n or \\r\\n in digital text.",
+        "Line breaks are useful for formatting paragraphs, but they can cause issues when copying text from PDFs, websites, or documents.",
+        "In many cases, copied text contains unnecessary line breaks that disrupt readability and formatting.",
+        "Removing line breaks helps convert fragmented text into a clean, continuous paragraph.",
+        "This is especially useful for editing, publishing, or preparing content for web and SEO purposes.",
+      ],
+    
+      useCasesTitle: "When to use a line break remover",
+      useCases: [
+        "Cleaning text copied from PDFs or scanned documents",
+        "Fixing formatting issues after copying from websites",
+        "Preparing text for blog posts or SEO content",
+        "Formatting email or messaging content into a single paragraph",
+        "Cleaning OCR (optical character recognition) results",
+        "Processing large text files for data or content workflows",
+      ],
+    
+      quickExamplesTitle: "Example of line break removal",
+      quickExamples: [
+        "Original: Hello\\nworld → Result: Hello world",
+        "Original: This is\\na test → Result: This is a test",
+        "Original: Line1\\n\\nLine2 → Result: Line1 Line2",
+      ],
+    
+      faqs: [
+        {
+          question: "What does this tool do?",
+          answer:
+            "This tool removes line breaks from text and converts multiple lines into a single continuous paragraph.",
+        },
+        {
+          question: "Is my text uploaded to a server?",
+          answer:
+            "No. All processing happens directly in your browser, so your text remains private and secure.",
+        },
+        {
+          question: "Can I upload a file?",
+          answer:
+            "Yes. You can upload a .txt file, and the tool will automatically remove line breaks from its content.",
+        },
+        {
+          question: "Does it remove extra spaces as well?",
+          answer:
+            "Yes. The tool can also clean up extra spaces to ensure your text looks neat and readable.",
+        },
+        {
+          question: "Is this tool free to use?",
+          answer:
+            "Yes. This line break remover is completely free with no sign-up required.",
+        },
+      ],
+    
+      seoNotes: {
+        intent: "informational + utility",
+        primaryKeyword: "remove line breaks",
+        secondaryKeywords: [
+          "text cleaner",
+          "remove newline characters",
+          "format text online"
         ],
-
-        faqs: [
-            {
-                question: "What does remove line breaks mean?",
-                answer:
-                    "It removes newline characters from text and joins lines together into one continuous paragraph.",
-            },
-            {
-                question: "Can I use this tool to clean copied text?",
-                answer:
-                    "Yes. It is useful when copying text from PDFs, emails, or websites where line breaks are inconsistent.",
-            },
-            {
-                question: "Is this remove line breaks tool free to use?",
-                answer:
-                    "Yes. Tool Nova provides this tool online for free with no sign-up required.",
-            },
-        ],
+      },
     },
     {
         slug: "text-compare",
