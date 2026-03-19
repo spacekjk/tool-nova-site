@@ -2,6 +2,19 @@
 
 import { useMemo, useState } from "react";
 
+function sanitizeDateInput(value: string) {
+  const match = value.match(/^(\d{0,4})(?:-(\d{0,2}))?(?:-(\d{0,2}))?$/);
+  if (!match) return value;
+
+  const [, year = "", month = "", day = ""] = match;
+
+  let result = year.slice(0, 4);
+  if (month) result += `-${month.slice(0, 2)}`;
+  if (day) result += `-${day.slice(0, 2)}`;
+
+  return result;
+}
+
 function formatDateDiff(start: string, end: string) {
   const startDate = new Date(start);
   const endDate = new Date(end);
@@ -39,7 +52,6 @@ export default function DaysBetweenDatesPage() {
   }, [startDate, endDate]);
 
   return (
-
     <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
@@ -49,7 +61,9 @@ export default function DaysBetweenDatesPage() {
           <input
             type="date"
             value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
+            min="0001-01-01"
+            max="9999-12-31"
+            onChange={(e) => setStartDate(sanitizeDateInput(e.target.value))}
             className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
           />
         </div>
@@ -61,7 +75,9 @@ export default function DaysBetweenDatesPage() {
           <input
             type="date"
             value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
+            min="0001-01-01"
+            max="9999-12-31"
+            onChange={(e) => setEndDate(sanitizeDateInput(e.target.value))}
             className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
           />
         </div>
@@ -74,17 +90,13 @@ export default function DaysBetweenDatesPage() {
           </p>
         ) : result !== null ? (
           <div>
-            <h2 className="text-2xl font-semibold">Result</h2>
-            <p className="mt-3 text-4xl font-bold">{result} days</p>
+            <h2 className="text-2xl font-semibold text-white">Result</h2>
+            <p className="mt-3 text-4xl font-bold text-white">{result} days</p>
           </div>
         ) : (
           <p className="text-white/60">Please enter valid dates.</p>
         )}
       </div>
     </div>
-
-
-
-
   );
 }
