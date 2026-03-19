@@ -7,7 +7,7 @@ import {
   getRelatedTools,
   getToolPath,
 } from "@/lib/tools";
-import { getToolComponent } from "@/lib/registry";
+import { TOOL_COMPONENTS } from "@/lib/registry";
 import { buildToolMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
 import RelatedTools from "@/components/RelatedTools";
@@ -42,10 +42,15 @@ export default async function ToolPage({ params }: Props) {
   const { category, slug } = await params;
   const tool = getToolByParams(category, slug);
 
-  if (!tool) notFound();
+  if (!tool) {
+    notFound();
+  }
 
-  const ToolComponent = getToolComponent(slug);
-  if (!ToolComponent) notFound();
+  const ToolComponent = TOOL_COMPONENTS[slug];
+
+  if (!ToolComponent) {
+    notFound();
+  }
 
   const relatedTools = getRelatedTools(tool, 4).map((item) => ({
     name: item.name,
@@ -64,15 +69,16 @@ export default async function ToolPage({ params }: Props) {
         </p>
       </header>
 
-      <section className="mx-auto max-w-4xl mb-12">
+      <section className="mx-auto mb-12 max-w-4xl">
         <ToolComponent />
       </section>
 
       {tool.howItWorks?.length ? (
-        <section className="mx-auto max-w-4xl mb-12">
+        <section className="mx-auto mb-12 max-w-4xl">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
             <h2 className="text-2xl font-semibold text-white">
-              {tool.howItWorksTitle ?? `How this ${tool.name.toLowerCase()} works`}
+              {tool.howItWorksTitle ??
+                `How this ${tool.name.toLowerCase()} works`}
             </h2>
 
             <div className="mt-5 space-y-4 text-base leading-7 text-gray-300">
@@ -85,7 +91,7 @@ export default async function ToolPage({ params }: Props) {
       ) : null}
 
       {tool.faqs?.length ? (
-        <section className="mx-auto max-w-4xl mb-12">
+        <section className="mx-auto mb-12 max-w-4xl">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
             <h2 className="text-2xl font-semibold text-white">
               Frequently Asked Questions
@@ -112,7 +118,7 @@ export default async function ToolPage({ params }: Props) {
       <ToolSchema
         name={tool.name}
         description={tool.description}
-        url={`${SITE_URL}/${tool.category}/${tool.slug}`}
+        url={`${SITE_URL}${getToolPath(tool)}`}
       />
 
       {tool.faqs?.length ? <FAQSchema items={tool.faqs} /> : null}
