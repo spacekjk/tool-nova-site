@@ -2,40 +2,112 @@ import type { ToolItem } from "./types";
 
 export const CONVERTER_TOOLS: ToolItem[] = [
     {
-        slug: "kg-to-lbs",
-        category: "converters",
-        name: "Kg to Lbs",
-        title: "Kg to Lbs Converter",
-        description:
-            "Convert kilograms to pounds quickly with this free online converter.",
-        shortDescription: "Convert kilograms to pounds quickly.",
-        keywords: ["kg to lbs", "kilogram to pounds converter"],
-        featured: true,
-        published: true,
-        new: true,
-        relatedSlugs: ["bmi-calculator", "age-calculator", "number-to-words"],
-        howItWorksTitle: "How this kg to lbs converter works",
-        howItWorks: [
-            "This converter uses the standard conversion formula from kilograms to pounds.",
-            "The formula is: pounds = kilograms × 2.20462.",
-            "For example, 70 kilograms is equal to about 154.32 pounds.",
+      slug: "kg-to-lbs",
+      category: "converters",
+      name: "Kg to Lbs",
+      title: "Kg to Lbs Converter (Kilograms to Pounds)",
+      description:
+        "Use this free kg to lbs converter to instantly convert kilograms to pounds with high accuracy. Includes formula, examples, and quick reference values.",
+      shortDescription:
+        "Convert kilograms (kg) to pounds (lbs) instantly with a free online calculator.",
+      keywords: [
+        "kg to lbs",
+        "kilogram to pounds",
+        "kg to pounds converter",
+        "convert kg to lbs",
+        "how many pounds in a kilogram",
+        "kg lbs conversion",
+        "kilograms to pounds formula",
+        "weight converter kg to lbs",
+        "1 kg to lbs",
+        "kg to lbs calculator"
+      ],
+      featured: true,
+      published: true,
+      new: true,
+      relatedSlugs: ["bmi-calculator", "lbs-to-kg", "age-calculator", "number-to-words"],
+    
+      howItWorksTitle: "How this kg to lbs converter works",
+      howItWorks: [
+        "This converter uses the standard international conversion factor between kilograms and pounds.",
+        "The formula used is: pounds = kilograms × 2.20462.",
+        "When you enter a value in kilograms, it is instantly multiplied by 2.20462 to produce the equivalent weight in pounds.",
+        "The result is automatically rounded based on the selected decimal precision for better readability.",
+        "This tool works in real-time, so results update instantly as you type.",
+        "It can also be used in reverse (lbs to kg) by switching the conversion direction.",
+      ],
+    
+      extendedContentTitle: "Kilograms to pounds conversion explained",
+      extendedContent: [
+        "Kilograms (kg) and pounds (lbs) are two of the most commonly used units for measuring weight around the world.",
+        "Kilograms are part of the metric system and are widely used in most countries, while pounds are primarily used in the United States and a few other regions.",
+        "Converting between these units is essential in many situations such as fitness tracking, shipping, cooking, and medical measurements.",
+        "The conversion factor is fixed: 1 kilogram equals approximately 2.20462 pounds.",
+        "For example, if you weigh 70 kg, multiplying by 2.20462 gives approximately 154.32 lbs.",
+        "This converter automates that calculation to save time and eliminate errors.",
+      ],
+    
+      useCasesTitle: "When to use a kg to lbs converter",
+      useCases: [
+        "Tracking body weight for fitness or dieting",
+        "Converting gym or workout data between metric and imperial units",
+        "Understanding international product weights when shopping online",
+        "Shipping and logistics calculations where weight units differ",
+        "Medical or health-related measurements in different unit systems",
+      ],
+    
+      quickExamplesTitle: "Common kg to lbs conversions",
+      quickExamples: [
+        "1 kg = 2.20 lbs",
+        "5 kg = 11.02 lbs",
+        "10 kg = 22.05 lbs",
+        "50 kg = 110.23 lbs",
+        "70 kg = 154.32 lbs",
+        "100 kg = 220.46 lbs",
+      ],
+    
+      faqs: [
+        {
+          question: "How many pounds are in 1 kilogram?",
+          answer:
+            "One kilogram is equal to approximately 2.20462 pounds. This is the standard conversion used worldwide.",
+        },
+        {
+          question: "What is the formula to convert kg to lbs?",
+          answer:
+            "To convert kilograms to pounds, multiply the weight in kilograms by 2.20462. For example, 10 kg × 2.20462 = 22.0462 lbs.",
+        },
+        {
+          question: "Is kg to lbs conversion exact?",
+          answer:
+            "The conversion factor 2.20462 is highly precise and widely accepted. Most tools round the result to 2–4 decimal places for practical use.",
+        },
+        {
+          question: "Can I convert pounds back to kilograms?",
+          answer:
+            "Yes. To convert pounds to kilograms, divide the value in pounds by 2.20462.",
+        },
+        {
+          question: "Why do different countries use kg and lbs?",
+          answer:
+            "Kilograms are part of the metric system used globally, while pounds belong to the imperial system, which is mainly used in the United States.",
+        },
+        {
+          question: "Is this kg to lbs converter free?",
+          answer:
+            "Yes. This tool is completely free to use with no registration required.",
+        },
+      ],
+    
+      seoNotes: {
+        intent: "informational + utility",
+        primaryKeyword: "kg to lbs",
+        secondaryKeywords: [
+          "kilograms to pounds",
+          "kg to lbs converter",
+          "convert kg to pounds",
         ],
-        faqs: [
-            {
-                question: "How many pounds are in 1 kilogram?",
-                answer: "One kilogram is equal to about 2.20462 pounds.",
-            },
-            {
-                question: "Can I use this kg to lbs converter for free?",
-                answer:
-                    "Yes. Tool Nova provides this converter online for free with no sign-up required.",
-            },
-            {
-                question: "Is this conversion accurate?",
-                answer:
-                    "Yes. This converter uses the standard kilogram to pound conversion factor.",
-            },
-        ],
+      },
     },
     {
         slug: "number-to-words",
