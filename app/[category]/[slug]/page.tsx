@@ -69,7 +69,7 @@ export default async function ToolPage({ params }: Props) {
       </section>
 
       {tool.howItWorks?.length ? (
-        <section className="mx-auto max-w-4xl pb-14">
+        <section className="mx-auto max-w-4xl mb-12">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
             <h2 className="text-2xl font-semibold text-white">
               {tool.howItWorksTitle ?? `How this ${tool.name.toLowerCase()} works`}
@@ -85,7 +85,7 @@ export default async function ToolPage({ params }: Props) {
       ) : null}
 
       {tool.faqs?.length ? (
-        <section className="mx-auto max-w-4xl pb-14">
+        <section className="mx-auto max-w-4xl mb-12">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
             <h2 className="text-2xl font-semibold text-white">
               Frequently Asked Questions
