@@ -565,17 +565,19 @@ export const TEXT_TOOLS: ToolItem[] = [
     {
         slug: "html-encoder-decoder",
         category: "text-tools",
-        name: "HTML Encoder / Decoder",
-        title: "HTML Encoder / Decoder",
+        name: "HTML Encoder Decoder",
+        title: "HTML Encoder Decoder - Encode and Decode HTML Entities Online",
         description:
-            "Encode or decode HTML entities instantly with this free online HTML encoder and decoder tool.",
-        shortDescription: "Encode and decode HTML entities.",
+            "Use this free HTML encoder decoder to encode HTML special characters into entities and decode HTML entities back into readable text instantly.",
+        shortDescription:
+            "Encode and decode HTML entities online.",
         keywords: [
             "html encoder",
             "html decoder",
             "html entity encoder",
             "html entity decoder",
             "encode html online",
+            "decode html entities",
         ],
         featured: true,
         published: true,
@@ -585,27 +587,27 @@ export const TEXT_TOOLS: ToolItem[] = [
             "json-formatter",
             "text-compare",
         ],
-        howItWorksTitle: "How this HTML encoder and decoder works",
+        howItWorksTitle: "How this HTML encoder decoder works",
         howItWorks: [
-            "This tool converts special HTML characters into encoded entities and can also decode entities back into readable text.",
-            "It helps protect reserved characters like angle brackets, quotes, and ampersands when working with HTML content.",
-            "You can use it for development, debugging, content formatting, and safe text transformation in your browser.",
+            "Paste plain HTML or text into the input box and click HTML Encode to convert special characters into safe HTML entities.",
+            "Paste encoded HTML entities into the input box and click HTML Decode to convert them back into readable text.",
+            "You can copy the converted result instantly for use in websites, CMS platforms, code, and documentation.",
         ],
         faqs: [
             {
                 question: "What does HTML encoding do?",
                 answer:
-                    "HTML encoding replaces special characters like <, >, &, and quotes with safe HTML entities.",
+                    "HTML encoding converts special characters such as <, >, &, and quotes into HTML entities so they can be displayed safely without being interpreted as code.",
             },
             {
-                question: "Can this tool decode HTML entities back into normal text?",
+                question: "Why would I decode HTML entities?",
                 answer:
-                    "Yes. This tool can decode valid HTML entities back into readable text instantly.",
+                    "Decoding HTML entities helps you read escaped content in a normal human-readable format.",
             },
             {
-                question: "Is this HTML encoder and decoder free to use?",
+                question: "Is this tool useful for developers?",
                 answer:
-                    "Yes. Tool Nova provides this HTML encoder and decoder online for free with no sign-up required.",
+                    "Yes. It is useful for developers, technical writers, CMS users, and anyone working with raw HTML or escaped text.",
             },
         ],
     },

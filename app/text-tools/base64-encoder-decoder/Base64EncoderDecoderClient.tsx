@@ -2,35 +2,35 @@
 
 import { useState } from "react";
 
-function encodeURL(text: string) {
+function encodeBase64(text: string) {
   try {
     return {
-      result: encodeURIComponent(text),
+      result: btoa(unescape(encodeURIComponent(text))),
       error: "",
     };
   } catch {
     return {
       result: "",
-      error: "Failed to encode URL text.",
+      error: "Failed to encode text to Base64.",
     };
   }
 }
 
-function decodeURL(text: string) {
+function decodeBase64(text: string) {
   try {
     return {
-      result: decodeURIComponent(text),
+      result: decodeURIComponent(escape(atob(text))),
       error: "",
     };
   } catch {
     return {
       result: "",
-      error: "Invalid encoded URL. Please check your text and try again.",
+      error: "Invalid Base64 input. Please check your text and try again.",
     };
   }
 }
 
-export default function UrlEncoderDecoderClient() {
+export default function Base64EncoderDecoderClient() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
   const [error, setError] = useState("");
@@ -45,12 +45,12 @@ export default function UrlEncoderDecoderClient() {
     clearMessages();
 
     if (!input) {
-      setError("Please enter text or a URL to encode.");
+      setError("Please enter text to encode.");
       setOutput("");
       return;
     }
 
-    const { result, error } = encodeURL(input);
+    const { result, error } = encodeBase64(input);
 
     if (error) {
       setError(error);
@@ -59,19 +59,19 @@ export default function UrlEncoderDecoderClient() {
     }
 
     setOutput(result);
-    setStatus("URL encoded successfully.");
+    setStatus("Text encoded to Base64 successfully.");
   };
 
   const handleDecode = () => {
     clearMessages();
 
     if (!input) {
-      setError("Please enter encoded URL text to decode.");
+      setError("Please enter Base64 text to decode.");
       setOutput("");
       return;
     }
 
-    const { result, error } = decodeURL(input);
+    const { result, error } = decodeBase64(input);
 
     if (error) {
       setError(error);
@@ -80,7 +80,7 @@ export default function UrlEncoderDecoderClient() {
     }
 
     setOutput(result);
-    setStatus("URL decoded successfully.");
+    setStatus("Base64 decoded successfully.");
   };
 
   const handleSwap = () => {
@@ -97,17 +97,17 @@ export default function UrlEncoderDecoderClient() {
   };
 
   const handleSampleText = () => {
-    setInput("https://toolnova.com/search?q=word counter & category=text tools");
+    setInput("Tool Nova makes online text tools fast and easy to use.");
     setOutput("");
     setError("");
-    setStatus("Sample URL inserted.");
+    setStatus("Sample text inserted.");
   };
 
-  const handleSampleEncoded = () => {
-    setInput("https%3A%2F%2Ftoolnova.com%2Fsearch%3Fq%3Dword%20counter%20%26%20category%3Dtext%20tools");
+  const handleSampleBase64 = () => {
+    setInput("VG9vbCBOb3ZhIG1ha2VzIG9ubGluZSB0ZXh0IHRvb2xzIGZhc3QgYW5kIGVhc3kgdG8gdXNlLg==");
     setOutput("");
     setError("");
-    setStatus("Sample encoded URL inserted.");
+    setStatus("Sample Base64 inserted.");
   };
 
   const handleCopyOutput = async () => {
@@ -130,14 +130,14 @@ export default function UrlEncoderDecoderClient() {
             onClick={handleEncode}
             className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-black transition hover:bg-white/90"
           >
-            URL Encode
+            Encode Base64
           </button>
 
           <button
             onClick={handleDecode}
             className="rounded-xl border border-white/10 bg-black/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-black/40"
           >
-            URL Decode
+            Decode Base64
           </button>
 
           <button
@@ -151,14 +151,14 @@ export default function UrlEncoderDecoderClient() {
             onClick={handleSampleText}
             className="rounded-xl border border-white/10 bg-black/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-black/40"
           >
-            Load URL Sample
+            Load Text Sample
           </button>
 
           <button
-            onClick={handleSampleEncoded}
+            onClick={handleSampleBase64}
             className="rounded-xl border border-white/10 bg-black/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-black/40"
           >
-            Load Encoded Sample
+            Load Base64 Sample
           </button>
 
           <button
@@ -194,7 +194,7 @@ export default function UrlEncoderDecoderClient() {
                 setError("");
                 setStatus("");
               }}
-              placeholder="Paste text or URL here..."
+              placeholder="Paste plain text or Base64 here..."
               rows={14}
               className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-white outline-none focus:border-white/25"
             />
@@ -215,8 +215,8 @@ export default function UrlEncoderDecoderClient() {
             <textarea
               value={output}
               readOnly
-              placeholder="Encoded or decoded result will appear here."
-              
+              placeholder="Encoded or decoded output will appear here."
+              rows={14}
               className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-4 text-white outline-none"
             />
           </div>
@@ -227,16 +227,16 @@ export default function UrlEncoderDecoderClient() {
         <h2 className="text-2xl font-semibold text-white">What this tool does</h2>
         <div className="mt-4 space-y-3 text-base leading-7 text-gray-300">
           <p>
-            Encode URLs and query strings safely for use in links, forms, APIs,
-            and browser requests.
+            Encode plain text into Base64 format instantly for data transfer,
+            storage, and testing.
           </p>
           <p>
-            Decode encoded URL text back into a readable format so you can inspect
-            parameters and values easily.
+            Decode Base64 text back into readable content when you need to inspect
+            encoded values.
           </p>
           <p>
-            This is useful for developers, marketers, SEO work, and debugging
-            query strings online.
+            This tool is useful for developers, API testing, debugging, and
+            working with encoded strings online.
           </p>
         </div>
       </div>
