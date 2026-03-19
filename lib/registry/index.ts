@@ -4,7 +4,7 @@ import { textToolRegistry } from "./text-tools";
 import { generatorRegistry } from "./generators";
 import { converterRegistry } from "./converters";
 
-const TOOL_COMPONENTS: Record<string, ComponentType> = {
+export const TOOL_COMPONENTS: Record<string, ComponentType> = {
   ...calculatorRegistry,
   ...textToolRegistry,
   ...generatorRegistry,
