@@ -1,309 +1,417 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useState } from "react";
 
-type JsonAction = "format" | "minify" | "validate";
+type JsonErrorInfo = {
+  message: string;
+  position: number | null;
+  line: number | null;
+  column: number | null;
+};
 
-function parseJSON(input: string) {
-  try {
-    const parsed = JSON.parse(input);
+function getLineAndColumn(text: string, position: number) {
+  const safePosition = Math.max(0, Math.min(position, text.length));
+  const before = text.slice(0, safePosition);
+  const lines = before.split("\n");
+
+  return {
+    line: lines.length,
+    column: lines[lines.length - 1].length + 1,
+  };
+}
+
+function parseJsonError(error: unknown, input: string): JsonErrorInfo {
+  const fallback: JsonErrorInfo = {
+    message: "Invalid JSON.",
+    position: null,
+    line: null,
+    column: null,
+  };
+
+  if (!(error instanceof Error)) {
+    return fallback;
+  }
+
+  const message = error.message || "Invalid JSON.";
+  const positionMatch = message.match(/position\s+(\d+)/i);
+
+  if (!positionMatch) {
     return {
-      parsed,
-      error: null as string | null,
-    };
-  } catch (error) {
-    return {
-      parsed: null,
-      error: error instanceof Error ? error.message : "Invalid JSON.",
+      message,
+      position: null,
+      line: null,
+      column: null,
     };
   }
+
+  const position = Number(positionMatch[1]);
+
+  if (Number.isNaN(position)) {
+    return {
+      message,
+      position: null,
+      line: null,
+      column: null,
+    };
+  }
+
+  const { line, column } = getLineAndColumn(input, position);
+
+  return {
+    message,
+    position,
+    line,
+    column,
+  };
+}
+
+function sortJsonKeysDeep(value: unknown): unknown {
+  if (Array.isArray(value)) {
+    return value.map(sortJsonKeysDeep);
+  }
+
+  if (value !== null && typeof value === "object") {
+    const entries = Object.entries(value as Record<string, unknown>)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([key, val]) => [key, sortJsonKeysDeep(val)]);
+
+    return Object.fromEntries(entries);
+  }
+
+  return value;
 }
 
 export default function JsonFormatterClient() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState<JsonErrorInfo | null>(null);
   const [status, setStatus] = useState("");
-  const [isCopied, setIsCopied] = useState(false);
-
-  const fileInputRef = useRef<HTMLInputElement | null>(null);
-
-  const stats = useMemo(() => {
-    const inputChars = input.length;
-    const outputChars = output.length;
-    const inputLines = input ? input.split("\n").length : 0;
-    const outputLines = output ? output.split("\n").length : 0;
-
-    return {
-      inputChars,
-      outputChars,
-      inputLines,
-      outputLines,
-    };
-  }, [input, output]);
 
   const clearMessages = () => {
-    setError("");
+    setError(null);
     setStatus("");
-    setIsCopied(false);
   };
 
-  const runAction = (action: JsonAction) => {
-    clearMessages();
-
+  const parseInputJson = () => {
     if (!input.trim()) {
-      setError("Please paste or upload JSON first.");
+      setError({
+        message: "Please enter JSON first.",
+        position: null,
+        line: null,
+        column: null,
+      });
       setOutput("");
-      return;
+      return null;
     }
 
-    const { parsed, error } = parseJSON(input);
-
-    if (error || !parsed) {
-      setError(error ?? "Invalid JSON.");
+    try {
+      clearMessages();
+      return JSON.parse(input);
+    } catch (err) {
+      setError(parseJsonError(err, input));
       setOutput("");
-      return;
+      return null;
     }
+  };
 
-    if (action === "format") {
-      setOutput(JSON.stringify(parsed, null, 2));
-      setStatus("JSON formatted successfully.");
-      return;
-    }
+  const formatJSON = () => {
+    const parsed = parseInputJson();
+    if (parsed === null) return;
 
-    if (action === "minify") {
-      setOutput(JSON.stringify(parsed));
-      setStatus("JSON minified successfully.");
-      return;
-    }
+    const formatted = JSON.stringify(parsed, null, 2);
+    setOutput(formatted);
+    setStatus("JSON formatted successfully.");
+  };
 
-    if (action === "validate") {
-      setOutput("");
-      setStatus("Valid JSON ✅");
-    }
+  const minifyJSON = () => {
+    const parsed = parseInputJson();
+    if (parsed === null) return;
+
+    const minified = JSON.stringify(parsed);
+    setOutput(minified);
+    setStatus("JSON minified successfully.");
+  };
+
+  const validateJSON = () => {
+    const parsed = parseInputJson();
+    if (parsed === null) return;
+
+    setOutput("");
+    setStatus("Valid JSON ✅");
+  };
+
+  const sortKeysJSON = () => {
+    const parsed = parseInputJson();
+    if (parsed === null) return;
+
+    const sorted = sortJsonKeysDeep(parsed);
+    const formatted = JSON.stringify(sorted, null, 2);
+    setOutput(formatted);
+    setStatus("JSON keys sorted successfully.");
+  };
+
+  const sortAndMinifyJSON = () => {
+    const parsed = parseInputJson();
+    if (parsed === null) return;
+
+    const sorted = sortJsonKeysDeep(parsed);
+    const minified = JSON.stringify(sorted);
+    setOutput(minified);
+    setStatus("JSON keys sorted and minified successfully.");
   };
 
   const handleCopy = async () => {
     clearMessages();
 
     if (!output) {
-      setError("There is no output to copy.");
+      setError({
+        message: "Nothing to copy.",
+        position: null,
+        line: null,
+        column: null,
+      });
       return;
     }
 
-    try {
-      await navigator.clipboard.writeText(output);
-      setIsCopied(true);
-      setStatus("Copied to clipboard.");
-    } catch {
-      setError("Failed to copy output.");
-    }
-  };
-
-  const handleClear = () => {
-    setInput("");
-    setOutput("");
-    setError("");
-    setStatus("");
-    setIsCopied(false);
-  };
-
-  const handleSample = () => {
-    const sample = `{"user":{"name":"Tool Nova","role":"admin","active":true},"items":[{"id":1,"name":"Formatter"},{"id":2,"name":"Validator"}]}`;
-    setInput(sample);
-    setOutput("");
-    setError("");
-    setStatus("Sample JSON inserted.");
-    setIsCopied(false);
+    await navigator.clipboard.writeText(output);
+    setStatus("Copied to clipboard.");
   };
 
   const handleDownload = () => {
     clearMessages();
 
     if (!output) {
-      setError("There is no output to download.");
+      setError({
+        message: "Nothing to download.",
+        position: null,
+        line: null,
+        column: null,
+      });
       return;
     }
 
     const blob = new Blob([output], { type: "application/json;charset=utf-8" });
     const url = URL.createObjectURL(blob);
 
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "formatted.json";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "formatted.json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
     URL.revokeObjectURL(url);
 
-    setStatus("JSON file downloaded.");
+    setStatus("JSON downloaded successfully.");
   };
 
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    clearMessages();
+  const handleClear = () => {
+    setInput("");
+    setOutput("");
+    setError(null);
+    setStatus("");
+  };
 
-    const file = event.target.files?.[0];
-    if (!file) return;
+  const handleSample = () => {
+    const sample = `{"name":"Tool Nova","type":"json formatter","features":["format","minify","validate"],"active":true}`;
+    setInput(sample);
+    setOutput("");
+    setError(null);
+    setStatus("Sample JSON loaded.");
+  };
 
-    const isJsonLike =
-      file.type === "application/json" ||
-      file.name.toLowerCase().endsWith(".json") ||
-      file.type === "";
+  const handleBadSample = () => {
+    const badSample = `{
+  "name": "Tool Nova",
+  "type": "json formatter",
+  "features": ["format", "minify", "validate"
+  "active": true
+}`;
+    setInput(badSample);
+    setOutput("");
+    setError(null);
+    setStatus("Invalid sample JSON loaded.");
+  };
 
-    if (!isJsonLike) {
-      setError("Please upload a valid .json file.");
-      event.target.value = "";
-      return;
-    }
+  const handleComplexSample = () => {
+    const complexSample = `{
+  "zebra": 1,
+  "alpha": {
+    "delta": true,
+    "beta": "test",
+    "array": [
+      { "name": "B", "id": 2 },
+      { "name": "A", "id": 1 }
+    ]
+  },
+  "middle": ["x", "y", "z"]
+}`;
+    setInput(complexSample);
+    setOutput("");
+    setError(null);
+    setStatus("Complex sample JSON loaded.");
+  };
 
+  const handleUpload = (file: File) => {
     const reader = new FileReader();
 
-    reader.onload = (loadEvent) => {
-      const text = loadEvent.target?.result;
-      if (typeof text !== "string") {
-        setError("Unable to read the uploaded file.");
-        return;
-      }
-
+    reader.onload = (e) => {
+      const text = e.target?.result as string;
       setInput(text);
       setOutput("");
-      setStatus(`Loaded file: ${file.name}`);
-    };
-
-    reader.onerror = () => {
-      setError("Failed to read the uploaded file.");
+      setError(null);
+      setStatus("File loaded.");
     };
 
     reader.readAsText(file);
-    event.target.value = "";
   };
 
   return (
     <>
       <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <div className="flex flex-wrap gap-3">
           <button
-            onClick={() => runAction("format")}
+            onClick={formatJSON}
             className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-black transition hover:bg-white/90"
           >
             Format JSON
           </button>
 
           <button
-            onClick={() => runAction("minify")}
-            className="rounded-xl border border-white/10 bg-black/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-black/40"
+            onClick={minifyJSON}
+            className="rounded-xl border border-white/10 px-5 py-3 text-sm text-white transition hover:bg-black/30"
           >
-            Minify JSON
+            Minify
           </button>
 
           <button
-            onClick={() => runAction("validate")}
-            className="rounded-xl border border-white/10 bg-black/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-black/40"
+            onClick={validateJSON}
+            className="rounded-xl border border-white/10 px-5 py-3 text-sm text-white transition hover:bg-black/30"
           >
-            Validate JSON
+            Validate
+          </button>
+
+          <button
+            onClick={sortKeysJSON}
+            className="rounded-xl border border-white/10 px-5 py-3 text-sm text-white transition hover:bg-black/30"
+          >
+            Sort Keys
+          </button>
+
+          <button
+            onClick={sortAndMinifyJSON}
+            className="rounded-xl border border-white/10 px-5 py-3 text-sm text-white transition hover:bg-black/30"
+          >
+            Sort + Minify
           </button>
 
           <button
             onClick={handleSample}
-            className="rounded-xl border border-white/10 bg-black/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-black/40"
+            className="rounded-xl border border-white/10 px-5 py-3 text-sm text-white transition hover:bg-black/30"
           >
             Load Sample
           </button>
 
           <button
-            onClick={handleClear}
-            className="rounded-xl border border-white/10 bg-black/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-black/40"
+            onClick={handleComplexSample}
+            className="rounded-xl border border-white/10 px-5 py-3 text-sm text-white transition hover:bg-black/30"
           >
-            Clear
+            Load Complex Sample
           </button>
 
           <button
-            onClick={() => fileInputRef.current?.click()}
-            className="rounded-xl border border-white/10 bg-black/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-black/40"
+            onClick={handleBadSample}
+            className="rounded-xl border border-white/10 px-5 py-3 text-sm text-white transition hover:bg-black/30"
           >
-            Upload JSON File
+            Load Invalid Sample
           </button>
 
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept=".json,application/json"
-            onChange={handleFileUpload}
-            className="hidden"
-          />
+          <label className="cursor-pointer rounded-xl border border-white/10 px-5 py-3 text-sm text-white transition hover:bg-black/30">
+            Upload JSON
+            <input
+              type="file"
+              accept=".json"
+              hidden
+              onChange={(e) => {
+                if (e.target.files?.[0]) handleUpload(e.target.files[0]);
+              }}
+            />
+          </label>
+
+          <button
+            onClick={handleClear}
+            className="rounded-xl border border-white/10 px-5 py-3 text-sm text-white transition hover:bg-black/30"
+          >
+            Clear
+          </button>
         </div>
 
-        {error ? (
-          <div className="mt-6 rounded-2xl border border-red-500/20 bg-red-500/10 p-4 text-sm text-red-300">
-            {error}
-          </div>
-        ) : null}
+        {error && (
+          <div className="mt-6 rounded-xl border border-red-500/20 bg-red-500/10 p-4 text-red-300">
+            <p className="font-medium">Invalid JSON ❌</p>
+            <p className="mt-2 text-sm leading-6">{error.message}</p>
 
-        {!error && status ? (
-          <div className="mt-6 rounded-2xl border border-green-500/20 bg-green-500/10 p-4 text-sm text-green-300">
+            {error.line !== null && error.column !== null ? (
+              <p className="mt-2 text-sm text-red-200">
+                Error location: line {error.line}, column {error.column}
+                {error.position !== null ? ` (position ${error.position})` : ""}
+              </p>
+            ) : null}
+          </div>
+        )}
+
+        {!error && status && (
+          <div className="mt-6 rounded-xl border border-green-500/20 bg-green-500/10 p-4 text-green-300">
             {status}
           </div>
-        ) : null}
+        )}
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-2">
-          <div>
-            <div className="mb-3 flex items-center justify-between">
-              <label className="text-sm font-medium text-white/80">
-                Input JSON
-              </label>
-              <span className="text-xs text-white/45">
-                {stats.inputLines} lines · {stats.inputChars} chars
-              </span>
+        <div className="mt-8 grid items-start gap-6 lg:grid-cols-2">
+          <div className="flex flex-col">
+            <div className="mb-3 flex min-h-[40px] items-center justify-between">
+              <label className="text-sm text-white/80">Input JSON</label>
+              <div />
             </div>
 
             <textarea
               value={input}
               onChange={(e) => {
                 setInput(e.target.value);
-                setError("");
+                setError(null);
                 setStatus("");
-                setIsCopied(false);
               }}
-              placeholder='Paste JSON here, for example: {"name":"Tool Nova","active":true}'
-              rows={18}
-              className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-4 font-mono text-sm text-white outline-none focus:border-white/25"
+              placeholder="Paste JSON here..."
+              className="h-[360px] w-full resize-none rounded-2xl border border-white/10 bg-black/30 px-4 py-4 font-mono text-white outline-none focus:border-white/25"
             />
           </div>
 
-          <div>
-            <div className="mb-3 flex items-center justify-between">
-              <label className="text-sm font-medium text-white/80">
-                Output
-              </label>
-              <span className="text-xs text-white/45">
-                {stats.outputLines} lines · {stats.outputChars} chars
-              </span>
+          <div className="flex flex-col">
+            <div className="mb-3 flex min-h-[40px] items-center justify-between">
+              <label className="text-sm text-white/80">Output</label>
+
+              <div className="flex gap-2">
+                <button
+                  onClick={handleCopy}
+                  className="rounded-xl border border-white/10 px-4 py-2 text-sm text-white transition hover:bg-black/30"
+                >
+                  Copy
+                </button>
+
+                <button
+                  onClick={handleDownload}
+                  className="rounded-xl border border-white/10 px-4 py-2 text-sm text-white transition hover:bg-black/30"
+                >
+                  Download
+                </button>
+              </div>
             </div>
 
             <textarea
               value={output}
               readOnly
-              placeholder="Formatted or minified JSON output will appear here."
-              rows={18}
-              className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-4 font-mono text-sm text-white outline-none"
+              placeholder="Formatted JSON will appear here..."
+              className="h-[360px] w-full resize-none rounded-2xl border border-white/10 bg-black/20 px-4 py-4 font-mono text-white outline-none"
             />
           </div>
-        </div>
-
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          <button
-            onClick={handleCopy}
-            className="rounded-xl border border-white/10 bg-black/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-black/40"
-          >
-            {isCopied ? "Copied!" : "Copy Output"}
-          </button>
-
-          <button
-            onClick={handleDownload}
-            className="rounded-xl border border-white/10 bg-black/30 px-5 py-3 text-sm font-semibold text-white transition hover:bg-black/40"
-          >
-            Download Output
-          </button>
         </div>
       </div>
 
@@ -311,20 +419,20 @@ export default function JsonFormatterClient() {
         <h2 className="text-2xl font-semibold text-white">What this tool does</h2>
         <div className="mt-4 space-y-3 text-base leading-7 text-gray-300">
           <p>
-            Format messy JSON into readable structured output with proper
-            indentation.
+            Format raw JSON into clean, readable output with proper indentation
+            for debugging, editing, and documentation.
           </p>
           <p>
-            Validate JSON instantly and show an error message when the syntax is
-            invalid.
+            Minify JSON by removing spaces and line breaks to create compact
+            output for production use.
           </p>
           <p>
-            Minify JSON by removing extra spaces and line breaks to reduce file
-            size.
+            Validate JSON instantly and show the error location when the syntax
+            is invalid.
           </p>
           <p>
-            Upload a JSON file, edit it in the input box, then copy or download
-            the result.
+            Sort JSON object keys alphabetically to make diffs, reviews, and
+            comparisons easier.
           </p>
         </div>
       </div>

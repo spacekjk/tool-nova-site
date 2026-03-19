@@ -249,7 +249,7 @@ export const TEXT_TOOLS: ToolItem[] = [
         name: "JSON Formatter",
         title: "JSON Formatter - Format, Validate, and Minify JSON Online",
         description:
-            "Use this free JSON formatter to format, validate, minify, and beautify JSON instantly. Paste JSON text or upload a JSON file.",
+            "Use this free JSON formatter to format, validate, minify, sort keys, and beautify JSON instantly online.",
         shortDescription:
             "Format, validate, minify, and beautify JSON online.",
         keywords: [
@@ -297,6 +297,11 @@ export const TEXT_TOOLS: ToolItem[] = [
                 answer:
                     "Yes. You can upload a .json file, edit it, then format, validate, minify, copy, or download the result.",
             },
+            {
+            question: "What does Sort Keys do?",
+            answer:
+                "Sort Keys rearranges JSON object keys in alphabetical order, which makes the output easier to compare, review, and debug."
+            }
         ],
     },
     {
