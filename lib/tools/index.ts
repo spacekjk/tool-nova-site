@@ -59,12 +59,80 @@ export function getToolsByCategory(category: ToolCategory): ToolItem[] {
 }
 
 export function getRelatedTools(tool: ToolItem, limit = 4): ToolItem[] {
-  if (!tool.relatedSlugs?.length) return [];
+  const publishedTools = getPublishedTools().filter(
+    (item) => !(item.category === tool.category && item.slug === tool.slug)
+  );
 
-  return tool.relatedSlugs
-    .map((slug) => TOOLS.find((item) => item.slug === slug && item.published))
-    .filter((item): item is ToolItem => Boolean(item))
-    .slice(0, limit);
+  const explicitRelated =
+    tool.relatedSlugs?.length
+      ? tool.relatedSlugs
+          .map((slug) =>
+            publishedTools.find((item) => item.slug === slug)
+          )
+          .filter((item): item is ToolItem => Boolean(item))
+      : [];
+
+  const explicitIds = new Set(
+    explicitRelated.map((item) => `${item.category}:${item.slug}`)
+  );
+
+  const fallbackScored = publishedTools
+    .filter((item) => !explicitIds.has(`${item.category}:${item.slug}`))
+    .map((item) => {
+      let score = 0;
+
+      if (item.category === tool.category) {
+        score += 5;
+      }
+
+      const toolKeywords = new Set((tool.keywords ?? []).map((k) => k.toLowerCase()));
+      const itemKeywords = new Set((item.keywords ?? []).map((k) => k.toLowerCase()));
+
+      for (const keyword of itemKeywords) {
+        if (toolKeywords.has(keyword)) {
+          score += 3;
+        }
+      }
+
+      const toolText = `${tool.name} ${tool.title} ${tool.description} ${
+        tool.shortDescription ?? ""
+      }`.toLowerCase();
+
+      const itemText = `${item.name} ${item.title} ${item.description} ${
+        item.shortDescription ?? ""
+      }`.toLowerCase();
+
+      const toolTokens = new Set(
+        toolText
+          .split(/[\s,/.-]+/)
+          .map((token) => token.trim())
+          .filter((token) => token.length >= 4)
+      );
+
+      const itemTokens = new Set(
+        itemText
+          .split(/[\s,/.-]+/)
+          .map((token) => token.trim())
+          .filter((token) => token.length >= 4)
+      );
+
+      for (const token of itemTokens) {
+        if (toolTokens.has(token)) {
+          score += 1;
+        }
+      }
+
+      if (item.featured) {
+        score += 0.5;
+      }
+
+      return { item, score };
+    })
+    .filter((entry) => entry.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .map((entry) => entry.item);
+
+  return [...explicitRelated, ...fallbackScored].slice(0, limit);
 }
 
 export function isValidCategory(category: string): category is ToolCategory {
