@@ -1,38 +1,43 @@
-// components/CategorySection.tsx
 import Link from "next/link";
+import type { ToolItem } from "@/lib/tools";
 import ToolGrid from "./ToolGrid";
-import type { CategoryMeta, ToolItem } from "@/lib/tools";
-import { getCategoryPath } from "@/lib/tools";
 
-type Props = {
-  category: CategoryMeta;
+type CategorySectionProps = {
+  title: string;
+  description: string;
+  href: string;
   tools: ToolItem[];
 };
 
-export default function CategorySection({ category, tools }: Props) {
-  if (!tools.length) return null;
-
+export default function CategorySection({
+  title,
+  description,
+  href,
+  tools,
+}: CategorySectionProps) {
   return (
-    <section className="space-y-5">
-      <div className="flex items-end justify-between gap-4">
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-            {category.name}
+    <section className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="max-w-3xl">
+          <h2 className="text-2xl font-semibold tracking-tight text-white">
+            {title}
           </h2>
-          <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
-            {category.description}
+          <p className="mt-3 text-base leading-7 text-white/70">
+            {description}
           </p>
         </div>
 
         <Link
-          href={getCategoryPath(category.slug)}
-          className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-400"
+          href={href}
+          className="text-sm font-medium text-white/70 transition hover:text-white"
         >
-          View all
+          View all →
         </Link>
       </div>
 
-      <ToolGrid tools={tools} />
+      <div className="mt-6">
+        <ToolGrid tools={tools} compact columns="3" />
+      </div>
     </section>
   );
 }

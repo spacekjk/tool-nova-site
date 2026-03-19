@@ -1,12 +1,12 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import ToolGrid from "@/components/ToolGrid";
 import {
   CATEGORY_META,
+  SITE_URL,
   getCategoryPath,
   getStaticCategoryParams,
   getToolsByCategory,
-  getToolPath,
   isValidCategory,
   type ToolCategory,
 } from "@/lib/tools";
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${meta.title} | Tool Nova`,
     description: meta.description,
     alternates: {
-      canonical: `${getCategoryPath(categoryKey)}`,
+      canonical: `${SITE_URL}${getCategoryPath(categoryKey)}`,
     },
   };
 }
@@ -71,19 +71,8 @@ export default async function CategoryPage({ params }: Props) {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {tools.map((tool) => (
-            <Link
-              key={tool.slug}
-              href={getToolPath(tool)}
-              className="rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/10"
-            >
-              <h2 className="text-xl font-semibold text-white">{tool.name}</h2>
-              <p className="mt-3 text-sm leading-6 text-white/70">
-                {tool.shortDescription ?? tool.description}
-              </p>
-            </Link>
-          ))}
+        <div className="mt-12">
+          <ToolGrid tools={tools} columns="3" />
         </div>
       </section>
     </main>
