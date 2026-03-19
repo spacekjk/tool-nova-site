@@ -26,6 +26,14 @@ export type ToolItem = {
   howItWorksTitle?: string;
   howItWorks?: string[];
   faqs?: ToolFaqItem[];
+
+  extendedContentTitle?: string;
+  extendedContent?: string[];
+  useCasesTitle?: string;
+  useCases?: string[];
+  quickExamplesTitle?: string;
+  quickExamples?: string[];
+  seoNotes?: ToolSeoNotes;
 };
 
 export type CategoryMeta = {
