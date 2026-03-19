@@ -181,11 +181,12 @@ export default function UrlEncoderDecoderClient() {
           </div>
         ) : null}
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-2">
-          <div>
-            <label className="mb-3 block text-sm font-medium text-white/80">
-              Input
-            </label>
+        <div className="mt-8 grid items-start gap-6 lg:grid-cols-2">
+          <div className="flex flex-col">
+            <div className="mb-3 flex min-h-[40px] items-center justify-between">
+              <label className="text-sm font-medium text-white/80">Input</label>
+              <div />
+            </div>
 
             <textarea
               value={input}
@@ -195,13 +196,12 @@ export default function UrlEncoderDecoderClient() {
                 setStatus("");
               }}
               placeholder="Paste text or URL here..."
-              rows={14}
-              className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-white outline-none focus:border-white/25"
+              className="h-[340px] w-full resize-none rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-white outline-none focus:border-white/25"
             />
           </div>
 
-          <div>
-            <div className="mb-3 flex items-center justify-between">
+          <div className="flex flex-col">
+            <div className="mb-3 flex min-h-[40px] items-center justify-between">
               <label className="text-sm font-medium text-white/80">Output</label>
 
               <button
@@ -216,8 +216,7 @@ export default function UrlEncoderDecoderClient() {
               value={output}
               readOnly
               placeholder="Encoded or decoded result will appear here."
-              rows={14}
-              className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-4 text-white outline-none"
+              className="h-[340px] w-full resize-none rounded-2xl border border-white/10 bg-black/20 px-4 py-4 text-white outline-none"
             />
           </div>
         </div>
