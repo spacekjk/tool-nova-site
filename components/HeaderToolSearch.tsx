@@ -20,8 +20,11 @@ export default function HeaderToolSearch() {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const resultsContainerRef = useRef<HTMLDivElement | null>(null);
+  const itemRefs = useRef<Array<HTMLAnchorElement | null>>([]);
 
   const results = useMemo(() => {
     const q = normalize(query);
@@ -53,58 +56,65 @@ export default function HeaderToolSearch() {
       }
     }
 
-    function handleKeyDown(event: KeyboardEvent) {
-      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
-        event.preventDefault();
-        inputRef.current?.focus();
-        setIsOpen(true);
-      }
-    }
-
     document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("keydown", handleKeyDown);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
   useEffect(() => {
     setActiveIndex(0);
+    itemRefs.current = [];
   }, [query]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    if (!results.length) return;
+
+    const activeItem = itemRefs.current[activeIndex];
+    if (!activeItem) return;
+
+    activeItem.scrollIntoView({
+      block: "nearest",
+    });
+  }, [activeIndex, isOpen, results.length]);
+
   const handleInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Escape") {
+      setIsOpen(false);
+      inputRef.current?.blur();
+      return;
+    }
+
     if (!results.length) return;
 
     if (event.key === "ArrowDown") {
       event.preventDefault();
+      setIsOpen(true);
       setActiveIndex((prev) => (prev + 1) % results.length);
       return;
     }
 
     if (event.key === "ArrowUp") {
       event.preventDefault();
+      setIsOpen(true);
       setActiveIndex((prev) => (prev - 1 + results.length) % results.length);
       return;
     }
 
     if (event.key === "Enter") {
+      event.preventDefault();
       const selected = results[activeIndex];
       if (selected) {
         window.location.href = getToolPath(selected);
       }
     }
-
-    if (event.key === "Escape") {
-      setIsOpen(false);
-      inputRef.current?.blur();
-    }
   };
 
   return (
     <div ref={wrapperRef} className="relative w-full max-w-xl">
-      <div className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+      <div className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-2">
         <svg
           aria-hidden="true"
           viewBox="0 0 24 24"
@@ -129,16 +139,15 @@ export default function HeaderToolSearch() {
           placeholder="Search tools..."
           className="w-full bg-transparent text-sm text-white outline-none placeholder:text-white/35"
         />
-
-        <span className="hidden rounded-lg border border-white/10 bg-black/20 px-2 py-1 text-[11px] text-white/45 sm:inline-block">
-          Ctrl K
-        </span>
       </div>
 
       {isOpen && query.trim() && (
         <div className="absolute left-0 right-0 top-[calc(100%+10px)] z-50 overflow-hidden rounded-2xl border border-white/10 bg-neutral-950 shadow-2xl">
           {results.length ? (
-            <div className="max-h-[420px] overflow-auto p-2">
+            <div
+              ref={resultsContainerRef}
+              className="max-h-[420px] overflow-y-auto p-2"
+            >
               {results.map((tool, index) => {
                 const href = getToolPath(tool);
                 const isActive = index === activeIndex;
@@ -147,14 +156,15 @@ export default function HeaderToolSearch() {
                   <Link
                     key={`${tool.category}-${tool.slug}`}
                     href={href}
+                    ref={(element) => {
+                      itemRefs.current[index] = element;
+                    }}
                     onClick={() => {
                       setIsOpen(false);
                       setQuery("");
                     }}
                     className={`block rounded-xl px-4 py-3 transition ${
-                      isActive
-                        ? "bg-white/10"
-                        : "hover:bg-white/5"
+                      isActive ? "bg-white/10" : "hover:bg-white/5"
                     }`}
                   >
                     <div className="flex items-start justify-between gap-3">
