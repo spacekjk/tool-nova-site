@@ -44,7 +44,7 @@ export default function UrlEncoderDecoderClient() {
   const handleEncode = () => {
     clearMessages();
 
-    if (!input) {
+    if (!input.trim()) {
       setError("Please enter text or a URL to encode.");
       setOutput("");
       return;
@@ -65,7 +65,7 @@ export default function UrlEncoderDecoderClient() {
   const handleDecode = () => {
     clearMessages();
 
-    if (!input) {
+    if (!input.trim()) {
       setError("Please enter encoded URL text to decode.");
       setOutput("");
       return;
@@ -104,7 +104,9 @@ export default function UrlEncoderDecoderClient() {
   };
 
   const handleSampleEncoded = () => {
-    setInput("https%3A%2F%2Ftoolnova.com%2Fsearch%3Fq%3Dword%20counter%20%26%20category%3Dtext%20tools");
+    setInput(
+      "https%3A%2F%2Ftoolnova.com%2Fsearch%3Fq%3Dword%20counter%20%26%20category%3Dtext%20tools"
+    );
     setOutput("");
     setError("");
     setStatus("Sample encoded URL inserted.");
@@ -181,8 +183,8 @@ export default function UrlEncoderDecoderClient() {
           </div>
         ) : null}
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-2">
-          <div>
+        <div className="mt-8 grid items-start gap-6 lg:grid-cols-2">
+          <div className="flex flex-col">
             <label className="mb-3 block text-sm font-medium text-white/80">
               Input
             </label>
@@ -195,12 +197,11 @@ export default function UrlEncoderDecoderClient() {
                 setStatus("");
               }}
               placeholder="Paste text or URL here..."
-              rows={14}
-              className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-white outline-none focus:border-white/25"
+              className="h-[340px] w-full resize-none rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-white outline-none focus:border-white/25"
             />
           </div>
 
-          <div>
+          <div className="flex flex-col">
             <div className="mb-3 flex items-center justify-between">
               <label className="text-sm font-medium text-white/80">Output</label>
 
@@ -216,8 +217,7 @@ export default function UrlEncoderDecoderClient() {
               value={output}
               readOnly
               placeholder="Encoded or decoded result will appear here."
-              
-              className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-4 text-white outline-none"
+              className="h-[340px] w-full resize-none rounded-2xl border border-white/10 bg-black/20 px-4 py-4 text-white outline-none"
             />
           </div>
         </div>
