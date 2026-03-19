@@ -52,19 +52,8 @@ export default function PasswordGenerator() {
 
   return (
 
-    <section className="mx-auto max-w-4xl px-6">
+    <div>
 
-      <p className="text-sm text-white/60">Free Online Generator</p>
-
-      <h1 className="mt-2 text-4xl font-bold">
-        Password Generator
-      </h1>
-
-      <p className="mt-4 text-white/70">
-        Generate strong and secure passwords instantly. Choose the password
-        length and character types to create a safe password for your
-        accounts.
-      </p>
 
       <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6">
 
@@ -142,7 +131,7 @@ export default function PasswordGenerator() {
         )}
       </div>
 
-    </section>
+    </div>
 
 
   );
