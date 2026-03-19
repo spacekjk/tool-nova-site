@@ -5,37 +5,54 @@ export const TEXT_TOOLS: ToolItem[] = [
         slug: "word-counter",
         category: "text-tools",
         name: "Word Counter",
-        title: "Word Counter",
+        title: "Word Counter - Count Words, Characters, Sentences, and Reading Time",
         description:
-            "Count words, characters, sentences, and paragraphs instantly online.",
-        shortDescription: "Count words and characters instantly.",
-        keywords: ["word counter", "character counter", "text counter"],
+            "Use this free word counter to count words, characters, sentences, paragraphs, and reading time instantly online.",
+        shortDescription:
+            "Count words, characters, sentences, paragraphs, and reading time.",
+        keywords: [
+            "word counter",
+            "character counter",
+            "reading time calculator",
+            "sentence counter",
+            "paragraph counter",
+            "count words online",
+        ],
         featured: true,
         published: true,
-        relatedSlugs: ["character-counter", "case-converter", "text-compare"],
-
+        relatedSlugs: [
+            "character-counter",
+            "remove-extra-spaces",
+            "case-converter",
+            "text-compare",
+        ],
         howItWorksTitle: "How this word counter works",
         howItWorks: [
-            "This tool analyzes your text input and instantly counts words, characters, sentences, and paragraphs.",
-            "It processes the text in real time, so results update automatically as you type or paste content.",
-            "You can use it for writing, editing, SEO optimization, and checking content length requirements.",
+            "This word counter analyzes your text instantly and shows the total number of words, characters, sentences, and paragraphs.",
+            "It also calculates character count without spaces, which is useful for forms, social media limits, and metadata fields.",
+            "The reading time estimate is based on a typical reading speed and helps you measure how long a piece of writing may take to read.",
+            "You can paste essays, blog posts, articles, or any other text into the editor and get results immediately.",
         ],
-
         faqs: [
             {
-                question: "What does this word counter measure?",
+                question: "What does this word counter count?",
                 answer:
-                    "It counts words, characters, sentences, and paragraphs in your text automatically.",
+                    "This tool counts words, characters, characters without spaces, sentences, paragraphs, and estimated reading time.",
             },
             {
-                question: "Can I use this word counter for SEO or writing limits?",
+                question: "How is reading time calculated?",
                 answer:
-                    "Yes. It is useful for blog posts, essays, and any content that has word or character limits.",
+                    "Reading time is estimated from the total word count using a typical average reading speed.",
             },
             {
-                question: "Is this word counter free to use?",
+                question: "Does this count characters without spaces?",
                 answer:
-                    "Yes. Tool Nova provides this word counter online for free with no sign-up required.",
+                    "Yes. The tool shows both total characters and characters without spaces.",
+            },
+            {
+                question: "Can I use this for essays and blog posts?",
+                answer:
+                    "Yes. This word counter is useful for essays, articles, blog posts, assignments, and SEO writing.",
             },
         ],
     },
@@ -80,37 +97,55 @@ export const TEXT_TOOLS: ToolItem[] = [
         slug: "case-converter",
         category: "text-tools",
         name: "Case Converter",
-        title: "Case Converter",
+        title: "Case Converter - Convert Text to Uppercase, Lowercase, camelCase, snake_case",
         description:
-            "Convert text to uppercase, lowercase, title case, and sentence case instantly.",
-        shortDescription: "Convert text case instantly.",
-        keywords: ["case converter", "uppercase lowercase converter", "title case"],
+            "Use this free case converter to change text into uppercase, lowercase, title case, sentence case, camelCase, PascalCase, snake_case, and kebab-case.",
+        shortDescription:
+            "Convert text into uppercase, lowercase, title case, camelCase, snake_case, and more.",
+        keywords: [
+            "case converter",
+            "uppercase converter",
+            "lowercase converter",
+            "camelcase converter",
+            "snake case converter",
+            "kebab case converter",
+            "title case converter",
+        ],
         featured: true,
         published: true,
-        relatedSlugs: ["word-counter", "character-counter", "reverse-text"],
-
+        relatedSlugs: [
+            "word-counter",
+            "character-counter",
+            "remove-extra-spaces",
+            "slug-generator",
+        ],
         howItWorksTitle: "How this case converter works",
         howItWorks: [
-            "This tool transforms your text into different letter cases such as uppercase, lowercase, title case, and sentence case.",
-            "It processes your input instantly, allowing you to switch between formats in real time.",
-            "You can use it for writing, formatting documents, coding, and improving text consistency.",
+            "This case converter transforms your text into different formats instantly, including uppercase, lowercase, title case, and sentence case.",
+            "It also converts text into developer-friendly formats such as camelCase, PascalCase, snake_case, and kebab-case.",
+            "You can paste any text into the editor and copy the converted result you need right away.",
+            "This is useful for writing, editing, coding, SEO work, and preparing text for different platforms.",
         ],
-
         faqs: [
             {
-                question: "What types of text case can I convert?",
+                question: "What can this case converter change?",
                 answer:
-                    "You can convert text to uppercase, lowercase, title case, and sentence case instantly.",
+                    "This tool can convert text into lowercase, uppercase, title case, sentence case, camelCase, PascalCase, snake_case, and kebab-case.",
             },
             {
-                question: "Can I use this case converter for formatting documents?",
+                question: "What is camelCase?",
                 answer:
-                    "Yes. It is useful for editing content, correcting capitalization, and formatting text quickly.",
+                    "camelCase is a writing style where the first word starts in lowercase and each following word starts with a capital letter, such as myToolName.",
             },
             {
-                question: "Is this case converter free to use?",
+                question: "What is snake_case?",
                 answer:
-                    "Yes. Tool Nova provides this case converter online for free with no sign-up required.",
+                    "snake_case is a text format where words are lowercase and connected with underscores, such as my_tool_name.",
+            },
+            {
+                question: "Can I copy the converted text?",
+                answer:
+                    "Yes. Each converted result has its own copy button so you can quickly copy the format you need.",
             },
         ],
     },
@@ -545,4 +580,5 @@ export const TEXT_TOOLS: ToolItem[] = [
             },
         ],
     },
+
 ];

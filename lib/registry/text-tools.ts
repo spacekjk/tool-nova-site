@@ -14,6 +14,7 @@ import RemoveExtraSpacesClient from "@/app/text-tools/remove-extra-spaces/Remove
 import UrlEncoderDecoderClient from "@/app/text-tools/url-encoder-decoder/UrlEncoderDecoderClient";
 import HtmlEncoderDecoderClient from "@/app/text-tools/html-encoder-decoder/HtmlEncoderDecoderClient";
 
+
 export const textToolRegistry: Record<string, ComponentType> = {
   "word-counter": WordCounterClient,
   "character-counter": CharacterCounterClient,
