@@ -11,6 +11,12 @@ export type ToolFaqItem = {
   answer: string;
 };
 
+export type ToolSeoNotes = {
+  intent?: string;
+  primaryKeyword?: string;
+  secondaryKeywords?: string[];
+};
+
 export type ToolItem = {
   slug: string;
   category: ToolCategory;
