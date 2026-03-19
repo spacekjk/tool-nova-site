@@ -1,16 +1,17 @@
-// app/[category]/[slug]/page.tsx
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import {
+  SITE_URL,
   getStaticToolParams,
   getToolByParams,
   getRelatedTools,
   getToolPath,
 } from "@/lib/tools";
-import { getToolComponent } from "@/lib/tool-registry";
+import { getToolComponent } from "@/lib/registry";
+import { buildToolMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
-
+import RelatedTools from "@/components/RelatedTools";
+import ToolSchema from "@/components/ToolSchema";
 
 type Props = {
   params: Promise<{
@@ -34,26 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  return {
-    title: `${tool.title} | Tool Nova`,
-    description: tool.description,
-    keywords: tool.keywords,
-    alternates: {
-      canonical: `https://tool-nova.com/${tool.category}/${tool.slug}`,
-    },
-    openGraph: {
-      title: `${tool.title} | Tool Nova`,
-      description: tool.description,
-      url: `https://tool-nova.com/${tool.category}/${tool.slug}`,
-      siteName: "Tool Nova",
-      type: "website",
-    },
-    twitter: {
-      card: "summary",
-      title: `${tool.title} | Tool Nova`,
-      description: tool.description,
-    },
-  };
+  return buildToolMetadata(tool);
 }
 
 export default async function ToolPage({ params }: Props) {
@@ -65,15 +47,19 @@ export default async function ToolPage({ params }: Props) {
   const ToolComponent = getToolComponent(slug);
   if (!ToolComponent) notFound();
 
-  const relatedTools = getRelatedTools(tool, 4);
+  const relatedTools = getRelatedTools(tool, 4).map((item) => ({
+    name: item.name,
+    href: getToolPath(item),
+    description: item.shortDescription ?? item.description,
+  }));
 
   return (
-    <main className="mx-auto max-w-5xl px-4 py-10">
+    <main className="mx-auto max-w-5xl px-6 py-10">
       <header className="mb-10">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <h1 className="text-4xl font-bold tracking-tight text-white">
           {tool.title}
         </h1>
-        <p className="mt-4 text-base leading-7 text-gray-600 dark:text-gray-300">
+        <p className="mt-4 text-base leading-7 text-gray-300">
           {tool.description}
         </p>
       </header>
@@ -82,8 +68,8 @@ export default async function ToolPage({ params }: Props) {
         <ToolComponent />
       </section>
 
-      {tool.howItWorks && tool.howItWorks.length > 0 && (
-        <section className="mx-auto max-w-4xl px-6 pb-14">
+      {tool.howItWorks?.length ? (
+        <section className="mx-auto max-w-4xl pb-14">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
             <h2 className="text-2xl font-semibold text-white">
               {tool.howItWorksTitle ?? `How this ${tool.name.toLowerCase()} works`}
@@ -96,10 +82,10 @@ export default async function ToolPage({ params }: Props) {
             </div>
           </div>
         </section>
-      )}
+      ) : null}
 
-      {tool.faqs && tool.faqs.length > 0 && (
-        <section className="mx-auto max-w-4xl px-6 pb-14">
+      {tool.faqs?.length ? (
+        <section className="mx-auto max-w-4xl pb-14">
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
             <h2 className="text-2xl font-semibold text-white">
               Frequently Asked Questions
@@ -119,36 +105,17 @@ export default async function ToolPage({ params }: Props) {
             </div>
           </div>
         </section>
-      )}
+      ) : null}
 
-      {relatedTools.length > 0 && (
-        <section className="mx-auto max-w-4xl px-6 pb-14">
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-            <h2 className="text-2xl font-semibold text-white">
-              Related Tools
-            </h2>
+      <RelatedTools tools={relatedTools} />
 
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              {relatedTools.map((item) => (
-                <Link
-                  key={item.slug}
-                  href={getToolPath(item)}
-                  className="rounded-2xl border border-white/10 bg-black/40 p-5 transition hover:bg-black/60"
-                >
-                  <h3 className="text-lg font-semibold text-white">
-                    {item.name}
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-gray-300">
-                    {item.shortDescription ?? item.description}
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      <ToolSchema
+        name={tool.name}
+        description={tool.description}
+        url={`${SITE_URL}/${tool.category}/${tool.slug}`}
+      />
 
-      {tool.faqs && <FAQSchema items={tool.faqs} />}
+      {tool.faqs?.length ? <FAQSchema items={tool.faqs} /> : null}
     </main>
   );
 }

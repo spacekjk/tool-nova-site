@@ -1,6 +1,14 @@
 import Link from "next/link";
 import "./globals.css";
 
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/calculators", label: "Calculators" },
+  { href: "/text-tools", label: "Text Tools" },
+  { href: "/generators", label: "Generators" },
+  { href: "/converters", label: "Converters" },
+];
+
 export default function RootLayout({
   children,
 }: {
@@ -18,12 +26,17 @@ export default function RootLayout({
               Tool Nova
             </Link>
 
-            <Link
-              href="/"
-              className="rounded-xl border border-white/15 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/5"
-            >
-              Home
-            </Link>
+            <nav className="hidden items-center gap-2 md:flex">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-xl px-3 py-2 text-sm font-medium text-white/80 transition hover:bg-white/5 hover:text-white"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
           </div>
         </header>
 

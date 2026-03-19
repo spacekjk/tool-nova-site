@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import type { ToolItem } from "@/lib/tools";
+import { SITE_URL } from "@/lib/tools";
 
 type BuildMetadataProps = {
   title: string;
@@ -14,38 +16,35 @@ export function buildMetadata({
   keywords = [],
 }: BuildMetadataProps): Metadata {
   const fullTitle = `${title} | Tool Nova`;
-  const canonicalUrl = `https://tool-nova.com${path}`;
+  const canonicalUrl = `${SITE_URL}${path}`;
 
   return {
     title,
     description,
     keywords,
-
     alternates: {
       canonical: canonicalUrl,
     },
-
     openGraph: {
       title: fullTitle,
       description,
       url: canonicalUrl,
       siteName: "Tool Nova",
       type: "website",
-      images: [
-        {
-          url: "/og-image.png",
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
     },
-
     twitter: {
-      card: "summary_large_image",
+      card: "summary",
       title: fullTitle,
       description,
-      images: ["/og-image.png"],
     },
   };
+}
+
+export function buildToolMetadata(tool: ToolItem): Metadata {
+  return buildMetadata({
+    title: tool.title,
+    description: tool.description,
+    path: `/${tool.category}/${tool.slug}`,
+    keywords: tool.keywords,
+  });
 }
