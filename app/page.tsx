@@ -1,14 +1,17 @@
 import Link from "next/link";
 import CategorySection from "@/components/CategorySection";
 import ToolGrid from "@/components/ToolGrid";
+import ToolSearch from "@/components/ToolSearch";
 import {
   getFeaturedTools,
   getHomeCategorySections,
+  getPublishedTools,
 } from "@/lib/tools";
 
 export default function HomePage() {
   const featuredTools = getFeaturedTools(8);
   const sections = getHomeCategorySections();
+  const publishedTools = getPublishedTools();
 
   return (
     <main className="min-h-screen bg-neutral-950 text-white">
@@ -39,10 +42,16 @@ export default function HomePage() {
 
         <section className="mt-16">
           <div className="mb-6 flex items-center justify-between">
-            <h2 className="text-2xl font-semibold text-white">Featured Tools</h2>
+            <h2 className="text-2xl font-semibold text-white">
+              Featured Tools
+            </h2>
           </div>
 
           <ToolGrid tools={featuredTools} columns="4" />
+        </section>
+
+        <section className="mt-10">
+          <ToolSearch tools={publishedTools} />
         </section>
 
         <div className="mt-20 space-y-10">
