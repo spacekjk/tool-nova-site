@@ -63,72 +63,72 @@ export default function PercentageCalculatorPage() {
 
   return (
 
-    <section className="mx-auto max-w-4xl px-6">
 
 
-      <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-        <label className="mb-3 block text-sm font-medium text-white/80">
-          Choose calculation type
-        </label>
 
-        <select
-          value={mode}
-          onChange={(e) => setMode(e.target.value as Mode)}
-          className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
-        >
-          <option value="findPercentage">What percentage is A of B?</option>
-          <option value="whatIsXPercentOfY">What is X% of Y?</option>
-          <option value="percentageChange">
-            Percentage increase / decrease
-          </option>
-        </select>
+    <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+      <label className="mb-3 block text-sm font-medium text-white/80">
+        Choose calculation type
+      </label>
 
-        <p className="mt-4 text-sm leading-6 text-white/60">{helperText}</p>
+      <select
+        value={mode}
+        onChange={(e) => setMode(e.target.value as Mode)}
+        className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
+      >
+        <option value="findPercentage">What percentage is A of B?</option>
+        <option value="whatIsXPercentOfY">What is X% of Y?</option>
+        <option value="percentageChange">
+          Percentage increase / decrease
+        </option>
+      </select>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <div>
-            <label className="mb-2 block text-sm font-medium text-white/80">
-              {label1}
-            </label>
-            <input
-              type="number"
-              value={value1}
-              onChange={(e) => setValue1(e.target.value)}
-              placeholder="Enter a number"
-              className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
-            />
-          </div>
+      <p className="mt-4 text-sm leading-6 text-white/60">{helperText}</p>
 
-          <div>
-            <label className="mb-2 block text-sm font-medium text-white/80">
-              {label2}
-            </label>
-            <input
-              type="number"
-              value={value2}
-              onChange={(e) => setValue2(e.target.value)}
-              placeholder="Enter a number"
-              className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
-            />
-          </div>
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <div>
+          <label className="mb-2 block text-sm font-medium text-white/80">
+            {label1}
+          </label>
+          <input
+            type="number"
+            value={value1}
+            onChange={(e) => setValue1(e.target.value)}
+            placeholder="Enter a number"
+            className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
+          />
         </div>
 
-        <div className="mt-8 rounded-2xl border border-white/10 bg-black/20 p-5">
-          {!value1 || !value2 ? (
-            <p className="text-white/60">
-              Enter both values to calculate the result.
-            </p>
-          ) : (
-            <div>
-              <h2 className="text-2xl font-semibold">Result</h2>
-              <p className="mt-3 text-3xl font-bold">
-                {result ?? "Enter valid values."}
-              </p>
-            </div>
-          )}
+        <div>
+          <label className="mb-2 block text-sm font-medium text-white/80">
+            {label2}
+          </label>
+          <input
+            type="number"
+            value={value2}
+            onChange={(e) => setValue2(e.target.value)}
+            placeholder="Enter a number"
+            className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
+          />
         </div>
       </div>
-    </section>
+
+      <div className="mt-8 rounded-2xl border border-white/10 bg-black/20 p-5">
+        {!value1 || !value2 ? (
+          <p className="text-white/60">
+            Enter both values to calculate the result.
+          </p>
+        ) : (
+          <div>
+            <h2 className="text-2xl font-semibold">Result</h2>
+            <p className="mt-3 text-3xl font-bold">
+              {result ?? "Enter valid values."}
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+
 
 
 

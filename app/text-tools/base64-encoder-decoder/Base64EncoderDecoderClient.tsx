@@ -49,7 +49,7 @@ export default function Base64EncoderDecoderClient() {
   };
 
   return (
-    <section className="mx-auto max-w-4xl">
+    
       <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
         <div className="grid gap-4">
           <div>
@@ -122,6 +122,6 @@ export default function Base64EncoderDecoderClient() {
           </div>
         </div>
       </div>
-    </section>
+    
   );
 }

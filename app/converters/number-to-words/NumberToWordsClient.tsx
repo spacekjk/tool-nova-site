@@ -117,41 +117,41 @@ export default function NumberToWordsPage() {
 
   return (
 
-    <section className="mx-auto max-w-4xl px-6">
 
-      <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-        <label className="mb-3 block text-sm font-medium text-white/80">
-          Enter a whole number
-        </label>
 
-        <input
-          type="number"
-          step="1"
-          min="0"
-          max="999999999999"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="e.g. 15432"
-          className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
-        />
+    <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+      <label className="mb-3 block text-sm font-medium text-white/80">
+        Enter a whole number
+      </label>
 
-        <div className="mt-8 rounded-2xl border border-white/10 bg-black/20 p-5">
-          <div className="flex items-center justify-between gap-4">
-            <h2 className="text-2xl font-semibold">Result</h2>
-            <button
-              onClick={handleCopy}
-              className="rounded-xl border border-white/10 px-4 py-2 text-sm text-white/80 hover:bg-white/5"
-            >
-              Copy
-            </button>
-          </div>
+      <input
+        type="number"
+        step="1"
+        min="0"
+        max="999999999999"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="e.g. 15432"
+        className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
+      />
 
-          <p className="mt-4 text-2xl font-medium capitalize text-white/90">
-            {result || "Enter a number to convert it into words."}
-          </p>
+      <div className="mt-8 rounded-2xl border border-white/10 bg-black/20 p-5">
+        <div className="flex items-center justify-between gap-4">
+          <h2 className="text-2xl font-semibold">Result</h2>
+          <button
+            onClick={handleCopy}
+            className="rounded-xl border border-white/10 px-4 py-2 text-sm text-white/80 hover:bg-white/5"
+          >
+            Copy
+          </button>
         </div>
+
+        <p className="mt-4 text-2xl font-medium capitalize text-white/90">
+          {result || "Enter a number to convert it into words."}
+        </p>
       </div>
-    </section>
+    </div>
+
 
 
 

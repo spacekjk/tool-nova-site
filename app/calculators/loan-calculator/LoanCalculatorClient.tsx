@@ -59,92 +59,89 @@ export default function LoanCalculatorPage() {
 
   return (
 
-    <section className="mx-auto max-w-4xl px-6">
-
-
-      <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-        <div className="grid gap-4 sm:grid-cols-3">
-          <div>
-            <label className="mb-2 block text-sm font-medium text-white/80">
-              Loan Amount
-            </label>
-            <input
-              type="number"
-              min="0"
-              value={loanAmount}
-              onChange={(e) => setLoanAmount(e.target.value)}
-              placeholder="e.g. 10000"
-              className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
-            />
-          </div>
-
-          <div>
-            <label className="mb-2 block text-sm font-medium text-white/80">
-              Annual Interest Rate (%)
-            </label>
-            <input
-              type="number"
-              min="0"
-              step="0.01"
-              value={annualRate}
-              onChange={(e) => setAnnualRate(e.target.value)}
-              placeholder="e.g. 5"
-              className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
-            />
-          </div>
-
-          <div>
-            <label className="mb-2 block text-sm font-medium text-white/80">
-              Loan Term (Years)
-            </label>
-            <input
-              type="number"
-              min="1"
-              step="1"
-              value={loanYears}
-              onChange={(e) => setLoanYears(e.target.value)}
-              placeholder="e.g. 3"
-              className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
-            />
-          </div>
+    <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+      <div className="grid gap-4 sm:grid-cols-3">
+        <div>
+          <label className="mb-2 block text-sm font-medium text-white/80">
+            Loan Amount
+          </label>
+          <input
+            type="number"
+            min="0"
+            value={loanAmount}
+            onChange={(e) => setLoanAmount(e.target.value)}
+            placeholder="e.g. 10000"
+            className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
+          />
         </div>
 
-        <div className="mt-8 rounded-2xl border border-white/10 bg-black/20 p-5">
-          {!result ? (
-            <p className="text-white/60">
-              Enter valid loan details to calculate your payment.
-            </p>
-          ) : (
-            <div>
-              <h2 className="text-2xl font-semibold">Loan Results</h2>
+        <div>
+          <label className="mb-2 block text-sm font-medium text-white/80">
+            Annual Interest Rate (%)
+          </label>
+          <input
+            type="number"
+            min="0"
+            step="0.01"
+            value={annualRate}
+            onChange={(e) => setAnnualRate(e.target.value)}
+            placeholder="e.g. 5"
+            className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
+          />
+        </div>
 
-              <div className="mt-5 grid gap-4 sm:grid-cols-3">
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm text-white/55">Monthly Payment</p>
-                  <p className="mt-2 text-2xl font-bold">
-                    {formatCurrency(result.monthlyPayment)}
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm text-white/55">Total Payment</p>
-                  <p className="mt-2 text-2xl font-bold">
-                    {formatCurrency(result.totalPayment)}
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm text-white/55">Total Interest</p>
-                  <p className="mt-2 text-2xl font-bold">
-                    {formatCurrency(result.totalInterest)}
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
+        <div>
+          <label className="mb-2 block text-sm font-medium text-white/80">
+            Loan Term (Years)
+          </label>
+          <input
+            type="number"
+            min="1"
+            step="1"
+            value={loanYears}
+            onChange={(e) => setLoanYears(e.target.value)}
+            placeholder="e.g. 3"
+            className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
+          />
         </div>
       </div>
-    </section>
+
+      <div className="mt-8 rounded-2xl border border-white/10 bg-black/20 p-5">
+        {!result ? (
+          <p className="text-white/60">
+            Enter valid loan details to calculate your payment.
+          </p>
+        ) : (
+          <div>
+            <h2 className="text-2xl font-semibold">Loan Results</h2>
+
+            <div className="mt-5 grid gap-4 sm:grid-cols-3">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p className="text-sm text-white/55">Monthly Payment</p>
+                <p className="mt-2 text-2xl font-bold">
+                  {formatCurrency(result.monthlyPayment)}
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p className="text-sm text-white/55">Total Payment</p>
+                <p className="mt-2 text-2xl font-bold">
+                  {formatCurrency(result.totalPayment)}
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p className="text-sm text-white/55">Total Interest</p>
+                <p className="mt-2 text-2xl font-bold">
+                  {formatCurrency(result.totalInterest)}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+
 
 
 

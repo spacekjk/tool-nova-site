@@ -22,8 +22,6 @@ export default function DiscountCalculatorClient() {
 
   return (
 
-
-
     <section className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6">
       <div className="grid gap-4 sm:grid-cols-2">
         <div>

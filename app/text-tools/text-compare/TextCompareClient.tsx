@@ -39,12 +39,7 @@ export default function TextComparePage() {
   }, [leftText, rightText]);
 
   return (
-
-    <section className="mx-auto max-w-6xl px-6">
-      <div className="max-w-3xl">
-
-      </div>
-
+    <>
       <div className="mt-10 grid gap-6 lg:grid-cols-2">
         <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
           <label className="mb-3 block text-sm font-medium text-white/80">
@@ -101,10 +96,11 @@ export default function TextComparePage() {
               {comparison.lineResults.map((row) => (
                 <div
                   key={row.line}
-                  className={`grid gap-3 rounded-2xl border p-4 md:grid-cols-2 ${row.same
+                  className={`grid gap-3 rounded-2xl border p-4 md:grid-cols-2 ${
+                    row.same
                       ? "border-white/10 bg-black/20"
                       : "border-yellow-400/20 bg-yellow-400/5"
-                    }`}
+                  }`}
                 >
                   <div>
                     <p className="mb-2 text-xs uppercase tracking-wide text-white/45">
@@ -129,10 +125,6 @@ export default function TextComparePage() {
           </>
         )}
       </div>
-    </section>
-
-
-
-
+    </>
   );
 }

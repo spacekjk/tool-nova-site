@@ -64,7 +64,7 @@ export default async function ToolPage({ params }: Props) {
         </p>
       </header>
 
-      <section className="mb-12">
+      <section className="mx-auto max-w-4xl mb-12">
         <ToolComponent />
       </section>
 
