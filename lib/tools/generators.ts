@@ -50,6 +50,7 @@ export const GENERATOR_TOOLS: ToolItem[] = [
         keywords: ["random number generator", "number picker", "rng"],
         featured: true,
         published: true,
+        new: true,
         relatedSlugs: ["random-name-picker", "password-generator", "uuid-generator"],
 
         howItWorksTitle: "How this random number generator works",

@@ -12,6 +12,7 @@ export const CONVERTER_TOOLS: ToolItem[] = [
         keywords: ["kg to lbs", "kilogram to pounds converter"],
         featured: true,
         published: true,
+        new: true,
         relatedSlugs: ["bmi-calculator", "age-calculator", "number-to-words"],
         howItWorksTitle: "How this kg to lbs converter works",
         howItWorks: [

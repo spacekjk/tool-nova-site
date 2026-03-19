@@ -216,6 +216,7 @@ export const TEXT_TOOLS: ToolItem[] = [
         keywords: ["text compare", "text diff", "compare text online"],
         featured: true,
         published: true,
+        new: true,
         relatedSlugs: ["word-counter", "json-formatter", "remove-line-breaks"],
 
         howItWorksTitle: "How this text compare tool works",
@@ -263,6 +264,7 @@ export const TEXT_TOOLS: ToolItem[] = [
         ],
         featured: true,
         published: true,
+        new: true,
         relatedSlugs: [
             "base64-encoder-decoder",
             "html-encoder-decoder",

@@ -98,6 +98,7 @@ export const CALCULATOR_TOOLS: ToolItem[] = [
         keywords: ["bmi calculator", "body mass index calculator", "health calculator"],
         featured: true,
         published: true,
+        new: true,
         relatedSlugs: ["age-calculator", "kg-to-lbs", "percentage-calculator"],
         howItWorksTitle: "How this BMI calculator works",
         howItWorks: [
