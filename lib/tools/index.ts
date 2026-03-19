@@ -94,24 +94,26 @@ export function getHomeCategorySections() {
 }
 
 export function getSitemapEntries() {
+  const DEFAULT_LAST_MODIFIED = new Date("2026-03-19");
+
   const categoryEntries = (Object.keys(CATEGORY_META) as ToolCategory[]).map(
     (category) => ({
       url: `${SITE_URL}${getCategoryPath(category)}`,
-      lastModified: new Date(),
+      lastModified: DEFAULT_LAST_MODIFIED,
     })
   );
 
   const toolEntries = getPublishedTools().map((tool) => ({
     url: `${SITE_URL}${getToolPath(tool)}`,
-    lastModified: new Date(),
+    lastModified: DEFAULT_LAST_MODIFIED,
   }));
 
   const staticEntries = [
-    { url: SITE_URL, lastModified: new Date() },
-    { url: `${SITE_URL}/about`, lastModified: new Date() },
-    { url: `${SITE_URL}/contact`, lastModified: new Date() },
-    { url: `${SITE_URL}/privacy`, lastModified: new Date() },
-    { url: `${SITE_URL}/terms`, lastModified: new Date() },
+    { url: SITE_URL, lastModified: DEFAULT_LAST_MODIFIED },
+    { url: `${SITE_URL}/about`, lastModified: DEFAULT_LAST_MODIFIED },
+    { url: `${SITE_URL}/contact`, lastModified: DEFAULT_LAST_MODIFIED },
+    { url: `${SITE_URL}/privacy`, lastModified: DEFAULT_LAST_MODIFIED },
+    { url: `${SITE_URL}/terms`, lastModified: DEFAULT_LAST_MODIFIED },
   ];
 
   return [...staticEntries, ...categoryEntries, ...toolEntries];
