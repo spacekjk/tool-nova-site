@@ -84,7 +84,6 @@ export default function KoreanNameGeneratorClient() {
             className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
           >
             <option value="modern">Modern</option>
-            <option value="traditional">Traditional</option>
             <option value="cute">Cute</option>
             <option value="neutral">Neutral</option>
           </select>
