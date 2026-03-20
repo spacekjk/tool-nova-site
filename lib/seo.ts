@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import type { ToolItem } from "@/lib/tools";
-import { SITE_URL } from "@/lib/tools";
+import { SITE_URL, type Tool } from "@/lib/tools";
 
 type BuildMetadataProps = {
   title: string;
@@ -15,8 +14,8 @@ export function buildMetadata({
   path,
   keywords = [],
 }: BuildMetadataProps): Metadata {
-  const fullTitle = `${title} | Tool Nova`;
   const canonicalUrl = `${SITE_URL}${path}`;
+  const fullTitle = `${title} | Tool Nova`;
 
   return {
     title,
@@ -31,20 +30,43 @@ export function buildMetadata({
       url: canonicalUrl,
       siteName: "Tool Nova",
       type: "website",
+      images: [
+        {
+          url: `${SITE_URL}/og-default.png`,
+          width: 1200,
+          height: 630,
+          alt: fullTitle,
+        },
+      ],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: fullTitle,
       description,
+      images: [`${SITE_URL}/og-default.png`],
     },
   };
 }
 
-export function buildToolMetadata(tool: ToolItem): Metadata {
+export function buildToolMetadata(tool: Tool): Metadata {
   return buildMetadata({
     title: tool.title,
     description: tool.description,
     path: `/${tool.category}/${tool.slug}`,
-    keywords: tool.keywords,
+    keywords: tool.keywords ?? [],
+  });
+}
+
+export function buildCategoryMetadata({
+  title,
+  description,
+  path,
+  keywords = [],
+}: BuildMetadataProps): Metadata {
+  return buildMetadata({
+    title,
+    description,
+    path,
+    keywords,
   });
 }
