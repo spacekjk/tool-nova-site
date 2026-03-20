@@ -63,6 +63,21 @@ export default async function ToolPage({ params }: Props) {
     description: item.shortDescription ?? item.description,
   }));
 
+  const breadcrumbItems = [
+    {
+      name: "Home",
+      url: SITE_URL,
+    },
+    {
+      name: categoryMeta.name,
+      url: `${SITE_URL}/${tool.category}`,
+    },
+    {
+      name: tool.name,
+      url: `${SITE_URL}${getToolPath(tool)}`,
+    },
+  ];
+
   return (
     <main className="mx-auto max-w-5xl px-6 py-10">
       <nav className="mb-6 text-sm text-white/50">
@@ -253,6 +268,8 @@ export default async function ToolPage({ params }: Props) {
         description={tool.description}
         url={`${SITE_URL}${getToolPath(tool)}`}
       />
+
+      <BreadcrumbSchema items={breadcrumbItems} />
 
       {tool.faqs?.length ? <FAQSchema items={tool.faqs} /> : null}
     </main>
