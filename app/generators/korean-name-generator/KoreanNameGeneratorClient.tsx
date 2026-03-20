@@ -1,265 +1,187 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import type { Gender, Style, SurnameKey } from "./nameData";
+import {
+  buildPool,
+  pickBestNames,
+  scoreName,
+  surnameMap,
+} from "./nameData";
 
-type Gender = "any" | "male" | "female";
-type Style = "modern" | "traditional" | "cute" | "neutral";
-type SurnameKey = "none" | "kim" | "lee" | "park" | "choi" | "jung";
-
-const surnames: Record<SurnameKey, string> = {
-  none: "",
-  kim: "Kim",
-  lee: "Lee",
-  park: "Park",
-  choi: "Choi",
-  jung: "Jung",
+type GeneratedResult = {
+  fullName: string;
+  naturalness: number;
+  tags: string[];
+  usage: string;
+  vibe: string;
 };
-
-const maleNames = {
-  modern: [
-    "Seo-jun",
-    "Do-yoon",
-    "Ji-ho",
-    "Min-jae",
-    "Ye-jun",
-    "Ha-joon",
-    "Si-woo",
-    "Eun-ho",
-  ],
-  traditional: [
-    "Young-soo",
-    "Jong-ho",
-    "Dong-hyun",
-    "Sung-min",
-    "Kwang-ho",
-    "Byung-ho",
-    "Jae-won",
-    "Hyun-woo",
-  ],
-  cute: [
-    "Woo-joo",
-    "Ha-neul",
-    "Doo-ri",
-    "Min-woo",
-    "Ji-yul",
-    "Seo-yul",
-    "Jun-i",
-    "Si-on",
-  ],
-  neutral: [
-    "Ji-an",
-    "Seo-yoon",
-    "Ha-yoon",
-    "Do-hyun",
-    "Min-seo",
-    "Jae-in",
-    "Si-ho",
-    "Ro-un",
-  ],
-};
-
-const femaleNames = {
-  modern: [
-    "Seo-yeon",
-    "Ji-woo",
-    "Ha-yoon",
-    "Min-seo",
-    "Ye-rin",
-    "Seo-ah",
-    "Ji-an",
-    "Na-eun",
-  ],
-  traditional: [
-    "Young-hee",
-    "Mi-sook",
-    "Soo-jin",
-    "Hye-jin",
-    "Eun-jung",
-    "Kyung-mi",
-    "Sun-hee",
-    "Bo-kyung",
-  ],
-  cute: [
-    "Ha-rin",
-    "Na-yul",
-    "A-ra",
-    "Bo-mi",
-    "Da-on",
-    "Seo-yul",
-    "Ra-on",
-    "Yu-na",
-  ],
-  neutral: [
-    "Ji-an",
-    "Ha-neul",
-    "Seo-yoon",
-    "Min-joo",
-    "Ye-on",
-    "Si-ah",
-    "Da-on",
-    "Ro-ah",
-  ],
-};
-
-const meanings = [
-  "bright and warm feeling",
-  "soft and elegant sound",
-  "modern and trendy style",
-  "traditional Korean vibe",
-  "cute and youthful tone",
-  "balanced and gender-neutral feel",
-];
-
-function shuffle<T>(array: T[]) {
-  return [...array].sort(() => Math.random() - 0.5);
-}
-
-function buildPool(gender: Gender, style: Style) {
-  if (gender === "male") return maleNames[style];
-  if (gender === "female") return femaleNames[style];
-
-  return [...maleNames[style], ...femaleNames[style]];
-}
 
 export default function KoreanNameGeneratorClient() {
   const [gender, setGender] = useState<Gender>("any");
   const [style, setStyle] = useState<Style>("modern");
   const [surname, setSurname] = useState<SurnameKey>("kim");
-  const [results, setResults] = useState<string[]>([]);
+  const [results, setResults] = useState<GeneratedResult[]>([]);
+  const [copied, setCopied] = useState("");
 
   const previewPool = useMemo(() => buildPool(gender, style), [gender, style]);
 
   const generateNames = () => {
     const pool = buildPool(gender, style);
-    const picked = shuffle(pool).slice(0, 8);
+    const picked = pickBestNames(pool, style, surname, 8);
 
-    const fullNames = picked.map((name, index) => {
-      const lastName = surnames[surname];
-      const meaning = meanings[index % meanings.length];
-      return lastName
-        ? `${lastName} ${name} — ${meaning}`
-        : `${name} — ${meaning}`;
+    const generated = picked.map((entry) => {
+      const surnameText = surnameMap[surname];
+      const fullName = surnameText ? `${surnameText} ${entry.name}` : entry.name;
+
+      return {
+        fullName,
+        naturalness: Math.min(99, Math.round(scoreName(entry, style, surname))),
+        tags: entry.tags,
+        usage: entry.usage,
+        vibe: entry.vibe,
+      };
     });
 
-    setResults(fullNames);
+    setResults(generated);
   };
 
   const handleCopy = async (value: string) => {
-    await navigator.clipboard.writeText(value);
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(value);
+      window.setTimeout(() => setCopied(""), 1500);
+    } catch {
+      setCopied("");
+    }
   };
 
   return (
-    <>
-      <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-        <div className="grid gap-4 sm:grid-cols-3">
-          <div>
-            <label className="mb-2 block text-sm font-medium text-white/80">
-              Gender
-            </label>
-            <select
-              value={gender}
-              onChange={(e) => setGender(e.target.value as Gender)}
-              className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none"
-            >
-              <option value="any">Any</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-            </select>
-          </div>
-
-          <div>
-            <label className="mb-2 block text-sm font-medium text-white/80">
-              Style
-            </label>
-            <select
-              value={style}
-              onChange={(e) => setStyle(e.target.value as Style)}
-              className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none"
-            >
-              <option value="modern">Modern</option>
-              <option value="traditional">Traditional</option>
-              <option value="cute">Cute</option>
-              <option value="neutral">Neutral</option>
-            </select>
-          </div>
-
-          <div>
-            <label className="mb-2 block text-sm font-medium text-white/80">
-              Surname
-            </label>
-            <select
-              value={surname}
-              onChange={(e) => setSurname(e.target.value as SurnameKey)}
-              className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none"
-            >
-              <option value="kim">Kim</option>
-              <option value="lee">Lee</option>
-              <option value="park">Park</option>
-              <option value="choi">Choi</option>
-              <option value="jung">Jung</option>
-              <option value="none">No surname</option>
-            </select>
-          </div>
-        </div>
-
-        <div className="mt-6 flex flex-wrap gap-3">
-          <button
-            onClick={generateNames}
-            className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-black hover:bg-white/90"
+    <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+      <div className="grid gap-4 sm:grid-cols-3">
+        <div>
+          <label className="mb-2 block text-sm font-medium text-white/80">
+            Gender
+          </label>
+          <select
+            value={gender}
+            onChange={(e) => setGender(e.target.value as Gender)}
+            className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
           >
-            Generate Korean Names
-          </button>
-
-          <div className="rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white/70">
-            Preview pool: {previewPool.length} names
-          </div>
+            <option value="any">Any</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+          </select>
         </div>
 
-        <div className="mt-8 rounded-2xl border border-white/10 bg-black/20 p-5">
-          <h2 className="text-xl font-semibold text-white">Generated Names</h2>
+        <div>
+          <label className="mb-2 block text-sm font-medium text-white/80">
+            Style
+          </label>
+          <select
+            value={style}
+            onChange={(e) => setStyle(e.target.value as Style)}
+            className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
+          >
+            <option value="modern">Modern</option>
+            <option value="traditional">Traditional</option>
+            <option value="cute">Cute</option>
+            <option value="neutral">Neutral</option>
+          </select>
+        </div>
 
-          {results.length === 0 ? (
-            <p className="mt-3 text-white/60">
-              No names generated yet. Choose your options and click the button.
-            </p>
-          ) : (
-            <div className="mt-4 grid gap-3">
-              {results.map((item, index) => (
-                <div
-                  key={`${item}-${index}`}
-                  className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-black/20 p-4 sm:flex-row sm:items-center sm:justify-between"
-                >
-                  <p className="text-white/90">{item}</p>
+        <div>
+          <label className="mb-2 block text-sm font-medium text-white/80">
+            Surname
+          </label>
+          <select
+            value={surname}
+            onChange={(e) => setSurname(e.target.value as SurnameKey)}
+            className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white outline-none focus:border-white/25"
+          >
+            <option value="kim">Kim</option>
+            <option value="lee">Lee</option>
+            <option value="park">Park</option>
+            <option value="choi">Choi</option>
+            <option value="jung">Jung</option>
+            <option value="none">No surname</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="mt-6 flex flex-wrap items-center gap-4">
+        <button
+          onClick={generateNames}
+          className="rounded-xl bg-white px-5 py-3 font-medium text-black transition hover:opacity-90"
+        >
+          Generate Korean Names
+        </button>
+
+        <p className="text-sm text-white/60">
+          Available names: {previewPool.length}
+        </p>
+      </div>
+
+      <div className="mt-8 rounded-2xl border border-white/10 bg-black/20 p-5">
+        <h2 className="text-2xl font-semibold">Generated Names</h2>
+
+        {results.length === 0 ? (
+          <p className="mt-3 text-white/60">
+            No names generated yet. Choose your options and click the button.
+          </p>
+        ) : (
+          <div className="mt-4 grid gap-4">
+            {results.map((item, index) => (
+              <div
+                key={`${item.fullName}-${index}`}
+                className="rounded-2xl border border-white/10 bg-black/20 p-4"
+              >
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <p className="text-lg font-semibold text-white">
+                      {item.fullName}
+                    </p>
+                    <p className="mt-1 text-sm text-white/70">
+                      Naturalness: {item.naturalness}/100
+                    </p>
+                    <p className="mt-1 text-sm text-white/70">
+                      Style: {item.vibe} · Usage: {item.usage}
+                    </p>
+                    <p className="mt-2 text-sm text-white/60">
+                      {item.tags.join(", ")}
+                    </p>
+                  </div>
 
                   <button
-                    onClick={() => handleCopy(item)}
-                    className="rounded-xl border border-white/10 px-4 py-2 text-sm text-white hover:bg-black/40"
+                    onClick={() => handleCopy(item.fullName)}
+                    className="rounded-xl border border-white/10 px-4 py-2 text-sm text-white transition hover:bg-black/40"
                   >
-                    Copy
+                    {copied === item.fullName ? "Copied" : "Copy"}
                   </button>
                 </div>
-              ))}
-            </div>
-          )}
-        </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
-      <div className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-        <h2 className="text-2xl font-semibold text-white">
-          What is a Korean name generator?
-        </h2>
-
-        <div className="mt-4 space-y-3 text-gray-300">
+      <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 p-5">
+        <h2 className="text-xl font-semibold">How this works</h2>
+        <div className="mt-3 space-y-2 text-white/70">
           <p>
-            A Korean name generator helps you create Korean-style names based on
-            gender, surname, and naming style.
+            This tool filters Korean-style names by gender and style, then ranks
+            them using a naturalness score.
           </p>
           <p>
-            It can be useful for writers, gamers, students, branding ideas, or
-            anyone looking for Korean-inspired names.
+            The score considers popularity, sound, style fit, and surname
+            compatibility to surface more natural results first.
+          </p>
+          <p>
+            It works well for character names, usernames, creative projects, and
+            Korean-inspired naming ideas.
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 }
