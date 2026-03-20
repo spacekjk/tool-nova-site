@@ -1,6 +1,38 @@
 import Link from "next/link";
 import "./globals.css";
 import HeaderToolSearch from "@/components/HeaderToolSearch";
+import type { Metadata } from "next";
+import Link from "next/link";
+import "./globals.css";
+import HeaderToolSearch from "@/components/HeaderToolSearch";
+import { SITE_URL } from "@/lib/tools";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Tool Nova",
+    template: "%s | Tool Nova",
+  },
+  description:
+    "Free online tools for text, calculators, generators, and converters. Fast, simple, and privacy-friendly tools for everyday use.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: SITE_URL,
+    siteName: "Tool Nova",
+    title: "Tool Nova",
+    description:
+      "Free online tools for text, calculators, generators, and converters.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tool Nova",
+    description:
+      "Free online tools for text, calculators, generators, and converters.",
+  },
+};
 
 const navItems = [
   { href: "/", label: "Home" },
