@@ -27,7 +27,8 @@ function formatValue(value: number) {
   return Number(value.toFixed(4)).toString();
 }
 
-export default function LengthConverterClient() {
+// ✅ 이름 유지
+export default function CmToInchesClient() {
   const [values, setValues] = useState({
     cm: "",
     m: "",
@@ -75,16 +76,12 @@ export default function LengthConverterClient() {
 
   return (
     <section className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
-      <div className="mb-6 flex items-center justify-between gap-4">
-        <div>
-          <h2 className="text-2xl font-semibold text-white">Length Converter</h2>
-          <p className="mt-2 text-sm text-white/60">
-            Convert between centimeters, meters, inches, and feet instantly.
-          </p>
-        </div>
+      <div className="mb-6 flex items-center justify-between">
+        <h2 className="text-2xl font-semibold text-white">
+          Length Converter
+        </h2>
 
         <button
-          type="button"
           onClick={handleClear}
           className="rounded-xl border border-white/10 px-4 py-2 text-sm text-white/80 hover:bg-white/5"
         >
@@ -93,61 +90,37 @@ export default function LengthConverterClient() {
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
-        <div>
-          <label className="mb-2 block text-sm font-medium text-white/80">
-            Centimeters (cm)
-          </label>
-          <input
-            type="number"
-            step="any"
-            value={values.cm}
-            onChange={(e) => handleChange("cm", e.target.value)}
-            placeholder="Enter centimeters"
-            className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none focus:border-white/25"
-          />
-        </div>
+        <input
+          type="number"
+          value={values.cm}
+          onChange={(e) => handleChange("cm", e.target.value)}
+          placeholder="Centimeters (cm)"
+          className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none"
+        />
 
-        <div>
-          <label className="mb-2 block text-sm font-medium text-white/80">
-            Meters (m)
-          </label>
-          <input
-            type="number"
-            step="any"
-            value={values.m}
-            onChange={(e) => handleChange("m", e.target.value)}
-            placeholder="Enter meters"
-            className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none focus:border-white/25"
-          />
-        </div>
+        <input
+          type="number"
+          value={values.m}
+          onChange={(e) => handleChange("m", e.target.value)}
+          placeholder="Meters (m)"
+          className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none"
+        />
 
-        <div>
-          <label className="mb-2 block text-sm font-medium text-white/80">
-            Inches (in)
-          </label>
-          <input
-            type="number"
-            step="any"
-            value={values.in}
-            onChange={(e) => handleChange("in", e.target.value)}
-            placeholder="Enter inches"
-            className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none focus:border-white/25"
-          />
-        </div>
+        <input
+          type="number"
+          value={values.in}
+          onChange={(e) => handleChange("in", e.target.value)}
+          placeholder="Inches (in)"
+          className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none"
+        />
 
-        <div>
-          <label className="mb-2 block text-sm font-medium text-white/80">
-            Feet (ft)
-          </label>
-          <input
-            type="number"
-            step="any"
-            value={values.ft}
-            onChange={(e) => handleChange("ft", e.target.value)}
-            placeholder="Enter feet"
-            className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none focus:border-white/25"
-          />
-        </div>
+        <input
+          type="number"
+          value={values.ft}
+          onChange={(e) => handleChange("ft", e.target.value)}
+          placeholder="Feet (ft)"
+          className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none"
+        />
       </div>
     </section>
   );
