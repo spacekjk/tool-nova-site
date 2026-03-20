@@ -202,76 +202,48 @@ export const GENERATOR_TOOLS: ToolItem[] = [
         ]
     },
     {
-      slug: "korean-name-generator",
-      category: "generators",
-      name: "Korean Name Generator",
-      title: "Korean Name Generator - Create Korean-Style Names Instantly",
-      description:
-        "Generate Korean-style names by gender, surname, and style. Create modern, traditional, cute, and neutral Korean names instantly.",
-      shortDescription: "Generate Korean-style names instantly.",
-      keywords: [
-        "korean name generator",
-        "korean names",
-        "korean name maker",
-        "korean-style names",
-        "random korean names"
-      ],
-      featured: true,
-      published: true,
-      new: true,
-      relatedSlugs: [
-        "random-name-picker",
-        "slug-generator",
-        "uuid-generator"
-      ],
+        slug: "korean-name-generator",
+        category: "generators",
+        name: "Korean Name Generator",
+        title: "Korean Name Generator - Create Korean-Style Names Instantly",
+        description:
+            "Generate Korean-style names by gender, style, and surname. Find modern, cute, neutral, and natural-sounding Korean name ideas instantly.",
+        shortDescription: "Generate Korean-style names instantly.",
+        keywords: [
+            "korean name generator",
+            "korean names",
+            "korean name maker",
+            "korean-style names",
+            "korean surname generator",
+            "random korean names"
+        ],
+        featured: true,
+        published: true,
+        relatedSlugs: ["random-name-picker", "slug-generator", "uuid-generator"],
     
-      howItWorksTitle: "How this Korean name generator works",
-      howItWorks: [
-        "Choose a gender, naming style, and surname.",
-        "The tool combines those selections with a curated pool of Korean-style names.",
-        "It then generates multiple name ideas instantly for writing, gaming, branding, or personal inspiration."
-      ],
+        howItWorksTitle: "How this Korean name generator works",
+        howItWorks: [
+            "Choose a gender, naming style, and surname.",
+            "The tool filters a curated list of Korean-style names and scores them for naturalness.",
+            "It then shows strong name ideas based on popularity, sound, and style fit.",
+        ],
     
-      extendedContentTitle: "Why use a Korean name generator?",
-      extendedContent: [
-        "A Korean name generator is useful when you want name ideas that sound more natural than completely random syllable combinations.",
-        "This tool helps you explore modern, traditional, cute, and neutral Korean-style names in one place.",
-        "It can be helpful for character creation, usernames, worldbuilding, fiction writing, classroom activities, and branding inspiration."
-      ],
-    
-      useCasesTitle: "Common use cases",
-      useCases: [
-        "Creating names for fictional characters",
-        "Finding Korean-style usernames or nicknames",
-        "Exploring Korean-inspired brand name ideas",
-        "Generating classroom or creative writing prompts",
-        "Trying different surname and style combinations"
-      ],
-    
-      quickExamplesTitle: "Quick examples",
-      quickExamples: [
-        "Kim Seo-jun",
-        "Lee Ji-an",
-        "Park Ha-rin",
-        "Choi Min-seo"
-      ],
-    
-      faqs: [
-        {
-          question: "Are these real Korean names?",
-          answer:
-            "They are Korean-style name ideas based on common naming patterns and familiar romanized forms. Some may be common real names, while others are generated combinations."
-        },
-        {
-          question: "Can I choose a Korean surname?",
-          answer:
-            "Yes. You can generate names with common surnames such as Kim, Lee, Park, Choi, and Jung, or generate names without a surname."
-        },
-        {
-          question: "What can I use these names for?",
-          answer:
-            "You can use them for character creation, gaming profiles, writing projects, branding inspiration, or general creative exploration."
-        }
-      ],
+        faqs: [
+            {
+                question: "Are these real Korean names?",
+                answer:
+                    "These are Korean-style name ideas built from common naming patterns and familiar romanized forms. Many are real names, while some are curated combinations for creative use.",
+            },
+            {
+                question: "Can I choose a Korean surname?",
+                answer:
+                    "Yes. You can generate names with common surnames like Kim, Lee, Park, Choi, and Jung, or generate names without a surname.",
+            },
+            {
+                question: "What can I use these names for?",
+                answer:
+                    "You can use them for character creation, gaming profiles, writing projects, usernames, branding inspiration, and general creative exploration.",
+            },
+        ],
     },
 ];
