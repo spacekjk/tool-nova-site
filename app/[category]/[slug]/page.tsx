@@ -14,6 +14,7 @@ import { buildToolMetadata } from "@/lib/seo";
 import FAQSchema from "@/components/FAQSchema";
 import RelatedTools from "@/components/RelatedTools";
 import ToolSchema from "@/components/ToolSchema";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 type Props = {
   params: Promise<{
