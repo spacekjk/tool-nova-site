@@ -219,6 +219,7 @@ export const GENERATOR_TOOLS: ToolItem[] = [
         ],
         featured: true,
         published: true,
+        new: true,
         relatedSlugs: ["random-name-picker", "slug-generator", "uuid-generator"],
     
         howItWorksTitle: "How this Korean name generator works",
