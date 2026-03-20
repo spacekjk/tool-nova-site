@@ -109,6 +109,27 @@ export default function HomePage() {
             />
           ))}
         </div>
+
+        <section className="mt-16 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+          <h2 className="text-2xl font-semibold text-white">
+            Why use Tool Nova
+          </h2>
+
+          <div className="mt-4 space-y-4 text-white/70 leading-7">
+            <p>
+              Tool Nova offers free browser-based tools designed for quick everyday tasks.
+              Most tools work instantly without sign-up or installation.
+            </p>
+            <p>
+              Whether you need to clean text, convert data, run quick calculations, or
+              generate useful content, Tool Nova helps you get results faster.
+            </p>
+            <p>
+              We focus on speed, clarity, and privacy-friendly experiences so users can
+              solve small problems without unnecessary complexity.
+            </p>
+          </div>
+        </section>
       </section>
     </main>
   );
