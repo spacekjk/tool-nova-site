@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
 
+import KoreanNameGeneratorClient from "@/app/generators/korean-name-generator/KoreanNameGeneratorClient";
 import PasswordGeneratorClient from "@/app/generators/password-generator/PasswordGeneratorClient";
 import RandomNumberGeneratorClient from "@/app/generators/random-number-generator/RandomNumberGeneratorClient";
 import RandomNamePickerClient from "@/app/generators/random-name-picker/RandomNamePickerClient";
@@ -7,6 +8,7 @@ import UUIDGeneratorClient from "@/app/generators/uuid-generator/UUIDGeneratorCl
 import SlugGeneratorClient from "@/app/generators/slug-generator/SlugGeneratorClient";
 
 export const generatorRegistry: Record<string, ComponentType> = {
+  "korean-name-generator": KoreanNameGeneratorClient,
   "password-generator": PasswordGeneratorClient,
   "random-number-generator": RandomNumberGeneratorClient,
   "random-name-picker": RandomNamePickerClient,
