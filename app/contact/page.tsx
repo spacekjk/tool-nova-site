@@ -14,7 +14,7 @@ export default function ContactPage() {
           </p>
 
           <p>
-            Email: <span className="font-medium text-white">archisanta@gmail.com</span>
+            Email: <span className="font-medium text-white">support@tool-nova.com</span>
           </p>
 
           <p>
