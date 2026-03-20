@@ -146,38 +146,112 @@ export const CONVERTER_TOOLS: ToolItem[] = [
         ],
     },
     {
-        slug: "cm-to-inches",
-        category: "converters",
-        name: "Cm to Inches",
-        title: "Cm to Inches Converter",
-        description:
-            "Convert centimeters to inches instantly with this free online converter.",
-        shortDescription: "Convert centimeters to inches quickly.",
-        keywords: ["cm to inches", "centimeters to inches converter"],
-        published: true,
-        relatedSlugs: ["kg-to-lbs", "celsius-to-fahrenheit", "number-to-words"],
-        howItWorksTitle: "How this cm to inches converter works",
-        howItWorks: [
-            "This converter changes centimeters into inches using the standard length conversion formula.",
-            "The formula is: inches = centimeters ÷ 2.54.",
-            "For example, 10 centimeters is equal to about 3.94 inches.",
+      slug: "length-converter",
+      category: "converters",
+      name: "Length Converter",
+      title: "Length Converter (cm, m, inches, feet)",
+      description:
+        "Convert between centimeters, meters, inches, and feet instantly with this free online length converter. Fast, accurate, and easy to use.",
+      shortDescription:
+        "Convert cm, m, inches, and feet instantly.",
+      keywords: [
+        "length converter",
+        "cm to inches",
+        "inches to cm",
+        "meters to feet",
+        "feet to cm",
+        "convert length units",
+        "cm to ft",
+        "ft to m",
+        "unit converter length",
+        "online length converter",
+        "height converter cm to feet"
+      ],
+      featured: true,
+      published: true,
+      new: true,
+      relatedSlugs: [
+        "kg-to-lbs",
+        "bmi-calculator",
+        "percentage-calculator"
+      ],
+    
+      howItWorksTitle: "How this length converter works",
+      howItWorks: [
+        "This tool converts all values through a base unit (centimeters) to ensure accurate results.",
+        "When you enter a value in any field, it is automatically converted into centimeters first.",
+        "The tool then calculates equivalent values in meters, inches, and feet instantly.",
+        "All calculations happen in real time inside your browser with no delays.",
+        "The conversion uses standard international conversion factors for accuracy.",
+      ],
+    
+      extendedContentTitle: "Understanding length unit conversions",
+      extendedContent: [
+        "Length units are used to measure distance, height, and size across different systems of measurement.",
+        "The metric system uses units such as millimeters, centimeters, and meters, which are widely used around the world.",
+        "The imperial system uses units such as inches and feet, commonly used in the United States and some other regions.",
+        "Converting between these systems is often necessary when working with measurements from different sources.",
+        "For example, height is often measured in centimeters globally, but in feet and inches in the US.",
+        "This length converter simplifies the process by instantly converting values between multiple units without manual calculation.",
+      ],
+    
+      useCasesTitle: "Common use cases for a length converter",
+      useCases: [
+        "Converting height from centimeters to feet and inches",
+        "Switching between metric and imperial units for international projects",
+        "Measuring objects or distances in different unit systems",
+        "Preparing data for engineering, construction, or design tasks",
+        "Converting measurements for travel, shopping, or product sizing",
+        "Working with global datasets that use mixed measurement systems",
+      ],
+    
+      quickExamplesTitle: "Length conversion examples",
+      quickExamples: [
+        "100 cm = 1 m",
+        "100 cm ≈ 39.37 inches",
+        "1 meter ≈ 3.2808 feet",
+        "5 feet ≈ 152.4 cm",
+        "10 inches ≈ 25.4 cm",
+      ],
+    
+      faqs: [
+        {
+          question: "How do I convert cm to inches?",
+          answer:
+            "To convert centimeters to inches, divide the value by 2.54. This tool performs that conversion instantly for you.",
+        },
+        {
+          question: "How many centimeters are in 1 inch?",
+          answer:
+            "1 inch is equal to exactly 2.54 centimeters.",
+        },
+        {
+          question: "Can I convert feet to meters with this tool?",
+          answer:
+            "Yes. This length converter supports feet to meters, centimeters, and inches automatically.",
+        },
+        {
+          question: "Is this length converter accurate?",
+          answer:
+            "Yes. It uses standard international conversion factors to ensure precise and reliable results.",
+        },
+        {
+          question: "Is this tool free to use?",
+          answer:
+            "Yes. Tool Nova provides this length converter online for free with no sign-up required.",
+        },
+      ],
+    
+      seoNotes: {
+        intent: "informational + utility",
+        primaryKeyword: "length converter",
+        secondaryKeywords: [
+          "cm to inches",
+          "inches to cm",
+          "meters to feet",
+          "convert length units"
         ],
-        faqs: [
-            {
-                question: "How many inches are in 1 centimeter?",
-                answer: "One centimeter is equal to about 0.3937 inches.",
-            },
-            {
-                question: "Why is 2.54 used in the formula?",
-                answer:
-                    "Because 1 inch is defined as exactly 2.54 centimeters, so this is the standard conversion value.",
-            },
-            {
-                question: "Can I use this cm to inches converter on mobile?",
-                answer:
-                    "Yes. The converter works on desktop, tablet, and mobile devices in your browser.",
-            },
-        ],
+      },
     },
     {
         slug: "celsius-to-fahrenheit",
