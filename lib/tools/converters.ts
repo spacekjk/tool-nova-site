@@ -247,7 +247,7 @@ export const CONVERTER_TOOLS: ToolItem[] = [
           "inches to cm"
         ],
       },
-    }
+    },
     {
         slug: "celsius-to-fahrenheit",
         category: "converters",
