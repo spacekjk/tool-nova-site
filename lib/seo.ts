@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
-import { SITE_URL, type Tool } from "@/lib/tools";
+import { SITE_URL } from "@/lib/tools";
 
 type BuildMetadataProps = {
   title: string;
   description: string;
   path: string;
+  keywords?: string[];
+};
+
+type ToolLike = {
+  title: string;
+  description: string;
+  category: string;
+  slug: string;
   keywords?: string[];
 };
 
@@ -48,7 +56,7 @@ export function buildMetadata({
   };
 }
 
-export function buildToolMetadata(tool: Tool): Metadata {
+export function buildToolMetadata(tool: ToolLike): Metadata {
   return buildMetadata({
     title: tool.title,
     description: tool.description,
