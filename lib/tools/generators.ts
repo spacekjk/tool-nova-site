@@ -220,15 +220,20 @@ export const GENERATOR_TOOLS: ToolItem[] = [
         featured: true,
         published: true,
         new: true,
-        relatedSlugs: ["random-name-picker", "slug-generator", "uuid-generator"],
-    
+        relatedSlugs: [
+            "korean-zodiac-calculator",
+            "random-name-picker",
+            "slug-generator",
+            "uuid-generator"
+        ],
+
         howItWorksTitle: "How this Korean name generator works",
         howItWorks: [
             "Choose a gender, naming style, and surname.",
             "The tool filters a curated list of Korean-style names and scores them for naturalness.",
             "It then shows strong name ideas based on popularity, sound, and style fit.",
         ],
-    
+
         faqs: [
             {
                 question: "Are these real Korean names?",
@@ -244,6 +249,102 @@ export const GENERATOR_TOOLS: ToolItem[] = [
                 question: "What can I use these names for?",
                 answer:
                     "You can use them for character creation, gaming profiles, writing projects, usernames, branding inspiration, and general creative exploration.",
+            },
+        ],
+    },
+    {
+        slug: "korean-zodiac-calculator",
+        category: "generators",
+        name: "Korean Zodiac Calculator",
+        title: "Korean Zodiac Calculator - Find Your Zodiac Animal, Fortune, and Compatibility",
+        description:
+            "Find your Korean zodiac animal from your birth date and explore personality traits, yearly fortune, and compatibility in one simple tool.",
+        shortDescription:
+            "Check your Korean zodiac animal and compatibility instantly.",
+        keywords: [
+            "korean zodiac calculator",
+            "korean zodiac animal",
+            "korean zodiac sign",
+            "zodiac compatibility",
+            "korean zodiac personality",
+            "what is my zodiac animal",
+            "zodiac by birth year",
+            "korean fortune",
+            "east asian zodiac",
+            "zodiac compatibility calculator"
+        ],
+        featured: true,
+        published: true,
+        new: true,
+        relatedSlugs: [
+            "korean-name-generator",
+            "random-name-picker",
+            "random-number-generator",
+            "slug-generator"
+        ],
+
+        howItWorksTitle: "How this Korean zodiac calculator works",
+        howItWorks: [
+            "Enter your birth date to determine your birth year and match it to one of the twelve animals in the Korean zodiac cycle.",
+            "The tool shows your zodiac animal along with personality traits, love tendencies, career themes, and a yearly fortune reading.",
+            "You can also enter a second birth date to check compatibility between two zodiac signs.",
+        ],
+
+        extendedContentTitle: "About the Korean zodiac",
+        extendedContent: [
+            "The Korean zodiac is based on a repeating twelve-year cycle, where each year is represented by an animal. It is widely used to explore personality traits, compatibility, and fortune themes.",
+            "Although similar to other East Asian zodiac systems, this tool presents the information in a Korean-focused format that is easy for global users to understand.",
+            "People born in years that are twelve years apart share the same zodiac animal, making it easy to compare traits across different age groups.",
+        ],
+
+        useCasesTitle: "Common use cases",
+        useCases: [
+            "Find your Korean zodiac animal based on your birth date.",
+            "Explore personality traits and yearly fortune.",
+            "Check compatibility with friends or partners.",
+            "Use for blog content, storytelling, or character creation.",
+        ],
+
+        quickExamplesTitle: "Quick examples",
+        quickExamples: [
+            "Born in 1996 → Rat",
+            "Born in 1997 → Ox",
+            "Born in 1998 → Tiger",
+            "Born in 1999 → Rabbit",
+            "Born in 2000 → Dragon",
+            "Born in 2001 → Snake",
+        ],
+
+        faqs: [
+            {
+                question: "What is the Korean zodiac?",
+                answer:
+                    "The Korean zodiac is a twelve-year cycle in which each year is represented by an animal. It is used to explore personality traits, compatibility, and fortune patterns.",
+            },
+            {
+                question: "How do I find my Korean zodiac animal?",
+                answer:
+                    "Enter your birth date, and the tool will use your birth year to match you with the correct animal in the zodiac cycle.",
+            },
+            {
+                question: "Is this the same as the Chinese zodiac?",
+                answer:
+                    "The overall system is similar across East Asia, but this tool presents it in a Korean cultural context.",
+            },
+            {
+                question: "Can I check compatibility between two zodiac signs?",
+                answer:
+                    "Yes. Enter two birth dates to see a compatibility score and interpretation.",
+            },
+            {
+                question: "Does the fortune update every year?",
+                answer:
+                    "Yes. The fortune section automatically reflects the current year for up-to-date results.",
+            },
+            {
+                question: "Is this tool free to use?",
+                answer:
+                    "Yes. Tool Nova provides this Korean zodiac calculator online for free with no sign-up required.",
             },
         ],
     },
