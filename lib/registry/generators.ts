@@ -6,6 +6,7 @@ import RandomNumberGeneratorClient from "@/app/generators/random-number-generato
 import RandomNamePickerClient from "@/app/generators/random-name-picker/RandomNamePickerClient";
 import UUIDGeneratorClient from "@/app/generators/uuid-generator/UUIDGeneratorClient";
 import SlugGeneratorClient from "@/app/generators/slug-generator/SlugGeneratorClient";
+import KoreanZodiacCalculatorClient from "@/app/generators/korean-zodiac-calculator/KoreanZodiacCalculatorClient";
 
 export const generatorRegistry: Record<string, ComponentType> = {
   "korean-name-generator": KoreanNameGeneratorClient,
@@ -14,4 +15,5 @@ export const generatorRegistry: Record<string, ComponentType> = {
   "random-name-picker": RandomNamePickerClient,
   "uuid-generator": UUIDGeneratorClient,
   "slug-generator": SlugGeneratorClient,
+  "korean-zodiac-calculator":   KoreanZodiacCalculatorClient,
 };
