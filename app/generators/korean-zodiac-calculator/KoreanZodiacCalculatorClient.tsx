@@ -34,8 +34,18 @@ type CompatibilityResult = {
 };
 
 const zodiacOrder: ZodiacKey[] = [
-  "Rat","Ox","Tiger","Rabbit","Dragon","Snake",
-  "Horse","Goat","Monkey","Rooster","Dog","Pig"
+  "Rat",
+  "Ox",
+  "Tiger",
+  "Rabbit",
+  "Dragon",
+  "Snake",
+  "Horse",
+  "Goat",
+  "Monkey",
+  "Rooster",
+  "Dog",
+  "Pig",
 ];
 
 const zodiacDetails: Record<ZodiacKey, ZodiacData> = {
@@ -44,197 +54,285 @@ const zodiacDetails: Record<ZodiacKey, ZodiacData> = {
     summary: "Quick-minded, adaptable, and resourceful.",
     personality: "You are clever, observant, and good at spotting opportunities.",
     love: "Attentive but cautious with trust.",
-    career: ["Business","Sales","Research"],
+    career: ["Business", "Sales", "Research"],
     fortune: "This year brings useful connections and steady progress.",
-    bestMatches: ["Dragon","Monkey"],
-    challengingMatches: ["Horse"]
+    bestMatches: ["Dragon", "Monkey"],
+    challengingMatches: ["Horse"],
   },
   Ox: {
     emoji: "🐮",
     summary: "Reliable and disciplined.",
     personality: "You value stability and persistence.",
     love: "Loyal but reserved emotionally.",
-    career: ["Finance","Engineering"],
+    career: ["Finance", "Engineering"],
     fortune: "Steady growth through patience.",
-    bestMatches: ["Snake","Rooster"],
-    challengingMatches: ["Goat"]
+    bestMatches: ["Snake", "Rooster"],
+    challengingMatches: ["Goat"],
   },
   Tiger: {
     emoji: "🐯",
     summary: "Bold and charismatic.",
     personality: "You lead naturally and act with confidence.",
     love: "Passionate but independent.",
-    career: ["Leadership","Entrepreneur"],
+    career: ["Leadership", "Entrepreneur"],
     fortune: "Opportunities for growth but avoid overconfidence.",
-    bestMatches: ["Horse","Dog"],
-    challengingMatches: ["Monkey"]
+    bestMatches: ["Horse", "Dog"],
+    challengingMatches: ["Monkey"],
   },
   Rabbit: {
     emoji: "🐰",
     summary: "Gentle and intuitive.",
     personality: "You seek harmony and emotional balance.",
     love: "Warm and supportive.",
-    career: ["Design","Teaching"],
+    career: ["Design", "Teaching"],
     fortune: "Peaceful year with stable progress.",
-    bestMatches: ["Goat","Pig"],
-    challengingMatches: ["Rooster"]
+    bestMatches: ["Goat", "Pig"],
+    challengingMatches: ["Rooster"],
   },
   Dragon: {
     emoji: "🐲",
     summary: "Confident and visionary.",
     personality: "You inspire and lead with energy.",
     love: "Exciting but intense.",
-    career: ["Startup","Strategy"],
+    career: ["Startup", "Strategy"],
     fortune: "Big opportunities but stay focused.",
-    bestMatches: ["Rat","Monkey"],
-    challengingMatches: ["Dog"]
+    bestMatches: ["Rat", "Monkey"],
+    challengingMatches: ["Dog"],
   },
   Snake: {
     emoji: "🐍",
     summary: "Strategic and thoughtful.",
     personality: "You analyze deeply and act carefully.",
     love: "Selective and deep.",
-    career: ["Law","Consulting"],
+    career: ["Law", "Consulting"],
     fortune: "Careful planning pays off.",
-    bestMatches: ["Ox","Rooster"],
-    challengingMatches: ["Pig"]
+    bestMatches: ["Ox", "Rooster"],
+    challengingMatches: ["Pig"],
   },
   Horse: {
     emoji: "🐴",
     summary: "Energetic and free.",
     personality: "You love movement and independence.",
     love: "Exciting but needs space.",
-    career: ["Sales","Travel"],
+    career: ["Sales", "Travel"],
     fortune: "New opportunities ahead.",
-    bestMatches: ["Tiger","Dog"],
-    challengingMatches: ["Rat"]
+    bestMatches: ["Tiger", "Dog"],
+    challengingMatches: ["Rat"],
   },
   Goat: {
     emoji: "🐐",
     summary: "Creative and empathetic.",
     personality: "You value emotion and beauty.",
     love: "Caring and gentle.",
-    career: ["Art","Care"],
+    career: ["Art", "Care"],
     fortune: "Creative growth year.",
-    bestMatches: ["Rabbit","Pig"],
-    challengingMatches: ["Ox"]
+    bestMatches: ["Rabbit", "Pig"],
+    challengingMatches: ["Ox"],
   },
   Monkey: {
     emoji: "🐵",
     summary: "Smart and playful.",
     personality: "You adapt quickly and think creatively.",
     love: "Fun but inconsistent.",
-    career: ["Tech","Marketing"],
+    career: ["Tech", "Marketing"],
     fortune: "Opportunities require focus.",
-    bestMatches: ["Rat","Dragon"],
-    challengingMatches: ["Tiger"]
+    bestMatches: ["Rat", "Dragon"],
+    challengingMatches: ["Tiger"],
   },
   Rooster: {
     emoji: "🐔",
     summary: "Organized and sharp.",
     personality: "You value precision and clarity.",
     love: "Honest but direct.",
-    career: ["Finance","Admin"],
+    career: ["Finance", "Admin"],
     fortune: "Growth through discipline.",
-    bestMatches: ["Ox","Snake"],
-    challengingMatches: ["Rabbit"]
+    bestMatches: ["Ox", "Snake"],
+    challengingMatches: ["Rabbit"],
   },
   Dog: {
     emoji: "🐶",
     summary: "Loyal and sincere.",
     personality: "You value fairness and trust.",
     love: "Devoted but cautious.",
-    career: ["Law","Healthcare"],
+    career: ["Law", "Healthcare"],
     fortune: "Stable progress.",
-    bestMatches: ["Tiger","Horse"],
-    challengingMatches: ["Dragon"]
+    bestMatches: ["Tiger", "Horse"],
+    challengingMatches: ["Dragon"],
   },
   Pig: {
     emoji: "🐷",
     summary: "Warm and kind.",
     personality: "You are generous and relaxed.",
     love: "Affectionate and steady.",
-    career: ["Creative","Community"],
+    career: ["Creative", "Community"],
     fortune: "Emotionally rewarding year.",
-    bestMatches: ["Rabbit","Goat"],
-    challengingMatches: ["Snake"]
+    bestMatches: ["Rabbit", "Goat"],
+    challengingMatches: ["Snake"],
   },
 };
 
-function getZodiac(year:number){
-  return zodiacOrder[((year-4)%12+12)%12];
+function parseDateInput(dateStr: string) {
+  if (!dateStr) return null;
+
+  const parts = dateStr.split("-");
+  if (parts.length !== 3) return null;
+
+  const year = Number(parts[0]);
+  const month = Number(parts[1]);
+  const day = Number(parts[2]);
+
+  if (
+    !Number.isInteger(year) ||
+    !Number.isInteger(month) ||
+    !Number.isInteger(day)
+  ) {
+    return null;
+  }
+
+  const date = new Date(year, month - 1, day);
+
+  if (
+    date.getFullYear() !== year ||
+    date.getMonth() !== month - 1 ||
+    date.getDate() !== day
+  ) {
+    return null;
+  }
+
+  return { year, month, day, date };
+}
+
+function getZodiac(year: number) {
+  return zodiacOrder[((year - 4) % 12 + 12) % 12];
 }
 
 function getCompatibility(a: ZodiacKey, b: ZodiacKey): CompatibilityResult {
-  if(a===b) return {score:85,label:"Strong Match",description:"Very similar energy and values."};
-
-  if(zodiacDetails[a].bestMatches.includes(b)){
-    return {score:92,label:"Excellent Match",description:"Natural synergy and balance."};
+  if (a === b) {
+    return {
+      score: 85,
+      label: "Strong Match",
+      description: "Very similar energy and values.",
+    };
   }
 
-  if(zodiacDetails[a].challengingMatches.includes(b)){
-    return {score:48,label:"Challenging Match",description:"Needs effort and communication."};
+  if (zodiacDetails[a].bestMatches.includes(b)) {
+    return {
+      score: 92,
+      label: "Excellent Match",
+      description: "Natural synergy and balance.",
+    };
   }
 
-  return {score:70,label:"Balanced Match",description:"Stable with mutual understanding."};
+  if (zodiacDetails[a].challengingMatches.includes(b)) {
+    return {
+      score: 48,
+      label: "Challenging Match",
+      description: "Needs effort and communication.",
+    };
+  }
+
+  return {
+    score: 70,
+    label: "Balanced Match",
+    description: "Stable with mutual understanding.",
+  };
 }
 
-export default function KoreanZodiacCalculatorClient(){
-  const [birthDate,setBirthDate]=useState("");
-  const [partnerBirthDate,setPartnerBirthDate]=useState("");
-  const [submitted,setSubmitted]=useState(false);
-  const [compatibilitySubmitted,setCompatibilitySubmitted]=useState(false);
+export default function KoreanZodiacCalculatorClient() {
+  const [birthDate, setBirthDate] = useState("");
+  const [partnerBirthDate, setPartnerBirthDate] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [compatibilitySubmitted, setCompatibilitySubmitted] = useState(false);
 
   const currentYear = new Date().getFullYear();
 
-  const result = useMemo(()=>{
-    if(!birthDate) return null;
-    const year = parseInt(birthDate.slice(0,4));
-    const animal=getZodiac(year);
-    return {year,animal,details:zodiacDetails[animal]};
-  },[birthDate]);
+  const result = useMemo(() => {
+    if (!birthDate) return null;
 
-  const compatibilityResult = useMemo(()=>{
-    if(!birthDate||!partnerBirthDate) return null;
+    const parsed = parseDateInput(birthDate);
+    if (!parsed) return null;
 
-    const y1=new Date(birthDate.slice(0,4)).getFullYear();
-    const y2=new Date(partnerBirthDate.slice(0,4)).getFullYear();
+    const year = parsed.year;
+    const animal = getZodiac(year);
 
-    const a=getZodiac(y1);
-    const b=getZodiac(y2);
+    return { year, animal, details: zodiacDetails[animal] };
+  }, [birthDate]);
+
+  const compatibilityResult = useMemo(() => {
+    if (!birthDate || !partnerBirthDate) return null;
+
+    const parsed1 = parseDateInput(birthDate);
+    const parsed2 = parseDateInput(partnerBirthDate);
+
+    if (!parsed1 || !parsed2) return null;
+
+    const y1 = parsed1.year;
+    const y2 = parsed2.year;
+
+    const a = getZodiac(y1);
+    const b = getZodiac(y2);
 
     return {
-      y1,y2,a,b,
-      comp:getCompatibility(a,b)
+      y1,
+      y2,
+      a,
+      b,
+      comp: getCompatibility(a, b),
     };
-  },[birthDate,partnerBirthDate]);
+  }, [birthDate, partnerBirthDate]);
 
   return (
     <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6">
+      <input
+        type="date"
+        value={birthDate}
+        onChange={(e) => setBirthDate(e.target.value)}
+        className="w-full mb-3 p-3 bg-black/30 rounded"
+      />
 
-      <input type="date" value={birthDate} onChange={(e)=>setBirthDate(e.target.value)} className="w-full mb-3 p-3 bg-black/30 rounded"/>
-      <input type="date" value={partnerBirthDate} onChange={(e)=>setPartnerBirthDate(e.target.value)} className="w-full mb-3 p-3 bg-black/30 rounded"/>
+      <input
+        type="date"
+        value={partnerBirthDate}
+        onChange={(e) => setPartnerBirthDate(e.target.value)}
+        className="w-full mb-3 p-3 bg-black/30 rounded"
+      />
 
-      <button onClick={()=>setSubmitted(true)} className="bg-white text-black px-4 py-2 rounded mr-2">My Zodiac</button>
-      <button onClick={()=>setCompatibilitySubmitted(true)} className="border px-4 py-2 rounded">Compatibility</button>
+      <button
+        onClick={() => setSubmitted(true)}
+        className="bg-white text-black px-4 py-2 rounded mr-2"
+      >
+        My Zodiac
+      </button>
+
+      <button
+        onClick={() => setCompatibilitySubmitted(true)}
+        className="border px-4 py-2 rounded"
+      >
+        Compatibility
+      </button>
 
       {submitted && result && (
         <div className="mt-6">
-          <h2>{result.details.emoji} {result.animal}</h2>
+          <h2>
+            {result.details.emoji} {result.animal}
+          </h2>
           <p>{result.details.summary}</p>
-          <p>{currentYear} Fortune: {result.details.fortune}</p>
+          <p>
+            {currentYear} Fortune: {result.details.fortune}
+          </p>
         </div>
       )}
 
       {compatibilitySubmitted && compatibilityResult && (
         <div className="mt-6">
-          <h2>{compatibilityResult.a} × {compatibilityResult.b}</h2>
+          <h2>
+            {compatibilityResult.a} × {compatibilityResult.b}
+          </h2>
           <p>{compatibilityResult.comp.score}/100</p>
           <p>{compatibilityResult.comp.label}</p>
           <p>{compatibilityResult.comp.description}</p>
         </div>
       )}
-
     </div>
   );
 }
