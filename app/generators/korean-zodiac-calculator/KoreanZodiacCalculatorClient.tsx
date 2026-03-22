@@ -189,7 +189,7 @@ export default function KoreanZodiacCalculatorClient(){
 
   const result = useMemo(()=>{
     if(!birthDate) return null;
-    const year=new Date(birthDate).getFullYear();
+    const year = parseInt(birthDate.slice(0,4));
     const animal=getZodiac(year);
     return {year,animal,details:zodiacDetails[animal]};
   },[birthDate]);
@@ -197,8 +197,8 @@ export default function KoreanZodiacCalculatorClient(){
   const compatibilityResult = useMemo(()=>{
     if(!birthDate||!partnerBirthDate) return null;
 
-    const y1=new Date(birthDate).getFullYear();
-    const y2=new Date(partnerBirthDate).getFullYear();
+    const y1=new Date(birthDate.slice(0,4)).getFullYear();
+    const y2=new Date(partnerBirthDate.slice(0,4)).getFullYear();
 
     const a=getZodiac(y1);
     const b=getZodiac(y2);
