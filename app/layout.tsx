@@ -146,12 +146,12 @@ export default function RootLayout({
       
       {/* 🌟 2. 우측 하단 플로팅 배너 (스크롤을 내려도 항상 따라다님) */}
         <a 
-          href="https://tool-nova.com" 
+          href="https://ktrendradar.com" 
           target="_blank" 
           rel="noopener noreferrer" 
           className="fixed bottom-6 right-6 bg-slate-800 text-white px-5 py-3 rounded-full shadow-[0_0_20px_rgba(0,0,0,0.5)] border border-slate-700 hover:bg-slate-700 hover:-translate-y-1 transition-all duration-300 z-50 flex items-center gap-2 font-bold text-sm"
         >
-          <span>🛠️ Tool Nova_Free Tools</span>
+          <span>🛠️ Korea Treand Radar</span>
         </a>
       
     </html>
