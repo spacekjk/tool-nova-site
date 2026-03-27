@@ -151,7 +151,7 @@ export default function RootLayout({
           rel="noopener noreferrer" 
           className="fixed bottom-6 right-6 bg-slate-800 text-white px-5 py-3 rounded-full shadow-[0_0_20px_rgba(0,0,0,0.5)] border border-slate-700 hover:bg-slate-700 hover:-translate-y-1 transition-all duration-300 z-50 flex items-center gap-2 font-bold text-sm"
         >
-          <span>🛠️ Korea Treand Radar</span>
+          <span>🚀 Korea Treand Radar</span>
         </a>
       
     </html>
